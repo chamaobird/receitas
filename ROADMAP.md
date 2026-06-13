@@ -92,7 +92,7 @@ Editar uma quantidade de ingrediente na planilha → recarregar o site → valor
 
 ---
 
-## FASE 4 — Deploy no GitHub Pages (prioridade alta)
+## FASE 4 — Deploy no GitHub Pages ✅ (concluída)
 
 ### Objetivo
 Publicar o site em uma URL fixa acessível pelo celular, sem custo.
