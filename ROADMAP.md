@@ -59,7 +59,7 @@ Abrir `index.html` localmente mostra as mesmas 8 receitas com o mesmo visual e a
 
 ---
 
-## FASE 3 — Configurar Google Sheets como fonte de dados (prioridade alta)
+## FASE 3 — Configurar Google Sheets como fonte de dados ✅ (concluída)
 
 ### Objetivo
 Substituir `data/recipes.js` por leitura dinâmica da planilha do Google Sheets. Quando o usuário editar a planilha, o site reflete automaticamente ao recarregar.
