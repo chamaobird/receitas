@@ -305,6 +305,14 @@
   /* ── Cards accordion (Problema 3) ───────────────────────── */
   .acomp-block { margin-bottom: 6px; }
 
+  /* Scale bar dentro do card de acompanhamento */
+  .recipe-body .scale {
+    box-shadow: none;
+    border-radius: 10px;
+    background: var(--surface-2);
+    margin: 14px 16px 0;
+  }
+
   .recipe-card {
     background: var(--surface);
     border: 1px solid var(--border);
@@ -621,12 +629,16 @@ function buildScale(key, label, base) {
   + '</div>';
 }
 
-// ── Bloco de acompanhamento (escala própria + card) ───────────────────
+// ── Bloco de acompanhamento (escala dentro do card, aparece ao abrir) ──
 function renderAcompBlock(receita) {
-  return '<div class="acomp-block">'
-    + buildScale(receita.id, 'Quantidade de ' + receita.label_escala, receita.base_g)
-    + criarCardHTML(receita)
-    + '</div>';
+  var scaleHTML = buildScale(receita.id, 'Quantidade de ' + receita.label_escala, receita.base_g);
+  var cardHTML  = criarCardHTML(receita);
+  // Injeta a scale bar como primeiro elemento dentro do recipe-body-inner
+  cardHTML = cardHTML.replace(
+    '<div class="recipe-body-inner">',
+    '<div class="recipe-body-inner">' + scaleHTML
+  );
+  return '<div class="acomp-block">' + cardHTML + '</div>';
 }
 
 // ── Config de escala para uma chave (proteína ou acomp) ───────────────
