@@ -35,7 +35,6 @@ async function loadFromSheets(sheetId, apiKey) {
   var ordemReceitas = [];
 
   linhasRec.forEach(function(row) {
-    // Lê célula com fallback para valor padrão
     function cel(i, def) {
       return (row[i] !== undefined && row[i] !== '') ? row[i] : def;
     }
@@ -73,8 +72,8 @@ async function loadFromSheets(sheetId, apiKey) {
     var ingNome = String(cel(11, ''));
     if (!ingNome) return;
 
-    var qmin    = parseFloat(cel(12, 0));
-    var qmax    = parseFloat(cel(13, 0));
+    var qmin = parseFloat(cel(12, 0));
+    var qmax = parseFloat(cel(13, 0));
 
     mapaReceitas[id].ingredientes.push({
       nome:    ingNome,

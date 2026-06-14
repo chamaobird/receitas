@@ -2,397 +2,479 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>Receitas da Semana</title>
 <style>
   :root {
-    --bg: #F7F5F0;
+    --bg: #F2EFE8;
+    --page: #E7E3DA;
     --surface: #FFFFFF;
+    --surface-2: #FAF8F3;
     --text: #1A1A18;
     --text-muted: #6B6B65;
-    --border: #E0DDD6;
-    --neutral-tag: #EAE8E1;
-    --neutral-tag-text: #4A4A44;
-    --bold-tag: #1A1A18;
-    --bold-tag-text: #F7F5F0;
+    --text-faint: #9A978F;
+    --border: #E2DED6;
+    --border-strong: #D2CDC2;
+    --neutral-tag: #ECEAE3;
+    --neutral-tag-text: #55534C;
+    --bold-tag: #2A2825;
+    --bold-tag-text: #F5F2EC;
     --accent: #C8501A;
-    --accent-light: #FAF0EB;
+    --accent-text: #C8501A;
+    --accent-soft: #F7EAE2;
+    --accent-line: #EAD7CC;
+    --shadow: 0 1px 2px rgba(26,26,24,.04), 0 6px 16px rgba(26,26,24,.05);
+    --shadow-lift: 0 2px 6px rgba(26,26,24,.06), 0 12px 30px rgba(200,80,26,.10);
+    --radius: 16px;
+    --tap: 48px;
   }
 
-  * { box-sizing: border-box; margin: 0; padding: 0; }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #131210;
+      --page: #0B0A09;
+      --surface: #1C1B18;
+      --surface-2: #232220;
+      --text: #F0EDE6;
+      --text-muted: #97938A;
+      --text-faint: #6A675F;
+      --border: #2C2A26;
+      --border-strong: #3A3833;
+      --neutral-tag: #2A2824;
+      --neutral-tag-text: #B0ACA2;
+      --bold-tag: #F0EDE6;
+      --bold-tag-text: #131210;
+      --accent: #E8693A;
+      --accent-text: #F08152;
+      --accent-soft: #2A1A11;
+      --accent-line: #3A2418;
+      --shadow: 0 1px 2px rgba(0,0,0,.3), 0 6px 16px rgba(0,0,0,.35);
+      --shadow-lift: 0 2px 6px rgba(0,0,0,.4), 0 12px 30px rgba(232,105,58,.14);
+    }
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+  html, body { height: 100%; }
 
   body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    background: var(--bg);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: var(--page);
     color: var(--text);
     font-size: 15px;
-    line-height: 1.6;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
   }
 
+  .app {
+    max-width: 460px;
+    margin: 0 auto;
+    min-height: 100%;
+    background: var(--bg);
+    position: relative;
+    box-shadow: 0 0 0 1px var(--border);
+  }
+  @media (min-width: 520px) {
+    body { display: flex; align-items: flex-start; justify-content: center; }
+    .app { min-height: 100vh; }
+  }
+
+  /* ── Header ─────────────────────────────────────────────── */
   header {
-    background: var(--surface);
-    border-bottom: 1px solid var(--border);
-    padding: 20px 16px 0;
+    background: var(--bg);
+    padding: 18px 18px 12px;
     position: sticky;
     top: 0;
     z-index: 100;
+    border-bottom: 1px solid var(--border);
   }
-
-  .header-top {
+  .brand {
     display: flex;
     align-items: baseline;
-    gap: 10px;
-    margin-bottom: 16px;
+    gap: 9px;
+    margin-bottom: 14px;
   }
-
-  h1 {
-    font-size: 20px;
-    font-weight: 600;
-    letter-spacing: -0.3px;
+  .brand h1 {
+    font-size: 25px;
+    font-weight: 700;
+    letter-spacing: -0.6px;
   }
-
   .subtitle {
-    font-size: 13px;
-    color: var(--text-muted);
-  }
-
-  .protein-tabs {
-    display: flex;
-    gap: 0;
-    overflow-x: auto;
-    scrollbar-width: none;
-  }
-
-  .protein-tabs::-webkit-scrollbar { display: none; }
-
-  .tab {
-    padding: 10px 16px;
-    font-size: 14px;
+    font-size: 12px;
+    color: var(--text-faint);
     font-weight: 500;
+  }
+
+  /* ── Abas de proteína: grid 2×N (Problema 1) ────────────── */
+  .protein-tabs {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 7px;
+  }
+  .tab {
+    appearance: none;
+    border: 1px solid var(--border-strong);
+    background: var(--surface);
     color: var(--text-muted);
-    border: none;
-    background: none;
+    border-radius: 13px;
+    padding: 9px 4px 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
     cursor: pointer;
-    border-bottom: 2px solid transparent;
-    white-space: nowrap;
-    transition: color 0.15s, border-color 0.15s;
+    font-family: inherit;
+    min-height: 60px;
+    transition: transform .12s ease, background .15s, border-color .15s, color .15s;
   }
-
+  .tab:active { transform: scale(.94); }
+  .tab-ico { font-size: 20px; line-height: 1; }
+  .tab-lbl {
+    font-size: 10.5px;
+    font-weight: 600;
+    letter-spacing: -0.1px;
+    text-align: center;
+    line-height: 1.1;
+  }
   .tab.active {
-    color: var(--text);
-    border-bottom-color: var(--accent);
+    background: var(--accent);
+    border-color: var(--accent);
+    color: #fff;
+    box-shadow: var(--shadow-lift);
   }
+  .tab.active .tab-lbl { font-weight: 700; }
 
-  main {
-    padding: 16px;
-    max-width: 540px;
-    margin: 0 auto;
-  }
+  /* ── Main / seções ──────────────────────────────────────── */
+  main { padding: 16px 14px 56px; }
 
   .protein-section { display: none; }
   .protein-section.active { display: block; }
+  .protein-section.enter { animation: sectionIn .3s ease; }
+  @keyframes sectionIn {
+    from { opacity: 0; transform: translateY(7px); }
+    to { opacity: 1; transform: none; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .protein-section.enter { animation: none; }
+  }
 
-  .scale-bar {
+  /* ── Banner de fallback ─────────────────────────────────── */
+  #data-banner {
+    margin: 14px 14px -2px;
+    padding: 10px 14px;
+    background: var(--accent-soft);
+    border: 1px solid var(--accent-line);
+    border-radius: 12px;
+    font-size: 12.5px;
+    color: var(--accent-text);
+    font-weight: 600;
+  }
+
+  /* ── Escala / stepper +/− (Problema 2) ──────────────────── */
+  .scale {
     background: var(--surface);
     border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 14px 16px;
-    margin-bottom: 16px;
+    border-radius: var(--radius);
+    padding: 14px 15px 15px;
+    margin-bottom: 14px;
+    box-shadow: var(--shadow);
+  }
+  .scale-top {
     display: flex;
-    align-items: center;
-    gap: 12px;
-  }
-
-  .scale-label {
-    font-size: 13px;
-    color: var(--text-muted);
-    white-space: nowrap;
-  }
-
-  .scale-input-wrap {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    flex: 1;
-  }
-
-  .scale-input {
-    width: 72px;
-    padding: 6px 10px;
-    font-size: 15px;
-    font-weight: 600;
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    background: var(--bg);
-    color: var(--text);
-    text-align: right;
-  }
-
-  .scale-unit {
-    font-size: 13px;
-    color: var(--text-muted);
-  }
-
-  .scale-note {
-    font-size: 12px;
-    color: var(--text-muted);
-    text-align: right;
-  }
-
-  .recipe-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    margin-bottom: 12px;
-    overflow: hidden;
-  }
-
-  .recipe-header {
-    padding: 14px 16px;
-    cursor: pointer;
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    gap: 12px;
-    user-select: none;
-  }
-
-  .recipe-header-left { flex: 1; }
-
-  .recipe-name {
-    font-size: 15px;
-    font-weight: 600;
-    margin-bottom: 4px;
-    line-height: 1.3;
-  }
-
-  .recipe-meta {
-    display: flex;
-    gap: 6px;
-    flex-wrap: wrap;
-    align-items: center;
-  }
-
-  .tag {
-    font-size: 11px;
-    font-weight: 500;
-    padding: 2px 8px;
-    border-radius: 20px;
-    text-transform: uppercase;
-    letter-spacing: 0.4px;
-  }
-
-  .tag-neutral {
-    background: var(--neutral-tag);
-    color: var(--neutral-tag-text);
-  }
-
-  .tag-bold {
-    background: var(--bold-tag);
-    color: var(--bold-tag-text);
-  }
-
-  .tag-who {
-    background: var(--accent-light);
-    color: var(--accent);
-    font-size: 11px;
-    padding: 2px 8px;
-    border-radius: 20px;
-    font-weight: 500;
-  }
-
-  .chevron {
-    font-size: 18px;
-    color: var(--text-muted);
-    transition: transform 0.2s;
-    flex-shrink: 0;
-    margin-top: 2px;
-  }
-
-  .recipe-card.open .chevron { transform: rotate(180deg); }
-
-  .recipe-body {
-    display: none;
-    border-top: 1px solid var(--border);
-  }
-
-  .recipe-card.open .recipe-body { display: block; }
-
-  .recipe-profile {
-    padding: 10px 16px;
-    background: var(--bg);
-    font-size: 13px;
-    color: var(--text-muted);
-    font-style: italic;
-  }
-
-  .ingredients-section {
-    padding: 14px 16px;
-  }
-
-  .section-title {
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 0.8px;
-    text-transform: uppercase;
-    color: var(--text-muted);
-    margin-bottom: 10px;
-  }
-
-  .ingredient-row {
-    display: flex;
-    justify-content: space-between;
     align-items: baseline;
-    padding: 5px 0;
-    border-bottom: 1px solid var(--border);
-    gap: 8px;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 11px;
   }
-
-  .ingredient-row:last-child { border-bottom: none; }
-
-  .ing-name {
-    font-size: 14px;
-    color: var(--text);
-    flex: 1;
-  }
-
-  .ing-amount {
-    font-size: 14px;
-    font-weight: 600;
-    color: var(--text);
-    white-space: nowrap;
-  }
-
-  .ing-amount.range {
-    color: var(--accent);
-  }
-
-  .ing-note {
-    font-size: 12px;
-    color: var(--text-muted);
-    display: block;
-    line-height: 1.3;
-  }
-
-  .steps-section {
-    padding: 14px 16px;
-    border-top: 1px solid var(--border);
-  }
-
-  .step {
-    display: flex;
-    gap: 12px;
-    margin-bottom: 10px;
-  }
-
-  .step:last-child { margin-bottom: 0; }
-
-  .step-num {
-    width: 22px;
-    height: 22px;
-    border-radius: 50%;
-    background: var(--text);
-    color: var(--bg);
+  .scale-label {
     font-size: 11px;
     font-weight: 700;
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+  .scale-note {
+    font-size: 11.5px;
+    color: var(--text-faint);
+    font-weight: 500;
+    white-space: nowrap;
+  }
+  .scale-note b { color: var(--accent-text); font-weight: 700; }
+
+  .stepper { display: flex; align-items: stretch; gap: 9px; }
+  .step-btn {
+    width: var(--tap);
+    height: var(--tap);
+    flex-shrink: 0;
+    border: 1px solid var(--border-strong);
+    background: var(--surface-2);
+    color: var(--text);
+    border-radius: 13px;
+    font-size: 26px;
+    line-height: 1;
+    cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-shrink: 0;
-    margin-top: 1px;
+    transition: transform .1s, background .12s, border-color .12s, opacity .12s;
+    user-select: none;
+    font-family: inherit;
+    touch-action: manipulation;
+  }
+  .step-btn:active {
+    transform: scale(.9);
+    background: var(--accent-soft);
+    border-color: var(--accent);
+    color: var(--accent-text);
+  }
+  .step-btn:disabled { opacity: .35; cursor: default; }
+  .step-btn:disabled:active {
+    transform: none; background: var(--surface-2);
+    border-color: var(--border-strong); color: var(--text);
   }
 
-  .step-text {
-    font-size: 14px;
-    line-height: 1.5;
-    color: var(--text);
-  }
-
-  .step-text strong {
-    font-weight: 600;
-    color: var(--accent);
-  }
-
-  .divider {
-    height: 1px;
-    background: var(--border);
-    margin: 16px 0;
-  }
-
-  .filter-row {
+  .step-value {
+    flex: 1;
     display: flex;
-    gap: 8px;
-    margin-bottom: 14px;
-    flex-wrap: wrap;
+    align-items: center;
+    background: var(--surface-2);
+    border: 1px solid var(--border-strong);
+    border-radius: 13px;
+    height: var(--tap);
+    transition: border-color .15s, background .15s;
   }
+  .step-value:focus-within { border-color: var(--accent); background: var(--accent-soft); }
+  .scale-input {
+    width: 100%;
+    border: none;
+    background: none;
+    text-align: center;
+    font-size: 23px;
+    font-weight: 700;
+    color: var(--text);
+    font-family: inherit;
+    letter-spacing: -0.5px;
+    -moz-appearance: textfield;
+    padding: 0 4px 0 14px;
+  }
+  .scale-input::-webkit-outer-spin-button,
+  .scale-input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+  .scale-input:focus { outline: none; }
+  .scale-unit { font-size: 14px; font-weight: 600; color: var(--text-faint); padding-right: 14px; }
 
-  .filter-btn {
-    font-size: 13px;
-    padding: 6px 12px;
-    border-radius: 20px;
+  .scale-presets { display: flex; gap: 7px; margin-top: 10px; }
+  .preset {
+    flex: 1;
     border: 1px solid var(--border);
+    background: none;
+    color: var(--text-muted);
+    border-radius: 9px;
+    padding: 7px 4px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: inherit;
+    transition: background .12s, color .12s, border-color .12s, transform .1s;
+    touch-action: manipulation;
+  }
+  .preset:active { transform: scale(.96); }
+  .preset.on { background: var(--accent-soft); border-color: var(--accent-line); color: var(--accent-text); }
+
+  /* ── Filtros ────────────────────────────────────────────── */
+  .filter-row { display: flex; gap: 8px; margin-bottom: 13px; }
+  .filter-btn {
+    border: 1px solid var(--border-strong);
     background: var(--surface);
     color: var(--text-muted);
+    border-radius: 22px;
+    padding: 8px 16px;
+    font-size: 13px;
+    font-weight: 600;
     cursor: pointer;
-    font-weight: 500;
-    transition: all 0.15s;
+    font-family: inherit;
+    transition: all .14s;
   }
-
+  .filter-btn:active { transform: scale(.96); }
   .filter-btn.active-filter {
     background: var(--text);
     color: var(--bg);
     border-color: var(--text);
   }
 
-  .empty-state {
-    text-align: center;
-    padding: 32px 16px;
+  /* ── Cards accordion (Problema 3) ───────────────────────── */
+  .acomp-block { margin-bottom: 6px; }
+
+  .recipe-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    margin-bottom: 11px;
+    box-shadow: var(--shadow);
+    transition: border-color .2s, box-shadow .2s;
+    overflow: hidden;
+  }
+  .recipe-card.open { border-color: var(--accent-line); box-shadow: var(--shadow-lift); }
+
+  .recipe-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 15px 16px;
+    cursor: pointer;
+    user-select: none;
+  }
+  .recipe-header-left { flex: 1; min-width: 0; }
+  .recipe-name {
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: -0.3px;
+    line-height: 1.25;
+    margin-bottom: 7px;
+  }
+  .recipe-meta { display: flex; align-items: center; gap: 7px; flex-wrap: wrap; }
+
+  .tag {
+    font-size: 10px;
+    font-weight: 700;
+    padding: 3px 8px;
+    border-radius: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    flex-shrink: 0;
+  }
+  .tag-neutral { background: var(--neutral-tag); color: var(--neutral-tag-text); }
+  .tag-bold { background: var(--bold-tag); color: var(--bold-tag-text); }
+  .tag-who { font-size: 12px; color: var(--accent-text); font-weight: 600; line-height: 1.3; }
+
+  .chevron {
+    width: 30px;
+    height: 30px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform .28s cubic-bezier(.5,.1,.25,1), background .2s, border-color .2s;
+  }
+  .chevron svg { width: 14px; height: 14px; display: block; }
+  .chevron svg path { stroke: var(--text-muted); transition: stroke .2s; }
+  .recipe-card.open .chevron {
+    transform: rotate(180deg);
+    background: var(--accent-soft);
+    border-color: var(--accent-line);
+  }
+  .recipe-card.open .chevron svg path { stroke: var(--accent-text); }
+
+  .recipe-body {
+    height: 0;
+    overflow: hidden;
+    transition: height .34s cubic-bezier(.4, 0, .2, 1);
+  }
+  @media (prefers-reduced-motion: reduce) { .recipe-body { transition: none; } }
+  .recipe-body-inner {
+    opacity: 0;
+    transform: translateY(-4px);
+    transition: opacity .26s ease, transform .26s ease;
+  }
+  .recipe-card.open .recipe-body-inner { opacity: 1; transform: none; transition-delay: .05s; }
+
+  .recipe-profile {
+    padding: 13px 16px 14px;
+    background: var(--surface-2);
+    border-top: 1px solid var(--border);
+    font-size: 13px;
     color: var(--text-muted);
+    line-height: 1.5;
+    font-style: italic;
+  }
+
+  .ingredients-section { padding: 14px 16px; border-top: 1px solid var(--border); }
+  .section-title {
+    font-size: 10.5px;
+    font-weight: 700;
+    letter-spacing: 0.9px;
+    text-transform: uppercase;
+    color: var(--text-faint);
+    margin-bottom: 11px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .section-title::after { content: ""; flex: 1; height: 1px; background: var(--border); }
+
+  .ingredient-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    padding: 7px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .ingredient-row:last-child { border-bottom: none; }
+  .ing-name { font-size: 14px; color: var(--text); flex: 1; }
+  .ing-amount {
     font-size: 14px;
+    font-weight: 700;
+    color: var(--text);
+    white-space: nowrap;
+    text-align: right;
+    flex-shrink: 0;
+    font-variant-numeric: tabular-nums;
+  }
+  .ing-amount.range { color: var(--accent-text); }
+  .ing-note {
+    display: block;
+    font-size: 11.5px;
+    color: var(--text-faint);
+    font-weight: 500;
+    line-height: 1.3;
+    margin-top: 1px;
+    max-width: 190px;
+    white-space: normal;
   }
 
-  /* Separador visual entre acompanhamentos */
-  .acomp-block {
-    margin-bottom: 24px;
+  .steps-section { padding: 14px 16px; border-top: 1px solid var(--border); }
+  .step { display: flex; gap: 12px; padding: 6px 0; }
+  .step-num {
+    width: 23px;
+    height: 23px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background: var(--accent-soft);
+    color: var(--accent-text);
+    border: 1px solid var(--accent-line);
+    font-size: 11px;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1px;
+    font-variant-numeric: tabular-nums;
   }
+  .step-text { font-size: 13.5px; line-height: 1.5; color: var(--text); }
+  .step-text strong { font-weight: 700; color: var(--accent-text); }
 
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --bg: #111110;
-      --surface: #1C1C1A;
-      --text: #F0EDE6;
-      --text-muted: #8A8880;
-      --border: #2E2E2B;
-      --neutral-tag: #2A2A27;
-      --neutral-tag-text: #B0ADA5;
-      --bold-tag: #F0EDE6;
-      --bold-tag-text: #111110;
-      --accent: #E06030;
-      --accent-light: #2A1A10;
-    }
-  }
+  .empty-state { text-align: center; padding: 40px 20px; color: var(--text-faint); font-size: 14px; }
 </style>
 </head>
 <body>
 
-<header>
-  <div class="header-top">
-    <h1>Receitas</h1>
-    <span class="subtitle">Escala automática de ingredientes</span>
-  </div>
-  <div class="protein-tabs" id="protein-tabs">
-    <!-- Gerado por init() -->
-  </div>
-</header>
+<div class="app">
+  <header>
+    <div class="brand">
+      <h1>Receitas</h1>
+      <span class="subtitle">escala automática de ingredientes</span>
+    </div>
+    <div class="protein-tabs" id="protein-tabs"></div>
+  </header>
 
-<!-- Banner de fallback: visível apenas quando a planilha não carrega -->
-<div id="data-banner" style="display:none;padding:10px 16px;background:var(--accent-light);border-bottom:1px solid var(--accent);font-size:13px;color:var(--accent);">
-  Usando dados locais — planilha indisponível no momento.
+  <div id="data-banner" style="display:none;">Usando dados locais — planilha indisponível no momento.</div>
+
+  <main id="main-content"></main>
 </div>
-
-<main id="main-content">
-  <!-- Gerado por init() -->
-</main>
 
 <script src="js/sheets.js"></script>
 <script src="data/recipes.js"></script>
@@ -401,23 +483,30 @@
 function fmt(n, unit) {
   var u = unit || 'g';
   if (n === 0) return '0 ' + u;
-  if (n < 1)   return n.toFixed(1) + ' ' + u;
+  if (n < 1) return n.toFixed(1).replace('.', ',') + ' ' + u;
   if (Number.isInteger(n)) return n + ' ' + u;
-  return parseFloat(n.toFixed(1)) + ' ' + u;
+  return parseFloat(n.toFixed(1)).toString().replace('.', ',') + ' ' + u;
 }
 
-// ── Converte **texto** em <strong>texto</strong> ───────────────────────
+// ── **texto** → <strong>texto</strong> ────────────────────────────────
 function parseBold(texto) {
   return texto.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
 }
 
-// ── Gera HTML de uma linha de ingrediente ─────────────────────────────
+// ── Divide "🍗 Frango" em ícone + rótulo ──────────────────────────────
+function splitTab(tab) {
+  var m = tab.match(/^(\S+)\s+(.+)$/);
+  if (m && /\p{Extended_Pictographic}/u.test(m[1])) return { ico: m[1], lbl: m[2] };
+  return { ico: '', lbl: tab };
+}
+
+// ── Linha de ingrediente (números preenchidos por recalc) ─────────────
 function renderIngredienteRow(ing) {
-  var isRange  = ing.min !== ing.max;
-  var hasNota  = ing.nota && ing.nota !== '';
+  var isRange = ing.min !== ing.max;
+  var hasNota = ing.nota && ing.nota !== '';
   var rangeClass = (isRange || hasNota) ? ' range' : '';
-  var notaHTML   = hasNota ? '<span class="ing-note">' + ing.nota + '</span>' : '';
-  var dataAttr   = isRange
+  var notaHTML = hasNota ? '<span class="ing-note">' + ing.nota + '</span>' : '';
+  var dataAttr = isRange
     ? 'data-base-min="' + ing.min + '" data-base-max="' + ing.max + '"'
     : 'data-base="' + ing.min + '"';
   return '<div class="ingredient-row">'
@@ -426,38 +515,34 @@ function renderIngredienteRow(ing) {
     + '</div>';
 }
 
-// ── Gera HTML das seções de ingredientes ──────────────────────────────
-// Suporta: secao customizado (multi-seção), tipo "fresco" (duas seções), ou único bloco
+// ── Seções de ingredientes (seção custom / fresco / único) ────────────
 function renderIngredienteSections(ingredientes) {
-  var temSecao = ingredientes.some(function(i) { return i.secao; });
+  var temSecao = ingredientes.some(function (i) { return i.secao; });
 
   if (temSecao) {
-    // Agrupa preservando a ordem de inserção
-    var ordem = [];
-    var grupos = {};
-    ingredientes.forEach(function(ing) {
+    var ordem = [], grupos = {};
+    ingredientes.forEach(function (ing) {
       var sec = ing.secao || 'Ingredientes';
       if (!grupos[sec]) { grupos[sec] = []; ordem.push(sec); }
       grupos[sec].push(ing);
     });
-    return ordem.map(function(titulo, idx) {
-      var estilo = idx > 0 ? ' style="border-top: 1px solid var(--border); padding-top: 14px;"' : '';
-      return '<div class="ingredients-section"' + estilo + '>'
+    return ordem.map(function (titulo) {
+      return '<div class="ingredients-section">'
         + '<div class="section-title">' + titulo + '</div>'
         + grupos[titulo].map(renderIngredienteRow).join('')
         + '</div>';
     }).join('');
   }
 
-  var temFrescos = ingredientes.some(function(i) { return i.tipo === 'fresco'; });
+  var temFrescos = ingredientes.some(function (i) { return i.tipo === 'fresco'; });
   if (temFrescos) {
-    var naoFrescos = ingredientes.filter(function(i) { return i.tipo !== 'fresco'; });
-    var frescos    = ingredientes.filter(function(i) { return i.tipo === 'fresco'; });
+    var naoFrescos = ingredientes.filter(function (i) { return i.tipo !== 'fresco'; });
+    var frescos = ingredientes.filter(function (i) { return i.tipo === 'fresco'; });
     return '<div class="ingredients-section">'
         + '<div class="section-title">Temperos secos</div>'
         + naoFrescos.map(renderIngredienteRow).join('')
       + '</div>'
-      + '<div class="ingredients-section" style="border-top: 1px solid var(--border); padding-top: 14px;">'
+      + '<div class="ingredients-section">'
         + '<div class="section-title">Ingredientes frescos</div>'
         + frescos.map(renderIngredienteRow).join('')
       + '</div>';
@@ -469,18 +554,21 @@ function renderIngredienteSections(ingredientes) {
     + '</div>';
 }
 
-// ── Gera HTML completo de um card de receita ──────────────────────────
+// ── Card de receita ───────────────────────────────────────────────────
 function criarCardHTML(receita) {
   var tagClass = receita.perfil === 'neutro' ? 'tag-neutral' : 'tag-bold';
   var tagLabel = receita.perfil === 'neutro' ? 'Neutro' : 'Marcante';
   var dataAcomp = receita.proteina === 'acompanhamentos' ? ' data-acomp-id="' + receita.id + '"' : '';
 
-  var passosHTML = receita.passos.map(function(passo, i) {
+  var passosHTML = receita.passos.map(function (passo, i) {
     return '<div class="step">'
       + '<div class="step-num">' + (i + 1) + '</div>'
       + '<div class="step-text">' + parseBold(passo) + '</div>'
       + '</div>';
   }).join('');
+
+  var chevron = '<span class="chevron"><svg viewBox="0 0 24 24" fill="none">'
+    + '<path d="M6 9l6 6 6-6" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>';
 
   return '<div class="recipe-card"'
     + dataAcomp
@@ -495,42 +583,130 @@ function criarCardHTML(receita) {
           + '<span class="tag-who">' + receita.quem_atende + '</span>'
         + '</div>'
       + '</div>'
-      + '<span class="chevron">›</span>'
+      + chevron
     + '</div>'
-    + '<div class="recipe-body">'
+    + '<div class="recipe-body"><div class="recipe-body-inner">'
       + '<div class="recipe-profile">' + receita.descricao + '</div>'
       + renderIngredienteSections(receita.ingredientes)
       + '<div class="steps-section">'
         + '<div class="section-title">Modo de preparo</div>'
         + passosHTML
       + '</div>'
-    + '</div>'
+    + '</div></div>'
     + '</div>';
 }
 
-// ── Recalcula ingredientes de uma proteína (escala global da aba) ─────
+// ── Stepper reutilizável (proteína ou acompanhamento) ─────────────────
+function buildScale(key, label, base) {
+  return '<div class="scale">'
+    + '<div class="scale-top">'
+      + '<span class="scale-label">' + label + '</span>'
+      + '<span class="scale-note" id="scale-note-' + key + '">base <b>' + base + ' g</b></span>'
+    + '</div>'
+    + '<div class="stepper">'
+      + '<button class="step-btn" data-stepbtn="' + key + '" data-dir="-1" aria-label="Diminuir">−</button>'
+      + '<div class="step-value">'
+        + '<input class="scale-input" id="qty-' + key + '" type="number" inputmode="numeric" value="' + base + '"'
+          + ' oninput="recalcAny(\'' + key + '\')" onchange="clampInput(\'' + key + '\')">'
+        + '<span class="scale-unit">g</span>'
+      + '</div>'
+      + '<button class="step-btn" data-stepbtn="' + key + '" data-dir="1" aria-label="Aumentar">+</button>'
+    + '</div>'
+    + '<div class="scale-presets" data-presets="' + key + '">'
+      + '<button class="preset" data-factor="0.5" onclick="setPreset(\'' + key + '\',0.5)">½×</button>'
+      + '<button class="preset" data-factor="1" onclick="setPreset(\'' + key + '\',1)">base</button>'
+      + '<button class="preset" data-factor="1.5" onclick="setPreset(\'' + key + '\',1.5)">1,5×</button>'
+      + '<button class="preset" data-factor="2" onclick="setPreset(\'' + key + '\',2)">2×</button>'
+    + '</div>'
+  + '</div>';
+}
+
+// ── Bloco de acompanhamento (escala própria + card) ───────────────────
+function renderAcompBlock(receita) {
+  return '<div class="acomp-block">'
+    + buildScale(receita.id, 'Quantidade de ' + receita.label_escala, receita.base_g)
+    + criarCardHTML(receita)
+    + '</div>';
+}
+
+// ── Config de escala para uma chave (proteína ou acomp) ───────────────
+function getStepCfg(key) {
+  var c = window.PROTEINA_CONFIG[key];
+  if (c && c.label !== null) return { min: c.min, max: c.max, step: c.step, base: c.base_g, acomp: false };
+  var r = window.RECIPES.find(function (x) { return x.id === key; });
+  return { min: r.min_qty, max: r.max_qty, step: r.step_qty, base: r.base_g, acomp: true };
+}
+function clampStep(v, cfg) {
+  v = Math.round(v / cfg.step) * cfg.step;
+  return Math.max(cfg.min, Math.min(cfg.max, v));
+}
+
+// ── Dispara o recalc certo conforme o tipo da chave ───────────────────
+function recalcAny(key) {
+  var c = window.PROTEINA_CONFIG[key];
+  if (c && c.label !== null) recalc(key); else recalcAcomp(key);
+}
+
+// ── Botões −/+ e presets (Problema 2) ─────────────────────────────────
+function stepQty(key, dir) {
+  var cfg = getStepCfg(key);
+  var inp = document.getElementById('qty-' + key);
+  if (!inp || inp.disabled) return;
+  var v = (parseFloat(inp.value) || cfg.base) + dir * cfg.step;
+  v = Math.max(cfg.min, Math.min(cfg.max, v));
+  inp.value = v;
+  recalcAny(key);
+}
+function setPreset(key, factor) {
+  var cfg = getStepCfg(key);
+  document.getElementById('qty-' + key).value = clampStep(cfg.base * factor, cfg);
+  recalcAny(key);
+}
+function clampInput(key) {
+  var cfg = getStepCfg(key);
+  var inp = document.getElementById('qty-' + key);
+  var v = parseFloat(inp.value);
+  if (isNaN(v)) v = cfg.base;
+  inp.value = clampStep(v, cfg);
+  recalcAny(key);
+}
+
+// ── Sincroniza presets ativos + limites dos botões ────────────────────
+function syncScaleUI(key) {
+  var cfg = getStepCfg(key);
+  var inp = document.getElementById('qty-' + key);
+  if (!inp) return;
+  var v = parseFloat(inp.value) || cfg.base;
+  var pr = document.querySelector('[data-presets="' + key + '"]');
+  if (pr) pr.querySelectorAll('.preset').forEach(function (b) {
+    b.classList.toggle('on', clampStep(cfg.base * parseFloat(b.dataset.factor), cfg) === v);
+  });
+  document.querySelectorAll('[data-stepbtn="' + key + '"]').forEach(function (b) {
+    var d = parseInt(b.dataset.dir, 10);
+    b.disabled = (d < 0 && v <= cfg.min) || (d > 0 && v >= cfg.max);
+  });
+}
+
+// ── Recalcula ingredientes de uma proteína (escala global) ────────────
 function recalc(protein) {
   var qtyInput = document.getElementById('qty-' + protein);
   var qty = parseFloat(qtyInput.value) || 0;
 
-  document.querySelectorAll('[data-protein="' + protein + '"]').forEach(function(card) {
+  document.querySelectorAll('[data-protein="' + protein + '"]').forEach(function (card) {
     var cardBase = parseFloat(card.dataset.base);
-    var factor   = qty / cardBase;
-    card.querySelectorAll('.ing-amount').forEach(function(el) {
-      var noteHTML = el.querySelector('.ing-note') ? el.querySelector('.ing-note').outerHTML : '';
+    var factor = qty / cardBase;
+    card.querySelectorAll('.ing-amount').forEach(function (el) {
+      var noteEl = el.querySelector('.ing-note');
+      var noteHTML = noteEl ? noteEl.outerHTML : '';
       var unit = el.dataset.unit || 'g';
       if (el.dataset.base !== undefined) {
         el.innerHTML = fmt(parseFloat(el.dataset.base) * factor, unit) + (noteHTML ? ' ' + noteHTML : '');
       } else if (el.dataset.baseMin !== undefined && el.dataset.baseMax !== undefined) {
         var vMin = parseFloat(el.dataset.baseMin) * factor;
         var vMax = parseFloat(el.dataset.baseMax) * factor;
-        if (vMin === 0 && vMax === 0) {
-          el.innerHTML = '0 ' + unit + (noteHTML ? ' ' + noteHTML : '');
-        } else if (vMin === 0) {
-          el.innerHTML = 'até ' + fmt(vMax, unit) + (noteHTML ? ' ' + noteHTML : '');
-        } else {
-          el.innerHTML = fmt(vMin, unit) + ' – ' + fmt(vMax, unit) + (noteHTML ? ' ' + noteHTML : '');
-        }
+        if (vMin === 0 && vMax === 0) el.innerHTML = '0 ' + unit + (noteHTML ? ' ' + noteHTML : '');
+        else if (vMin === 0) el.innerHTML = 'até ' + fmt(vMax, unit) + (noteHTML ? ' ' + noteHTML : '');
+        else el.innerHTML = fmt(vMin, unit) + ' – ' + fmt(vMax, unit) + (noteHTML ? ' ' + noteHTML : '');
       }
     });
   });
@@ -538,8 +714,11 @@ function recalc(protein) {
   var noteEl = document.getElementById('scale-note-' + protein);
   if (noteEl) {
     var base = window.PROTEINA_CONFIG[protein].base_g;
-    noteEl.textContent = qty === base ? 'base ' + base + ' g' : Math.round((qty / base) * 100) + '% da base';
+    noteEl.innerHTML = qty === base
+      ? 'base <b>' + base + ' g</b>'
+      : Math.round((qty / base) * 100) + '% · <b>' + base + ' g</b>';
   }
+  syncScaleUI(protein);
 }
 
 // ── Recalcula ingredientes de um acompanhamento individual ────────────
@@ -551,71 +730,78 @@ function recalcAcomp(id) {
   var card = document.querySelector('[data-acomp-id="' + id + '"]');
   if (!card) return;
   var cardBase = parseFloat(card.dataset.base);
-  var factor   = qty / cardBase;
+  var factor = qty / cardBase;
 
-  card.querySelectorAll('.ing-amount').forEach(function(el) {
-    var noteHTML = el.querySelector('.ing-note') ? el.querySelector('.ing-note').outerHTML : '';
+  card.querySelectorAll('.ing-amount').forEach(function (el) {
+    var noteEl = el.querySelector('.ing-note');
+    var noteHTML = noteEl ? noteEl.outerHTML : '';
     var unit = el.dataset.unit || 'g';
     if (el.dataset.base !== undefined) {
       el.innerHTML = fmt(parseFloat(el.dataset.base) * factor, unit) + (noteHTML ? ' ' + noteHTML : '');
     } else if (el.dataset.baseMin !== undefined && el.dataset.baseMax !== undefined) {
       var vMin = parseFloat(el.dataset.baseMin) * factor;
       var vMax = parseFloat(el.dataset.baseMax) * factor;
-      if (vMin === 0 && vMax === 0) {
-        el.innerHTML = '0 ' + unit + (noteHTML ? ' ' + noteHTML : '');
-      } else if (vMin === 0) {
-        el.innerHTML = 'até ' + fmt(vMax, unit) + (noteHTML ? ' ' + noteHTML : '');
-      } else {
-        el.innerHTML = fmt(vMin, unit) + ' – ' + fmt(vMax, unit) + (noteHTML ? ' ' + noteHTML : '');
-      }
+      if (vMin === 0 && vMax === 0) el.innerHTML = '0 ' + unit + (noteHTML ? ' ' + noteHTML : '');
+      else if (vMin === 0) el.innerHTML = 'até ' + fmt(vMax, unit) + (noteHTML ? ' ' + noteHTML : '');
+      else el.innerHTML = fmt(vMin, unit) + ' – ' + fmt(vMax, unit) + (noteHTML ? ' ' + noteHTML : '');
     }
   });
 
   var noteEl = document.getElementById('scale-note-' + id);
   if (noteEl) {
-    noteEl.textContent = qty === cardBase ? 'base ' + cardBase + ' g' : Math.round((qty / cardBase) * 100) + '% da base';
+    noteEl.innerHTML = qty === cardBase
+      ? 'base <b>' + cardBase + ' g</b>'
+      : Math.round((qty / cardBase) * 100) + '% · <b>' + cardBase + ' g</b>';
   }
+  syncScaleUI(id);
 }
 
-// ── Gera bloco de acompanhamento (scale-bar própria + card) ───────────
-function renderAcompBlock(receita) {
-  var scaleBar = '<div class="scale-bar">'
-    + '<span class="scale-label">Quantidade de ' + receita.label_escala + '</span>'
-    + '<div class="scale-input-wrap">'
-      + '<input class="scale-input" type="number"'
-        + ' id="qty-' + receita.id + '"'
-        + ' value="' + receita.base_g + '"'
-        + ' min="' + receita.min_qty + '"'
-        + ' max="' + receita.max_qty + '"'
-        + ' step="' + receita.step_qty + '"'
-        + ' oninput="recalcAcomp(\'' + receita.id + '\')">'
-      + '<span class="scale-unit">g</span>'
-    + '</div>'
-    + '<span class="scale-note" id="scale-note-' + receita.id + '">base ' + receita.base_g + ' g</span>'
-    + '</div>';
-  return '<div class="acomp-block">' + scaleBar + criarCardHTML(receita) + '</div>';
-}
-
-// ── Abre/fecha um card ────────────────────────────────────────────────
+// ── Abre/fecha um card com animação de altura (Problema 3) ────────────
 function toggleCard(header) {
-  header.closest('.recipe-card').classList.toggle('open');
+  var card = header.closest('.recipe-card');
+  var body = card.querySelector('.recipe-body');
+  var inner = card.querySelector('.recipe-body-inner');
+  var willOpen = !card.classList.contains('open');
+
+  if (willOpen) {
+    card.classList.add('open');
+    body.style.height = inner.offsetHeight + 'px';
+    var settle = function () {
+      body.removeEventListener('transitionend', done);
+      if (card.classList.contains('open')) body.style.height = 'auto';
+    };
+    var done = function (e) {
+      if (e && e.propertyName !== 'height') return;
+      settle();
+    };
+    body.addEventListener('transitionend', done);
+    setTimeout(settle, 420); // fallback p/ reduced-motion / sem transitionend
+  } else {
+    body.style.height = inner.offsetHeight + 'px';
+    void body.offsetHeight; // reflow
+    card.classList.remove('open');
+    requestAnimationFrame(function () { body.style.height = '0px'; });
+  }
 }
 
 // ── Troca a aba de proteína ativa ─────────────────────────────────────
 function switchProtein(protein) {
-  document.querySelectorAll('.protein-section').forEach(function(s) { s.classList.remove('active'); });
-  document.querySelectorAll('.tab').forEach(function(t) { t.classList.remove('active'); });
-  document.getElementById('section-' + protein).classList.add('active');
-  event.target.classList.add('active');
+  document.querySelectorAll('.protein-section').forEach(function (s) { s.classList.remove('active'); });
+  document.querySelectorAll('.tab').forEach(function (t) { t.classList.toggle('active', t.dataset.protein === protein); });
+  var sec = document.getElementById('section-' + protein);
+  sec.classList.add('active');
+  sec.classList.add('enter');
+  setTimeout(function () { sec.classList.remove('enter'); }, 340);
+  window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
 // ── Filtra receitas por perfil dentro de uma aba ──────────────────────
 function filterRecipes(protein, type, btn) {
-  btn.closest('.filter-row').querySelectorAll('.filter-btn').forEach(function(b) {
+  btn.closest('.filter-row').querySelectorAll('.filter-btn').forEach(function (b) {
     b.classList.remove('active-filter');
   });
   btn.classList.add('active-filter');
-  document.querySelectorAll('[data-protein="' + protein + '"]').forEach(function(card) {
+  document.querySelectorAll('[data-protein="' + protein + '"]').forEach(function (card) {
     card.style.display = (type === 'all' || card.dataset.type === type) ? '' : 'none';
   });
 }
@@ -625,79 +811,83 @@ function init() {
   var tabsEl = document.getElementById('protein-tabs');
   var mainEl = document.getElementById('main-content');
   var proteinas = Object.keys(window.PROTEINA_CONFIG);
+  var tabsHTML = '', mainHTML = '';
 
-  proteinas.forEach(function(proteina, idx) {
-    var config   = window.PROTEINA_CONFIG[proteina];
-    var receitas = window.RECIPES.filter(function(r) { return r.proteina === proteina; });
+  proteinas.forEach(function (proteina, idx) {
+    var config = window.PROTEINA_CONFIG[proteina];
+    var receitas = window.RECIPES.filter(function (r) { return r.proteina === proteina; });
+    var parts = splitTab(config.tab);
 
-    // Aba no header
-    var tab = document.createElement('button');
-    tab.className = 'tab' + (idx === 0 ? ' active' : '');
-    tab.textContent = config.tab;
-    tab.setAttribute('onclick', "switchProtein('" + proteina + "')");
-    tabsEl.appendChild(tab);
+    tabsHTML += '<button class="tab' + (idx === 0 ? ' active' : '') + '" data-protein="' + proteina + '"'
+      + ' onclick="switchProtein(\'' + proteina + '\')">'
+      + (parts.ico ? '<span class="tab-ico">' + parts.ico + '</span>' : '')
+      + '<span class="tab-lbl">' + parts.lbl + '</span></button>';
 
-    // Seção principal
-    var section = document.createElement('div');
-    section.className = 'protein-section' + (idx === 0 ? ' active' : '');
-    section.id = 'section-' + proteina;
-
+    var inner;
     if (config.label === null) {
-      // ── Acompanhamentos: cada receita tem scale-bar própria ──────────
-      section.innerHTML = receitas.map(renderAcompBlock).join('');
-      mainEl.appendChild(section);
-      receitas.forEach(function(r) { recalcAcomp(r.id); });
-
+      inner = receitas.length
+        ? receitas.map(renderAcompBlock).join('')
+        : '<div class="empty-state">Nada por aqui ainda.</div>';
     } else {
-      // ── Proteínas normais: uma scale-bar global + filtro + cards ─────
-      var cardsHTML = receitas.map(criarCardHTML).join('');
-      section.innerHTML =
-        '<div class="scale-bar">'
-          + '<span class="scale-label">Quantidade de ' + config.label + '</span>'
-          + '<div class="scale-input-wrap">'
-            + '<input class="scale-input" type="number"'
-              + ' id="qty-' + proteina + '"'
-              + ' value="' + config.base_g + '"'
-              + ' min="' + config.min + '"'
-              + ' max="' + config.max + '"'
-              + ' step="' + config.step + '"'
-              + ' oninput="recalc(\'' + proteina + '\')">'
-            + '<span class="scale-unit">g</span>'
-          + '</div>'
-          + '<span class="scale-note" id="scale-note-' + proteina + '">base ' + config.base_g + ' g</span>'
-        + '</div>'
+      inner = buildScale(proteina, 'Quantidade de ' + config.label, config.base_g)
         + '<div class="filter-row">'
           + '<button class="filter-btn active-filter" onclick="filterRecipes(\'' + proteina + '\',\'all\',this)">Todas</button>'
           + '<button class="filter-btn" onclick="filterRecipes(\'' + proteina + '\',\'neutro\',this)">Neutras</button>'
           + '<button class="filter-btn" onclick="filterRecipes(\'' + proteina + '\',\'marcante\',this)">Marcantes</button>'
         + '</div>'
-        + cardsHTML;
-      mainEl.appendChild(section);
-      recalc(proteina);
+        + receitas.map(criarCardHTML).join('');
     }
+    mainHTML += '<div class="protein-section' + (idx === 0 ? ' active' : '') + '" id="section-' + proteina + '">' + inner + '</div>';
   });
+
+  tabsEl.innerHTML = tabsHTML;
+  mainEl.innerHTML = mainHTML;
+
+  // Preenche os valores e sincroniza os controles de escala
+  proteinas.forEach(function (proteina) {
+    if (window.PROTEINA_CONFIG[proteina].label !== null) recalc(proteina);
+  });
+  window.RECIPES.filter(function (r) { return r.proteina === 'acompanhamentos'; })
+    .forEach(function (r) { recalcAcomp(r.id); });
+
+  // Animação de entrada na seção inicial
+  var first = document.querySelector('.protein-section.active');
+  if (first) { first.classList.add('enter'); setTimeout(function () { first.classList.remove('enter'); }, 340); }
 }
 
-// ── Google Sheets ─────────────────────────────────────────────────────
+// ── Segurar para repetir nos botões −/+ ───────────────────────────────
+var holdTimer = null, holdInterval = null;
+document.addEventListener('pointerdown', function (e) {
+  var btn = e.target.closest('[data-stepbtn]');
+  if (!btn || btn.disabled) return;
+  e.preventDefault();
+  var key = btn.dataset.stepbtn, dir = parseInt(btn.dataset.dir, 10);
+  stepQty(key, dir);
+  holdTimer = setTimeout(function () {
+    holdInterval = setInterval(function () { stepQty(key, dir); }, 75);
+  }, 380);
+});
+function stopHold() { clearTimeout(holdTimer); clearInterval(holdInterval); holdTimer = holdInterval = null; }
+window.addEventListener('pointerup', stopHold);
+window.addEventListener('pointercancel', stopHold);
+
+// ── Carregamento: Google Sheets → fallback dados locais ───────────────
 var SHEET_ID = '1WgahtemKQdWDFaCltExf2tNcFlqsIX5VoLG2c9zj8r4';
 var API_KEY  = 'AIzaSyAXkMf0Rt2jZqPJG0Cibx_B1KKRaNlGr1w';
 
-// Mostra estado de carregamento
-document.getElementById('main-content').innerHTML =
-  '<div class="empty-state">Carregando receitas...</div>';
+document.getElementById('main-content').innerHTML = '<div class="empty-state">Carregando receitas...</div>';
 
-loadFromSheets(SHEET_ID, API_KEY)
-  .then(function(receitas) {
-    window.RECIPES = receitas;
-    document.getElementById('main-content').innerHTML = '';
-    init();
-  })
-  .catch(function() {
-    // Fallback para data/recipes.js (já carregado no <script> acima)
-    document.getElementById('main-content').innerHTML = '';
-    document.getElementById('data-banner').style.display = 'block';
-    init();
-  });
+function boot() { document.getElementById('main-content').innerHTML = ''; init(); }
+
+if (typeof loadFromSheets === 'function') {
+  loadFromSheets(SHEET_ID, API_KEY)
+    .then(function (receitas) { window.RECIPES = receitas; boot(); })
+    .catch(function () { document.getElementById('data-banner').style.display = 'block'; boot(); });
+} else {
+  // js/sheets.js indisponível → usa dados locais de data/recipes.js
+  document.getElementById('data-banner').style.display = 'block';
+  boot();
+}
 </script>
 </body>
 </html>
