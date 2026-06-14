@@ -385,10 +385,16 @@
   </div>
 </header>
 
+<!-- Banner de fallback: visível apenas quando a planilha não carrega -->
+<div id="data-banner" style="display:none;padding:10px 16px;background:var(--accent-light);border-bottom:1px solid var(--accent);font-size:13px;color:var(--accent);">
+  Usando dados locais — planilha indisponível no momento.
+</div>
+
 <main id="main-content">
   <!-- Gerado por init() -->
 </main>
 
+<script src="js/sheets.js"></script>
 <script src="data/recipes.js"></script>
 <script>
 // ── Formatação de valor com unidade ───────────────────────────────────
@@ -672,7 +678,26 @@ function init() {
   });
 }
 
-init();
+// ── Google Sheets ─────────────────────────────────────────────────────
+var SHEET_ID = '1WgahtemKQdWDFaCltExf2tNcFlqsIX5VoLG2c9zj8r4';
+var API_KEY  = 'AIzaSyAXkMf0Rt2jZqPJG0Cibx_B1KKRaNlGr1w';
+
+// Mostra estado de carregamento
+document.getElementById('main-content').innerHTML =
+  '<div class="empty-state">Carregando receitas...</div>';
+
+loadFromSheets(SHEET_ID, API_KEY)
+  .then(function(receitas) {
+    window.RECIPES = receitas;
+    document.getElementById('main-content').innerHTML = '';
+    init();
+  })
+  .catch(function() {
+    // Fallback para data/recipes.js (já carregado no <script> acima)
+    document.getElementById('main-content').innerHTML = '';
+    document.getElementById('data-banner').style.display = 'block';
+    init();
+  });
 </script>
 </body>
 </html>
