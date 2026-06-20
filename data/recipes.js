@@ -274,7 +274,7 @@ window.RECIPES = [
     nome: 'Bife Neutro de Coxão Mole na Airfryer',
     perfil: 'neutro',
     quem_atende: 'Toda a família · 4 bifes de ~220g',
-    descricao: 'Tempero clássico de ervas. Suave, fácil de repetir e ótimo para meal prep.',
+    descricao: 'Peça cortada em 4 bifes de 1,5–2 cm. Tempero clássico de ervas, suave e ideal para meal prep.',
     base_g: 900,
     ingredientes: [
       { nome: 'Top Round Steak (coxão mole)', min: 900, max: 900, unidade: 'g',  tipo: 'proteina', nota: '4 bifes de 1,5–2 cm' },
@@ -300,7 +300,7 @@ window.RECIPES = [
     nome: 'Bife de Coxão Mole Estilo Churrasco de Casa',
     perfil: 'neutro',
     quem_atende: 'Toda a família · 4 bifes de ~220g',
-    descricao: 'Blend defumado estilo churrasco. Fácil de fatiar para bowls e marmitas.',
+    descricao: 'Peça cortada em 4 bifes de 1,5–2 cm. Blend defumado estilo churrasco, fácil de fatiar para bowls e marmitas.',
     base_g: 900,
     ingredientes: [
       { nome: 'Top Round Steak (coxão mole)', min: 900, max: 900, unidade: 'g',  tipo: 'proteina', nota: '4 bifes de 1,5–2 cm' },
@@ -328,7 +328,7 @@ window.RECIPES = [
     nome: 'Bife de Coxão Mole Marinado em Shoyu e Limão',
     perfil: 'marcante',
     quem_atende: 'Adultos · Quarta em diante · 4 bifes de ~220g',
-    descricao: 'Marinada de shoyu, limão e gengibre. Ótimo para fatiar em tiras e montar bowls.',
+    descricao: 'Peça cortada em 4 bifes de 1,5–2 cm. Marinada de shoyu, limão e gengibre — ótimo para fatiar em tiras e montar bowls.',
     base_g: 900,
     ingredientes: [
       { nome: 'Top Round Steak (coxão mole)', min: 900, max: 900, unidade: 'g',  tipo: 'proteina', nota: '4 bifes de 1,5–2 cm' },
