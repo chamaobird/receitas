@@ -813,7 +813,7 @@ function filterRecipes(protein, type, btn) {
     b.classList.remove('active-filter');
   });
   btn.classList.add('active-filter');
-  document.querySelectorAll('[data-protein="' + protein + '"]').forEach(function (card) {
+  document.querySelectorAll('.recipe-card[data-protein="' + protein + '"]').forEach(function (card) {
     card.style.display = (type === 'all' || card.dataset.type === type) ? '' : 'none';
   });
 }
@@ -893,7 +893,13 @@ function boot() { document.getElementById('main-content').innerHTML = ''; init()
 
 if (typeof loadFromSheets === 'function') {
   loadFromSheets(SHEET_ID, API_KEY)
-    .then(function (receitas) { window.RECIPES = receitas; boot(); })
+    .then(function (receitas) {
+      // Sheets é a fonte primária; receitas locais sem ID no Sheets são mantidas
+      var sheetsIds = new Set(receitas.map(function (r) { return r.id; }));
+      var localOnly = window.RECIPES.filter(function (r) { return !sheetsIds.has(r.id); });
+      window.RECIPES = receitas.concat(localOnly);
+      boot();
+    })
     .catch(function () { document.getElementById('data-banner').style.display = 'block'; boot(); });
 } else {
   // js/sheets.js indisponível → usa dados locais de data/recipes.js
