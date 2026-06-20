@@ -4,6 +4,7 @@ window.PROTEINA_CONFIG = {
   frango:          { tab: '🍗 Frango',          label: 'frango',               base_g: 1000, min: 100,  max: 5000, step: 50  },
   porco:           { tab: '🥩 Pork loin',        label: 'pork loin',            base_g: 500,  min: 100,  max: 3000, step: 50  },
   carne:           { tab: '🫕 Carne moída',       label: 'carne moída',          base_g: 500,  min: 100,  max: 3000, step: 50  },
+  carne_bovina:    { tab: '🥩 Top Round',          label: 'Top Round (coxão mole)', base_g: 900, min: 300,  max: 1800, step: 50  },
   salmao:          { tab: '🐟 Salmão',            label: 'salmão',               base_g: 680,  min: 200,  max: 2000, step: 50  },
   burguer:         { tab: '🍔 Hamburguer',         label: 'carne para hamburguer',base_g: 500,  min: 250,  max: 1000, step: 125 },
   parmegiana:      { tab: '🍗 Parmegiana',         label: 'frango (parmegiana)',  base_g: 900,  min: 300,  max: 1800, step: 150 },
@@ -263,6 +264,91 @@ window.RECIPES = [
     passos: [
       'Repetir a mesma lógica da versão neutra, trocando apenas o blend seco.',
       'Usar a pimenta apenas como fundo — sem buscar ardência forte.'
+    ]
+  },
+
+  // ── CARNE BOVINA (TOP ROUND) ───────────────────────────────────────────
+  {
+    id: 'bife-neutro-coxao-mole-airfryer',
+    proteina: 'carne_bovina',
+    nome: 'Bife Neutro de Coxão Mole na Airfryer',
+    perfil: 'neutro',
+    quem_atende: 'Toda a família · 4 bifes de ~220g',
+    descricao: 'Tempero clássico de ervas. Suave, fácil de repetir e ótimo para meal prep.',
+    base_g: 900,
+    ingredientes: [
+      { nome: 'Top Round Steak (coxão mole)', min: 900, max: 900, unidade: 'g',  tipo: 'proteina', nota: '4 bifes de 1,5–2 cm' },
+      { nome: 'Sal',                           min: 12,  max: 12,  unidade: 'g',  tipo: 'seco',     nota: '' },
+      { nome: 'Pimenta-do-reino',              min: 4,   max: 4,   unidade: 'g',  tipo: 'seco',     nota: '' },
+      { nome: 'Garlic powder',                 min: 4,   max: 4,   unidade: 'g',  tipo: 'seco',     nota: '' },
+      { nome: 'Cebola em pó',                 min: 3,   max: 3,   unidade: 'g',  tipo: 'seco',     nota: '' },
+      { nome: 'Tomilho seco ou Herbs de Provence', min: 2, max: 2, unidade: 'g', tipo: 'seco',     nota: '' },
+      { nome: 'Azeite de oliva',               min: 15,  max: 15,  unidade: 'g',  tipo: 'seco',     nota: '' }
+    ],
+    passos: [
+      'Seque bem a carne com papel toalha e corte em **4 bifes de 1,5–2 cm**, sempre perpendicular à fibra.',
+      'Misture sal, pimenta-do-reino, garlic powder, cebola em pó e tomilho até formar blend homogêneo.',
+      'Pincele ou esfregue o azeite em ambos os lados e aplique o blend de temperos, massageando bem a carne.',
+      'Descanse por **20 min** em temperatura ambiente. Pré-aqueça a airfryer a **200 °C / 392 °F** por 5 min.',
+      'Asse os bifes sem sobrepor por **5 min**, vire e asse mais **4–5 min** ao ponto. +2 min para bem-passado. Descansar 3 min antes de servir.'
+    ]
+  },
+
+  {
+    id: 'bife-coxao-mole-churrasco-airfryer',
+    proteina: 'carne_bovina',
+    nome: 'Bife de Coxão Mole Estilo Churrasco de Casa',
+    perfil: 'neutro',
+    quem_atende: 'Toda a família · 4 bifes de ~220g',
+    descricao: 'Blend defumado estilo churrasco. Fácil de fatiar para bowls e marmitas.',
+    base_g: 900,
+    ingredientes: [
+      { nome: 'Top Round Steak (coxão mole)', min: 900, max: 900, unidade: 'g',  tipo: 'proteina', nota: '4 bifes de 1,5–2 cm' },
+      { nome: 'Sal',                           min: 12,  max: 12,  unidade: 'g',  tipo: 'seco',     nota: '' },
+      { nome: 'Pimenta-do-reino',              min: 4,   max: 4,   unidade: 'g',  tipo: 'seco',     nota: '' },
+      { nome: 'Smoked paprika',                min: 5,   max: 5,   unidade: 'g',  tipo: 'seco',     nota: '' },
+      { nome: 'Garlic powder',                 min: 3,   max: 3,   unidade: 'g',  tipo: 'seco',     nota: '' },
+      { nome: 'Cebola em pó',                 min: 2,   max: 2,   unidade: 'g',  tipo: 'seco',     nota: '' },
+      { nome: 'Lemon pepper',                  min: 2,   max: 2,   unidade: 'g',  tipo: 'seco',     nota: '' },
+      { nome: 'Azeite de oliva',               min: 15,  max: 15,  unidade: 'g',  tipo: 'seco',     nota: '' },
+      { nome: 'Suco de limão',                 min: 10,  max: 10,  unidade: 'g',  tipo: 'seco',     nota: 'opcional, para finalizar' }
+    ],
+    passos: [
+      'Seque bem a carne e corte em **4 bifes de 1,5–2 cm**, contra a fibra para melhor maciez.',
+      'Misture sal, pimenta-do-reino, smoked paprika, garlic powder, cebola em pó e lemon pepper.',
+      'Regue os bifes com azeite e esfregue dos dois lados; polvilhe o tempero seco massageando. Para sabor mais intenso, faça pequenos cortes superficiais nas bordas.',
+      'Descanse **30 min** em temperatura ambiente. Nos últimos 5 min, pré-aqueça a airfryer a **200 °C / 392 °F**.',
+      'Asse por **6 min**, vire e asse mais **4–5 min** ao ponto para bem. Descansar **3–5 min** e finalizar com gotas de limão se desejar.'
+    ]
+  },
+
+  {
+    id: 'bife-coxao-mole-shoyu-limao-airfryer',
+    proteina: 'carne_bovina',
+    nome: 'Bife de Coxão Mole Marinado em Shoyu e Limão',
+    perfil: 'marcante',
+    quem_atende: 'Adultos · Quarta em diante · 4 bifes de ~220g',
+    descricao: 'Marinada de shoyu, limão e gengibre. Ótimo para fatiar em tiras e montar bowls.',
+    base_g: 900,
+    ingredientes: [
+      { nome: 'Top Round Steak (coxão mole)', min: 900, max: 900, unidade: 'g',  tipo: 'proteina', nota: '4 bifes de 1,5–2 cm' },
+      { nome: 'Shoyu',                         min: 40,  max: 40,  unidade: 'ml', tipo: 'seco',     nota: '' },
+      { nome: 'Suco de limão',                 min: 20,  max: 20,  unidade: 'g',  tipo: 'seco',     nota: '' },
+      { nome: 'Azeite de oliva',               min: 10,  max: 10,  unidade: 'g',  tipo: 'seco',     nota: '' },
+      { nome: 'Garlic powder',                 min: 6,   max: 6,   unidade: 'g',  tipo: 'seco',     nota: 'ou 2 dentes de alho bem picados' },
+      { nome: 'Ginger em pó',                  min: 3,   max: 3,   unidade: 'g',  tipo: 'seco',     nota: 'ou 5g de gengibre fresco ralado' },
+      { nome: 'Páprica doce ou defumada',      min: 3,   max: 3,   unidade: 'g',  tipo: 'seco',     nota: 'opcional' },
+      { nome: 'Cebola em pó',                 min: 3,   max: 3,   unidade: 'g',  tipo: 'seco',     nota: '' },
+      { nome: 'Açúcar mascavo ou mel',         min: 3,   max: 3,   unidade: 'g',  tipo: 'seco',     nota: 'opcional, para equilibrar a acidez' },
+      { nome: 'Pimenta-do-reino',              min: 4,   max: 4,   unidade: 'g',  tipo: 'seco',     nota: '' },
+      { nome: 'Sal',                           min: 4,   max: 4,   unidade: 'g',  tipo: 'seco',     nota: 'ajustar — shoyu já é salgado' }
+    ],
+    passos: [
+      'Corte a peça em **4 bifes de 1,5–2 cm** contra a fibra; faça leves riscos superficiais em cruz em cada lado para ajudar a marinada a penetrar.',
+      'Prepare a marinada: misture shoyu, limão, azeite, garlic powder, ginger, páprica, cebola em pó, açúcar mascavo/mel, pimenta-do-reino e sal.',
+      'Mergulhe os bifes na marinada, cubra e deixe na geladeira por **45 min** (até 2 h para sabor mais intenso). Retire **15 min** antes de assar.',
+      'Pré-aqueça a airfryer a **200 °C / 392 °F** por 5 min. Escorra o excesso de marinada antes de colocar no cesto.',
+      'Asse por **5 min**, vire e asse mais **4–5 min** ao ponto. Descansar **5 min** e fatiar em tiras finas contra a fibra para servir.'
     ]
   },
 
