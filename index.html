@@ -477,6 +477,14 @@
   }
   .recipe-equip-item { display: flex; align-items: center; gap: 3px; }
   .recipe-kcal { color: var(--text-faint); font-variant-numeric: tabular-nums; }
+  .recipe-prot { color: var(--text-faint); font-variant-numeric: tabular-nums; }
+  .recipe-macros-nota {
+    font-size: 10.5px;
+    color: var(--text-faint);
+    font-style: italic;
+    margin-top: 4px;
+    opacity: 0.8;
+  }
 
   /* ── Pré-preparo colapsável ─────────────────────────────────────────── */
   .preparo-section {
@@ -653,8 +661,12 @@ function criarCardHTML(receita) {
   if (receita.equipamento) equipParts.push('<span class="recipe-equip-item">🍳 ' + receita.equipamento + '</span>');
   if (receita.tempo_ativo) equipParts.push('<span class="recipe-equip-item">⏱ ' + receita.tempo_ativo + '</span>');
   if (receita.kcal_por_100g) equipParts.push('<span class="recipe-equip-item recipe-kcal">🔥 ~' + receita.kcal_por_100g + ' kcal/100g</span>');
+  if (receita.proteina_por_100g) equipParts.push('<span class="recipe-equip-item recipe-prot">💪 ~' + receita.proteina_por_100g + 'g prot/100g</span>');
+  var macrosNota = receita.macros_prato_inteiro
+    ? '<div class="recipe-macros-nota">ⓘ Macros por 100g do prato inteiro — inclui vegetais e molho</div>'
+    : '';
   var equipInfo = equipParts.length
-    ? '<div class="recipe-equip">' + equipParts.join('') + '</div>'
+    ? '<div class="recipe-equip">' + equipParts.join('') + '</div>' + macrosNota
     : '';
 
   // Pré-preparo colapsável (aberto por padrão)

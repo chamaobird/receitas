@@ -31,6 +31,7 @@ window.RECIPES = [
     descricao: 'Suave, clássico e kid-friendly. Boa para segunda e terça.',
     base_g: 1000,
     kcal_por_100g: 175,
+    proteina_por_100g: 30,
     ingredientes: [
       { nome: 'Frango (peito)',      min: 1000, max: 1000, unidade: 'g', tipo: 'proteina', nota: '' },
       { nome: 'Sal',                 min: 10,   max: 10,   unidade: 'g', tipo: 'seco',     nota: '' },
@@ -64,6 +65,7 @@ window.RECIPES = [
     descricao: 'Suave, fresco e ótimo para reaproveitamento ao longo da semana.',
     base_g: 1000,
     kcal_por_100g: 175,
+    proteina_por_100g: 30,
     ingredientes: [
       { nome: 'Frango (peito)',      min: 1000, max: 1000, unidade: 'g', tipo: 'proteina', nota: '' },
       { nome: 'Sal',                 min: 10,   max: 10,   unidade: 'g', tipo: 'seco',     nota: '' },
@@ -95,6 +97,7 @@ window.RECIPES = [
     descricao: 'Iogurte como base da marinada — amacia a carne sem sabor marcante. Frango notavelmente mais suculento.',
     base_g: 1000,
     kcal_por_100g: 175,
+    proteina_por_100g: 30,
     ingredientes: [
       { nome: 'Frango (peito)',         min: 1000, max: 1000, unidade: 'g',  tipo: 'proteina', secao: 'Marinada', nota: '' },
       { nome: 'Iogurte grego integral', min: 130,  max: 130,  unidade: 'g',  tipo: 'fresco',   secao: 'Marinada', nota: '' },
@@ -130,6 +133,7 @@ window.RECIPES = [
     descricao: 'Dry rub simples + molho de manteiga aromático aplicado após o cozimento. Rico e suave, sem nenhuma ardência.',
     base_g: 1000,
     kcal_por_100g: 195,
+    proteina_por_100g: 29,
     ingredientes: [
       { nome: 'Frango (peito)',  min: 1000, max: 1000, unidade: 'g', tipo: 'proteina', secao: 'Frango + tempero', nota: '' },
       { nome: 'Sal',             min: 10,   max: 10,   unidade: 'g', tipo: 'seco',     secao: 'Frango + tempero', nota: '' },
@@ -167,6 +171,7 @@ window.RECIPES = [
     descricao: 'Dry rub base com glaze de mel e Dijon aplicado no final — superfície caramelizada, levemente adocicada.',
     base_g: 1000,
     kcal_por_100g: 178,
+    proteina_por_100g: 28,
     ingredientes: [
       { nome: 'Frango (peito)',    min: 1000, max: 1000, unidade: 'g', tipo: 'proteina', secao: 'Frango + tempero', nota: '' },
       { nome: 'Sal',               min: 9,    max: 9,    unidade: 'g', tipo: 'seco',     secao: 'Frango + tempero', nota: '' },
@@ -203,6 +208,7 @@ window.RECIPES = [
     descricao: 'Zaatar (ervas + gergelim + sumac) com azeite generoso. Aromático, cítrico natural, sem ardência.',
     base_g: 1000,
     kcal_por_100g: 182,
+    proteina_por_100g: 30,
     ingredientes: [
       { nome: 'Frango (peito)',  min: 1000, max: 1000, unidade: 'g', tipo: 'proteina', secao: 'Base', nota: '' },
       { nome: 'Sal',             min: 9,    max: 9,    unidade: 'g', tipo: 'seco',     secao: 'Base', nota: '' },
@@ -236,6 +242,7 @@ window.RECIPES = [
     descricao: 'Aromático, com smoked paprika e cominho leve. Quase sem ardência.',
     base_g: 1000,
     kcal_por_100g: 175,
+    proteina_por_100g: 30,
     ingredientes: [
       { nome: 'Frango (peito)',      min: 1000, max: 1000, unidade: 'g', tipo: 'proteina', nota: '' },
       { nome: 'Sal',                 min: 10,   max: 10,   unidade: 'g', tipo: 'seco',     nota: '' },
@@ -270,6 +277,7 @@ window.RECIPES = [
     descricao: 'Aromático com curry, cúrcuma e gengibre. Quase sem ardência.',
     base_g: 1000,
     kcal_por_100g: 175,
+    proteina_por_100g: 30,
     ingredientes: [
       { nome: 'Frango (peito)',      min: 1000, max: 1000, unidade: 'g', tipo: 'proteina', nota: '' },
       { nome: 'Sal',                 min: 10,   max: 10,   unidade: 'g', tipo: 'seco',     nota: '' },
@@ -305,6 +313,7 @@ window.RECIPES = [
     descricao: 'Suave, familiar e sem picância.',
     base_g: 500,
     kcal_por_100g: 200,
+    proteina_por_100g: 27,
     ingredientes: [
       { nome: 'Pork loin',           min: 500,  max: 500,  unidade: 'g', tipo: 'proteina', nota: '' },
       { nome: 'Sal',                 min: 6,    max: 6,    unidade: 'g', tipo: 'seco',     nota: '' },
@@ -337,6 +346,7 @@ window.RECIPES = [
     descricao: 'Defumado e aromático, com pimenta apenas de fundo.',
     base_g: 500,
     kcal_por_100g: 200,
+    proteina_por_100g: 27,
     ingredientes: [
       { nome: 'Pork loin',           min: 500,  max: 500,  unidade: 'g', tipo: 'proteina', nota: '' },
       { nome: 'Sal',                 min: 6,    max: 6,    unidade: 'g', tipo: 'seco',     nota: '' },
@@ -371,6 +381,7 @@ window.RECIPES = [
     descricao: 'Base clássica, versátil e sem picância.',
     base_g: 500,
     kcal_por_100g: 205,
+    proteina_por_100g: 21,
     ingredientes: [
       { nome: 'Ground beef 88%',       min: 500,  max: 500,  unidade: 'g', tipo: 'proteina', nota: '' },
       { nome: 'Sal',                   min: 6,    max: 6,    unidade: 'g', tipo: 'seco',     nota: '' },
@@ -410,6 +421,7 @@ window.RECIPES = [
     descricao: 'Aromático, com fundo defumado e pimenta sutil.',
     base_g: 500,
     kcal_por_100g: 205,
+    proteina_por_100g: 21,
     ingredientes: [
       { nome: 'Ground beef 88%',       min: 500,  max: 500,  unidade: 'g', tipo: 'proteina', nota: '' },
       { nome: 'Sal',                   min: 6,    max: 6,    unidade: 'g', tipo: 'seco',     nota: '' },
@@ -446,6 +458,7 @@ window.RECIPES = [
     descricao: 'Peça cortada em 4 bifes de 1,5–2 cm. Tempero clássico de ervas, suave e ideal para meal prep.',
     base_g: 900,
     kcal_por_100g: 178,
+    proteina_por_100g: 28,
     ingredientes: [
       { nome: 'Top Round Steak (coxão mole)', min: 900, max: 900, unidade: 'g',  tipo: 'proteina', nota: '4 bifes de 1,5–2 cm' },
       { nome: 'Sal',                           min: 12,  max: 12,  unidade: 'g',  tipo: 'seco',     nota: '' },
@@ -475,6 +488,7 @@ window.RECIPES = [
     descricao: 'Peça cortada em 4 bifes de 1,5–2 cm. Blend defumado estilo churrasco, fácil de fatiar para bowls e marmitas.',
     base_g: 900,
     kcal_por_100g: 178,
+    proteina_por_100g: 28,
     ingredientes: [
       { nome: 'Top Round Steak (coxão mole)', min: 900, max: 900, unidade: 'g',  tipo: 'proteina', nota: '4 bifes de 1,5–2 cm' },
       { nome: 'Sal',                           min: 12,  max: 12,  unidade: 'g',  tipo: 'seco',     nota: '' },
@@ -506,6 +520,7 @@ window.RECIPES = [
     descricao: 'Peça cortada em 4 bifes de 1,5–2 cm. Marinada de shoyu, limão e gengibre — ótimo para fatiar em tiras e montar bowls.',
     base_g: 900,
     kcal_por_100g: 178,
+    proteina_por_100g: 28,
     ingredientes: [
       { nome: 'Top Round Steak (coxão mole)', min: 900, max: 900, unidade: 'g',  tipo: 'proteina', nota: '4 bifes de 1,5–2 cm' },
       { nome: 'Shoyu',                         min: 40,  max: 40,  unidade: 'ml', tipo: 'seco',     nota: '' },
@@ -540,6 +555,7 @@ window.RECIPES = [
     descricao: 'Suave e fresco. Marine 15-30 min. Não precisa virar no forno.',
     base_g: 680,
     kcal_por_100g: 220,
+    proteina_por_100g: 25,
     ingredientes: [
       { nome: 'Salmão (filé)',       min: 680,  max: 680,  unidade: 'g', tipo: 'proteina', nota: '' },
       { nome: 'Sal',                 min: 8,    max: 8,    unidade: 'g', tipo: 'seco',     nota: '' },
@@ -573,6 +589,7 @@ window.RECIPES = [
     descricao: 'Defumado e aromático. Glaze de molho inglês e limão é opcional.',
     base_g: 680,
     kcal_por_100g: 220,
+    proteina_por_100g: 25,
     ingredientes: [
       { nome: 'Salmão (filé)',       min: 680,  max: 680,  unidade: 'g', tipo: 'proteina', nota: '' },
       { nome: 'Sal',                 min: 8,    max: 8,    unidade: 'g', tipo: 'seco',     nota: '' },
@@ -610,6 +627,7 @@ window.RECIPES = [
     descricao: '500g de carne → 4 hamburgueres. Gelado 1h30 antes de assar.',
     base_g: 500,
     kcal_por_100g: 210,
+    proteina_por_100g: 21,
     ingredientes: [
       { nome: 'Ground beef 88-12',   min: 500,  max: 500,  unidade: 'g', tipo: 'proteina', nota: '' },
       { nome: 'Ovo',                 min: 50,   max: 50,   unidade: 'g', tipo: 'seco',     nota: '1 unidade, batido' },
@@ -648,6 +666,7 @@ window.RECIPES = [
     descricao: '900g de frango → 6 filés. ~2h de preparo. Molho híbrido tomate fresco + Prego.',
     base_g: 900,
     kcal_por_100g: 205,
+    proteina_por_100g: 19,
     ingredientes: [
       // Frango + tempero
       { nome: 'Chicken breast (filés)', min: 900, max: 900,  unidade: 'g', tipo: 'proteina', secao: 'Frango + tempero', nota: '6 filés de ~150g cada' },
@@ -950,6 +969,7 @@ window.RECIPES = [
     descricao: 'Suave e fresca. Blend seco na air fryer + molho de manteiga com alho e limão finalizando.',
     base_g: 500,
     kcal_por_100g: 175,
+    proteina_por_100g: 23,
     ingredientes: [
       { nome: 'Tilápia loin',             min: 500, max: 500, unidade: 'g', tipo: 'proteina', secao: 'Base',              nota: '' },
       { nome: 'Azeite de oliva',           min: 10,  max: 10,  unidade: 'g', tipo: 'seco',     secao: 'Base',              nota: '' },
@@ -994,6 +1014,7 @@ window.RECIPES = [
     descricao: 'Aromática, com smoked paprika e pimenta sutil. Mesmo molho de manteiga da versão neutra.',
     base_g: 500,
     kcal_por_100g: 175,
+    proteina_por_100g: 23,
     ingredientes: [
       { nome: 'Tilápia loin',             min: 500, max: 500, unidade: 'g', tipo: 'proteina', secao: 'Base',              nota: '' },
       { nome: 'Azeite de oliva',           min: 10,  max: 10,  unidade: 'g', tipo: 'seco',     secao: 'Base',              nota: '' },
@@ -1040,6 +1061,7 @@ window.RECIPES = [
     descricao: 'Crosta de parmesão + panko sobre Dijon. Não vira — a crosta fica por cima.',
     base_g: 500,
     kcal_por_100g: 178,
+    proteina_por_100g: 25,
     ingredientes: [
       { nome: 'Tilápia loin',             min: 500, max: 500, unidade: 'g', tipo: 'proteina', secao: 'Base',   nota: '' },
       { nome: 'Sal',                       min: 3,   max: 3,   unidade: 'g', tipo: 'seco',     secao: 'Base',   nota: '' },
@@ -1077,6 +1099,7 @@ window.RECIPES = [
     descricao: 'Crosta de parmesão + panko com smoked paprika. Não vira — crosta fica por cima.',
     base_g: 500,
     kcal_por_100g: 178,
+    proteina_por_100g: 25,
     ingredientes: [
       { nome: 'Tilápia loin',             min: 500, max: 500, unidade: 'g', tipo: 'proteina', secao: 'Base',   nota: '' },
       { nome: 'Sal',                       min: 3,   max: 3,   unidade: 'g', tipo: 'seco',     secao: 'Base',   nota: '' },
@@ -1114,6 +1137,8 @@ window.RECIPES = [
     descricao: 'Aromática com dendê e leite de coco. Servir com arroz e farofa de dendê. Receita para ocasiões especiais.',
     base_g: 500,
     kcal_por_100g: 115,
+    proteina_por_100g: 8,
+    macros_prato_inteiro: true,
     ingredientes: [
       { nome: 'Tilápia em pedaços grandes', min: 500, max: 500, unidade: 'g', tipo: 'proteina', secao: 'Marinada', nota: '' },
       { nome: 'Sal',                         min: 4,   max: 4,   unidade: 'g', tipo: 'seco',     secao: 'Marinada', nota: '' },
@@ -1158,6 +1183,8 @@ window.RECIPES = [
     descricao: 'Caldo com legumes, peixe, ovos e pirão. Receita completa para ocasiões especiais.',
     base_g: 500,
     kcal_por_100g: 100,
+    proteina_por_100g: 9,
+    macros_prato_inteiro: true,
     ingredientes: [
       { nome: 'Tilápia em postas grandes', min: 500, max: 500, unidade: 'g', tipo: 'proteina', secao: 'Marinada',         nota: '' },
       { nome: 'Sal',                        min: 4,   max: 4,   unidade: 'g', tipo: 'seco',     secao: 'Marinada',         nota: '' },
@@ -1206,6 +1233,7 @@ window.RECIPES = [
     descricao: 'Suave e rápido. Blend seco na air fryer + molho de manteiga. Pesar depois de descongelado e escorrido.',
     base_g: 500,
     kcal_por_100g: 140,
+    proteina_por_100g: 22,
     ingredientes: [
       { nome: 'Camarão cru descascado',    min: 500, max: 500, unidade: 'g', tipo: 'proteina', secao: 'Base',              nota: 'pesado descongelado e escorrido' },
       { nome: 'Azeite de oliva',           min: 8,   max: 8,   unidade: 'g', tipo: 'seco',     secao: 'Base',              nota: '' },
@@ -1249,6 +1277,7 @@ window.RECIPES = [
     descricao: 'Aromático com smoked paprika e pimenta sutil. Mesmo molho de manteiga da versão neutra.',
     base_g: 500,
     kcal_por_100g: 140,
+    proteina_por_100g: 22,
     ingredientes: [
       { nome: 'Camarão cru descascado',    min: 500, max: 500, unidade: 'g', tipo: 'proteina', secao: 'Base',              nota: 'pesado descongelado e escorrido' },
       { nome: 'Azeite de oliva',           min: 8,   max: 8,   unidade: 'g', tipo: 'seco',     secao: 'Base',              nota: '' },
@@ -1294,6 +1323,7 @@ window.RECIPES = [
     descricao: 'Alho laminado fino dourado no azeite, camarão selado em fogo alto. Serve com espaguete, arroz ou salada.',
     base_g: 500,
     kcal_por_100g: 135,
+    proteina_por_100g: 22,
     ingredientes: [
       { nome: 'Camarão cru descascado',       min: 500, max: 500, unidade: 'g', tipo: 'proteina', nota: 'pesado descongelado e escorrido' },
       { nome: 'Sal',                           min: 4,   max: 4,   unidade: 'g', tipo: 'seco',     nota: '' },
@@ -1329,6 +1359,7 @@ window.RECIPES = [
     descricao: 'Manteiga de garrafa (ou ghee) com cebola, alho e cheiro-verde. Tempero rápido de 10 min antes.',
     base_g: 500,
     kcal_por_100g: 135,
+    proteina_por_100g: 20,
     ingredientes: [
       { nome: 'Camarão cru descascado',    min: 500, max: 500, unidade: 'g', tipo: 'proteina', secao: 'Tempero',  nota: 'pesado descongelado e escorrido' },
       { nome: 'Sal',                       min: 4,   max: 4,   unidade: 'g', tipo: 'seco',     secao: 'Tempero',  nota: '' },
@@ -1366,6 +1397,7 @@ window.RECIPES = [
     descricao: 'Marinada de shoyu + óleo de gergelim tostado + gengibre. Finalização em pote separado — não reaproveitar a marinada.',
     base_g: 500,
     kcal_por_100g: 118,
+    proteina_por_100g: 23,
     ingredientes: [
       { nome: 'Camarão cru descascado',       min: 500, max: 500, unidade: 'g', tipo: 'proteina', secao: 'Marinada',    nota: 'pesado descongelado e escorrido' },
       { nome: 'Shoyu low sodium',              min: 20,  max: 20,  unidade: 'g', tipo: 'seco',     secao: 'Marinada',    nota: 'não adicionar sal extra' },
@@ -1406,6 +1438,8 @@ window.RECIPES = [
     descricao: 'Moqueca rápida de semana. Camarão entra só no final — mantém textura macia e tempo em ~20 min.',
     base_g: 500,
     kcal_por_100g: 113,
+    proteina_por_100g: 10,
+    macros_prato_inteiro: true,
     ingredientes: [
       { nome: 'Camarão cru descascado',    min: 500, max: 500, unidade: 'g', tipo: 'proteina', secao: 'Tempero', nota: 'pesado descongelado e escorrido' },
       { nome: 'Sal',                       min: 4,   max: 4,   unidade: 'g', tipo: 'seco',     secao: 'Tempero', nota: '' },
@@ -1448,6 +1482,8 @@ window.RECIPES = [
     descricao: 'Camarão e creme de mandioca servidos lado a lado — controle de porção separado. Creme pode ser feito na véspera.',
     base_g: 500,
     kcal_por_100g: 120,
+    proteina_por_100g: 11,
+    macros_prato_inteiro: true,
     ingredientes: [
       { nome: 'Camarão cru descascado',    min: 500, max: 500, unidade: 'g', tipo: 'proteina', secao: 'Camarão',            nota: 'pesado descongelado e escorrido' },
       { nome: 'Sal',                       min: 4,   max: 4,   unidade: 'g', tipo: 'seco',     secao: 'Camarão',            nota: '' },
