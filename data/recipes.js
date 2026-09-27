@@ -6,6 +6,8 @@ window.PROTEINA_CONFIG = {
   carne:           { tab: '🫕 Carne moída',       label: 'carne moída',          base_g: 500,  min: 100,  max: 3000, step: 50  },
   carne_bovina:    { tab: '🥩 Top Round',          label: 'Top Round (coxão mole)', base_g: 900, min: 300,  max: 1800, step: 50  },
   salmao:          { tab: '🐟 Salmão',            label: 'salmão',               base_g: 680,  min: 200,  max: 2000, step: 50  },
+  tilapia:         { tab: '🐠 Tilápia',           label: 'tilápia',              base_g: 500,  min: 200,  max: 2000, step: 50  },
+  camarao:         { tab: '🦐 Camarão',           label: 'camarão',              base_g: 500,  min: 200,  max: 2000, step: 50  },
   burguer:         { tab: '🍔 Hamburguer',         label: 'carne para hamburguer',base_g: 500,  min: 250,  max: 1000, step: 125 },
   parmegiana:      { tab: '🍗 Parmegiana',         label: 'frango (parmegiana)',  base_g: 900,  min: 300,  max: 1800, step: 150 },
   acompanhamentos: { tab: '🥗 Acompanhamentos',    label: null, base_g: null, min: null, max: null, step: null }
@@ -737,6 +739,541 @@ window.RECIPES = [
       'A partir de 18 min, verifique: por fora dourado forte, por dentro macio. Se precisar, mais **3–5 min**.',
       'Transfira para tigela. Finalize com limão (opcional) e sirva imediatamente.',
       'Dica: não lote demais o cesto — perde a crocância.'
+    ]
+  },
+
+  // ── TILÁPIA ─────────────────────────────────────────────────────────────
+
+  {
+    id: 'tilapia-neutra-manteiga',
+    proteina: 'tilapia',
+    nome: 'Tilápia Neutra — manteiga, alho e limão',
+    perfil: 'neutro',
+    status: 'rotina',
+    equipamento: 'air fryer',
+    tempo_ativo: '~12 min',
+    quem_atende: 'Toda a família · Kid-friendly',
+    descricao: 'Suave e fresca. Blend seco na air fryer + molho de manteiga com alho e limão finalizando.',
+    base_g: 500,
+    ingredientes: [
+      { nome: 'Tilápia loin',             min: 500, max: 500, unidade: 'g', tipo: 'proteina', secao: 'Base',              nota: '' },
+      { nome: 'Azeite de oliva',           min: 10,  max: 10,  unidade: 'g', tipo: 'seco',     secao: 'Base',              nota: '' },
+      { nome: 'Sal',                       min: 5,   max: 5,   unidade: 'g', tipo: 'seco',     secao: 'Blend seco',        nota: '' },
+      { nome: 'Sweet paprika',             min: 3,   max: 3,   unidade: 'g', tipo: 'seco',     secao: 'Blend seco',        nota: '' },
+      { nome: 'Garlic powder',             min: 2,   max: 2,   unidade: 'g', tipo: 'seco',     secao: 'Blend seco',        nota: '' },
+      { nome: 'Granulated onion',          min: 2,   max: 2,   unidade: 'g', tipo: 'seco',     secao: 'Blend seco',        nota: '' },
+      { nome: 'Dill',                      min: 1,   max: 1,   unidade: 'g', tipo: 'seco',     secao: 'Blend seco',        nota: '' },
+      { nome: 'Pimenta-do-reino',          min: 0.3, max: 0.3, unidade: 'g', tipo: 'seco',     secao: 'Blend seco',        nota: 'opcional' },
+      { nome: 'Manteiga sem sal',          min: 30,  max: 30,  unidade: 'g', tipo: 'fresco',   secao: 'Molho de manteiga', nota: '' },
+      { nome: 'Alho fresco picado',        min: 6,   max: 6,   unidade: 'g', tipo: 'fresco',   secao: 'Molho de manteiga', nota: 'ou minced garlic' },
+      { nome: 'Suco de limão',             min: 15,  max: 15,  unidade: 'g', tipo: 'fresco',   secao: 'Molho de manteiga', nota: '' },
+      { nome: 'Raspas de limão',           min: 1,   max: 1,   unidade: 'g', tipo: 'fresco',   secao: 'Molho de manteiga', nota: 'opcional' },
+      { nome: 'Coentro fresco picado',     min: 4,   max: 4,   unidade: 'g', tipo: 'fresco',   secao: 'Molho de manteiga', nota: '' },
+      { nome: 'Sal (molho)',               min: 0.5, max: 0.5, unidade: 'g', tipo: 'seco',     secao: 'Molho de manteiga', nota: '' }
+    ],
+    pre_passos: [
+      { texto: 'Descongelar a tilápia na geladeira na noite anterior.', equipamento: null },
+      { texto: 'Montar o blend seco num potinho.', equipamento: null },
+      { texto: 'Picar alho e coentro; porcionar a manteiga.', equipamento: null }
+    ],
+    passos: [
+      { texto: 'Secar muito bem os loins com papel-toalha.', equipamento: null },
+      { texto: 'Pincelar o azeite e espalhar o blend seco nos dois lados. Pode descansar na geladeira por até 1 hora. Não usar limão nesta etapa.', equipamento: null },
+      { texto: 'Preaquecer a **air fryer a 400 °F** por 3 minutos. Untar o cesto ou usar papel perfurado.', equipamento: 'air fryer' },
+      { texto: 'Assar sem sobrepor por **10 a 14 minutos**, virando com cuidado na metade, até **145 °F** no centro. Tilápia é delicada — usar espátula de peixe e aguardar soltar antes de virar.', equipamento: 'air fryer' },
+      { texto: 'Enquanto assa: derreter a manteiga com o alho em fogo baixo por **1 a 2 minutos**, sem dourar (ou micro-ondas por 30 a 40 segundos).', equipamento: null },
+      { texto: 'Fora do fogo, juntar limão, raspas, sal e coentro.', equipamento: null },
+      { texto: 'Regar o peixe com o molho ao sair da air fryer. Sobras: até 3 dias na geladeira. Reaquecer a **350 °F** por 3 a 4 min.', equipamento: null }
+    ]
+  },
+
+  {
+    id: 'tilapia-marcante-manteiga',
+    proteina: 'tilapia',
+    nome: 'Tilápia Marcante — manteiga, alho e páprica defumada',
+    perfil: 'marcante',
+    status: 'rotina',
+    equipamento: 'air fryer',
+    tempo_ativo: '~12 min',
+    quem_atende: 'Adultos · Pimenta de fundo',
+    descricao: 'Aromática, com smoked paprika e pimenta sutil. Mesmo molho de manteiga da versão neutra.',
+    base_g: 500,
+    ingredientes: [
+      { nome: 'Tilápia loin',             min: 500, max: 500, unidade: 'g', tipo: 'proteina', secao: 'Base',              nota: '' },
+      { nome: 'Azeite de oliva',           min: 10,  max: 10,  unidade: 'g', tipo: 'seco',     secao: 'Base',              nota: '' },
+      { nome: 'Sal',                       min: 5,   max: 5,   unidade: 'g', tipo: 'seco',     secao: 'Blend seco',        nota: '' },
+      { nome: 'Smoked paprika',            min: 3,   max: 3,   unidade: 'g', tipo: 'seco',     secao: 'Blend seco',        nota: '' },
+      { nome: 'Sweet paprika',             min: 1,   max: 1,   unidade: 'g', tipo: 'seco',     secao: 'Blend seco',        nota: '' },
+      { nome: 'Garlic powder',             min: 2,   max: 2,   unidade: 'g', tipo: 'seco',     secao: 'Blend seco',        nota: '' },
+      { nome: 'Granulated onion',          min: 2,   max: 2,   unidade: 'g', tipo: 'seco',     secao: 'Blend seco',        nota: '' },
+      { nome: 'Ground thyme',              min: 0.5, max: 0.5, unidade: 'g', tipo: 'seco',     secao: 'Blend seco',        nota: '' },
+      { nome: 'Pimenta-do-reino',          min: 0.5, max: 0.5, unidade: 'g', tipo: 'seco',     secao: 'Blend seco',        nota: '' },
+      { nome: 'Crushed red pepper',        min: 0.1, max: 0.1, unidade: 'g', tipo: 'seco',     secao: 'Blend seco',        nota: 'opcional' },
+      { nome: 'Manteiga sem sal',          min: 30,  max: 30,  unidade: 'g', tipo: 'fresco',   secao: 'Molho de manteiga', nota: '' },
+      { nome: 'Alho fresco picado',        min: 6,   max: 6,   unidade: 'g', tipo: 'fresco',   secao: 'Molho de manteiga', nota: 'ou minced garlic' },
+      { nome: 'Suco de limão',             min: 15,  max: 15,  unidade: 'g', tipo: 'fresco',   secao: 'Molho de manteiga', nota: '' },
+      { nome: 'Raspas de limão',           min: 1,   max: 1,   unidade: 'g', tipo: 'fresco',   secao: 'Molho de manteiga', nota: 'opcional' },
+      { nome: 'Coentro fresco picado',     min: 4,   max: 4,   unidade: 'g', tipo: 'fresco',   secao: 'Molho de manteiga', nota: '' },
+      { nome: 'Sal (molho)',               min: 0.5, max: 0.5, unidade: 'g', tipo: 'seco',     secao: 'Molho de manteiga', nota: '' }
+    ],
+    pre_passos: [
+      { texto: 'Descongelar a tilápia na geladeira na noite anterior.', equipamento: null },
+      { texto: 'Montar o blend seco num potinho.', equipamento: null },
+      { texto: 'Picar alho e coentro; porcionar a manteiga.', equipamento: null }
+    ],
+    passos: [
+      { texto: 'Secar muito bem os loins com papel-toalha.', equipamento: null },
+      { texto: 'Pincelar o azeite e espalhar o blend seco nos dois lados. Pode descansar na geladeira por até 1 hora. Não usar limão nesta etapa.', equipamento: null },
+      { texto: 'Preaquecer a **air fryer a 400 °F** por 3 minutos. Untar o cesto ou usar papel perfurado.', equipamento: 'air fryer' },
+      { texto: 'Assar sem sobrepor por **10 a 14 minutos**, virando com cuidado na metade, até **145 °F** no centro.', equipamento: 'air fryer' },
+      { texto: 'Enquanto assa: derreter a manteiga com o alho em fogo baixo por **1 a 2 minutos**, sem dourar.', equipamento: null },
+      { texto: 'Fora do fogo, juntar limão, raspas, sal e coentro.', equipamento: null },
+      { texto: 'Regar o peixe com o molho ao sair da air fryer. Reaquecer a **350 °F** por 3 a 4 min.', equipamento: null }
+    ]
+  },
+
+  {
+    id: 'tilapia-neutra-parmesao',
+    proteina: 'tilapia',
+    nome: 'Tilápia Neutra — crosta de parmesão e limão',
+    perfil: 'neutro',
+    status: 'rotina',
+    equipamento: 'air fryer',
+    tempo_ativo: '~15 min',
+    quem_atende: 'Toda a família · A mais kid-friendly',
+    descricao: 'Crosta de parmesão + panko sobre Dijon. Não vira — a crosta fica por cima.',
+    base_g: 500,
+    ingredientes: [
+      { nome: 'Tilápia loin',             min: 500, max: 500, unidade: 'g', tipo: 'proteina', secao: 'Base',   nota: '' },
+      { nome: 'Sal',                       min: 3,   max: 3,   unidade: 'g', tipo: 'seco',     secao: 'Base',   nota: '' },
+      { nome: 'Mostarda Dijon',            min: 10,  max: 10,  unidade: 'g', tipo: 'seco',     secao: 'Base',   nota: '' },
+      { nome: 'Azeite de oliva',           min: 10,  max: 10,  unidade: 'g', tipo: 'seco',     secao: 'Base',   nota: '' },
+      { nome: 'Parmesão ralado fino',      min: 40,  max: 40,  unidade: 'g', tipo: 'seco',     secao: 'Crosta', nota: '' },
+      { nome: 'Panko',                     min: 30,  max: 30,  unidade: 'g', tipo: 'seco',     secao: 'Crosta', nota: '' },
+      { nome: 'Garlic powder',             min: 1.5, max: 1.5, unidade: 'g', tipo: 'seco',     secao: 'Crosta', nota: '' },
+      { nome: 'Sweet paprika',             min: 1.5, max: 1.5, unidade: 'g', tipo: 'seco',     secao: 'Crosta', nota: '' },
+      { nome: 'Dill ou oregano leaves',    min: 0.5, max: 0.5, unidade: 'g', tipo: 'seco',     secao: 'Crosta', nota: '' },
+      { nome: 'Raspas de limão',           min: 1,   max: 1,   unidade: 'g', tipo: 'seco',     secao: 'Crosta', nota: '' },
+      { nome: 'Pimenta-do-reino',          min: 0.3, max: 0.3, unidade: 'g', tipo: 'seco',     secao: 'Crosta', nota: 'opcional' }
+    ],
+    pre_passos: [
+      { texto: 'Descongelar a tilápia na geladeira na noite anterior.', equipamento: null },
+      { texto: 'Misturar todos os ingredientes da crosta e guardar fechado na geladeira.', equipamento: null }
+    ],
+    passos: [
+      { texto: 'Secar os loins, temperar com o sal e pincelar a mistura de Dijon + azeite uniformemente.', equipamento: null },
+      { texto: 'Pressionar a crosta por cima com a palma da mão ou colher, formando camada firme de ~5 mm que adere ao Dijon. Se soltar, o Dijon foi pouco.', equipamento: null },
+      { texto: 'Assar na **air fryer a 380 °F** por **10 a 13 minutos**, **sem virar**, sobre papel perfurado. Se dourar rápido demais, baixar para **360 °F**.', equipamento: 'air fryer' },
+      { texto: 'Retirar aos **145 °F** no centro e servir com gomos de limão. Reaquecer só na air fryer (**350 °F**, 3 a 4 min) — micro-ondas amolece a crosta.', equipamento: null }
+    ]
+  },
+
+  {
+    id: 'tilapia-marcante-parmesao',
+    proteina: 'tilapia',
+    nome: 'Tilápia Marcante — crosta de parmesão defumada',
+    perfil: 'marcante',
+    status: 'rotina',
+    equipamento: 'air fryer',
+    tempo_ativo: '~15 min',
+    quem_atende: 'Adultos',
+    descricao: 'Crosta de parmesão + panko com smoked paprika. Não vira — crosta fica por cima.',
+    base_g: 500,
+    ingredientes: [
+      { nome: 'Tilápia loin',             min: 500, max: 500, unidade: 'g', tipo: 'proteina', secao: 'Base',   nota: '' },
+      { nome: 'Sal',                       min: 3,   max: 3,   unidade: 'g', tipo: 'seco',     secao: 'Base',   nota: '' },
+      { nome: 'Mostarda Dijon',            min: 10,  max: 10,  unidade: 'g', tipo: 'seco',     secao: 'Base',   nota: '' },
+      { nome: 'Azeite de oliva',           min: 10,  max: 10,  unidade: 'g', tipo: 'seco',     secao: 'Base',   nota: '' },
+      { nome: 'Parmesão ralado fino',      min: 40,  max: 40,  unidade: 'g', tipo: 'seco',     secao: 'Crosta', nota: '' },
+      { nome: 'Panko',                     min: 30,  max: 30,  unidade: 'g', tipo: 'seco',     secao: 'Crosta', nota: '' },
+      { nome: 'Garlic powder',             min: 1.5, max: 1.5, unidade: 'g', tipo: 'seco',     secao: 'Crosta', nota: '' },
+      { nome: 'Smoked paprika',            min: 1.5, max: 1.5, unidade: 'g', tipo: 'seco',     secao: 'Crosta', nota: '' },
+      { nome: 'Dill ou oregano leaves',    min: 0.5, max: 0.5, unidade: 'g', tipo: 'seco',     secao: 'Crosta', nota: '' },
+      { nome: 'Raspas de limão',           min: 1,   max: 1,   unidade: 'g', tipo: 'seco',     secao: 'Crosta', nota: '' },
+      { nome: 'Pimenta-do-reino',          min: 0.5, max: 0.5, unidade: 'g', tipo: 'seco',     secao: 'Crosta', nota: '' }
+    ],
+    pre_passos: [
+      { texto: 'Descongelar a tilápia na geladeira na noite anterior.', equipamento: null },
+      { texto: 'Misturar todos os ingredientes da crosta e guardar fechado na geladeira.', equipamento: null }
+    ],
+    passos: [
+      { texto: 'Secar os loins, temperar com o sal e pincelar a mistura de Dijon + azeite uniformemente.', equipamento: null },
+      { texto: 'Pressionar a crosta por cima com a palma da mão ou colher, formando camada firme de ~5 mm que adere ao Dijon.', equipamento: null },
+      { texto: 'Assar na **air fryer a 380 °F** por **10 a 13 minutos**, **sem virar**, sobre papel perfurado. Se dourar rápido demais, baixar para **360 °F**.', equipamento: 'air fryer' },
+      { texto: 'Retirar aos **145 °F** no centro e servir com gomos de limão. Reaquecer só na air fryer (**350 °F**, 3 a 4 min).', equipamento: null }
+    ]
+  },
+
+  {
+    id: 'tilapia-moqueca-baiana',
+    proteina: 'tilapia',
+    nome: 'Moqueca baiana de tilápia',
+    perfil: 'marcante',
+    status: 'guardada',
+    equipamento: 'panela',
+    tempo_ativo: '~25 min',
+    quem_atende: 'Família toda · Pimenta só no prato dos adultos',
+    descricao: 'Aromática com dendê e leite de coco. Servir com arroz e farofa de dendê. Receita para ocasiões especiais.',
+    base_g: 500,
+    ingredientes: [
+      { nome: 'Tilápia em pedaços grandes', min: 500, max: 500, unidade: 'g', tipo: 'proteina', secao: 'Marinada', nota: '' },
+      { nome: 'Sal',                         min: 4,   max: 4,   unidade: 'g', tipo: 'seco',     secao: 'Marinada', nota: '' },
+      { nome: 'Suco de limão',               min: 15,  max: 15,  unidade: 'g', tipo: 'fresco',   secao: 'Marinada', nota: '' },
+      { nome: 'Alho',                        min: 5,   max: 5,   unidade: 'g', tipo: 'fresco',   secao: 'Marinada', nota: '' },
+      { nome: 'Azeite de oliva',             min: 10,  max: 10,  unidade: 'g', tipo: 'seco',     secao: 'Moqueca',  nota: '' },
+      { nome: 'Azeite de dendê',             min: 15,  max: 15,  unidade: 'g', tipo: 'fresco',   secao: 'Moqueca',  nota: 'mercado brasileiro ou online' },
+      { nome: 'Azeite de dendê (finalizar)', min: 5,   max: 5,   unidade: 'g', tipo: 'fresco',   secao: 'Moqueca',  nota: 'opcional' },
+      { nome: 'Cebola em rodelas',           min: 150, max: 150, unidade: 'g', tipo: 'fresco',   secao: 'Moqueca',  nota: '' },
+      { nome: 'Pimentão vermelho em rodelas',min: 100, max: 100, unidade: 'g', tipo: 'fresco',   secao: 'Moqueca',  nota: '' },
+      { nome: 'Pimentão amarelo em rodelas', min: 100, max: 100, unidade: 'g', tipo: 'fresco',   secao: 'Moqueca',  nota: '' },
+      { nome: 'Tomate em rodelas',           min: 200, max: 200, unidade: 'g', tipo: 'fresco',   secao: 'Moqueca',  nota: '' },
+      { nome: 'Alho picado',                 min: 6,   max: 6,   unidade: 'g', tipo: 'fresco',   secao: 'Moqueca',  nota: '' },
+      { nome: 'Leite de coco',               min: 200, max: 200, unidade: 'g', tipo: 'fresco',   secao: 'Moqueca',  nota: '' },
+      { nome: 'Banana-da-terra em rodelas',  min: 150, max: 150, unidade: 'g', tipo: 'fresco',   secao: 'Moqueca',  nota: 'opcional' },
+      { nome: 'Coentro',                     min: 10,  max: 10,  unidade: 'g', tipo: 'fresco',   secao: 'Moqueca',  nota: '' },
+      { nome: 'Cebolinha',                   min: 5,   max: 5,   unidade: 'g', tipo: 'fresco',   secao: 'Moqueca',  nota: '' },
+      { nome: 'Sal (acerto final)',           min: 2,   max: 2,   unidade: 'g', tipo: 'seco',     secao: 'Moqueca',  nota: '' }
+    ],
+    pre_passos: [
+      { texto: 'Marinar o peixe com sal, limão e alho por **15 a 20 minutos** (máximo 30 — o limão começa a "cozinhar" o peixe).', equipamento: null }
+    ],
+    passos: [
+      { texto: 'Aquecer o azeite de oliva e o dendê em fogo médio; refogar cebola, alho e pimentões por **3 minutos**.', equipamento: 'panela' },
+      { texto: 'Juntar o tomate, tampar e reduzir por **3 a 4 minutos**.', equipamento: 'panela' },
+      { texto: 'Adicionar o leite de coco e ferver por **2 minutos**. Se usar banana-da-terra, colocar agora e cozinhar por **3 minutos**.', equipamento: 'panela' },
+      { texto: 'Acomodar o peixe marinado, tampar e cozinhar em fogo baixo por **8 a 10 minutos**, mexendo o mínimo possível para não desmanchar.', equipamento: 'panela' },
+      { texto: 'Desligar o fogo. Finalizar com coentro, cebolinha e acerto de sal. Regar com dendê extra se usar.', equipamento: null },
+      { texto: 'Servir com arroz branco e farofa de dendê.', equipamento: null }
+    ]
+  },
+
+  {
+    id: 'tilapia-peixada-cearense',
+    proteina: 'tilapia',
+    nome: 'Peixada cearense',
+    perfil: 'neutro',
+    status: 'guardada',
+    equipamento: 'panela',
+    tempo_ativo: '~30 min',
+    quem_atende: 'Toda a família',
+    descricao: 'Caldo com legumes, peixe, ovos e pirão. Receita completa para ocasiões especiais.',
+    base_g: 500,
+    ingredientes: [
+      { nome: 'Tilápia em postas grandes', min: 500, max: 500, unidade: 'g', tipo: 'proteina', secao: 'Marinada',         nota: '' },
+      { nome: 'Sal',                        min: 4,   max: 4,   unidade: 'g', tipo: 'seco',     secao: 'Marinada',         nota: '' },
+      { nome: 'Suco de limão',              min: 15,  max: 15,  unidade: 'g', tipo: 'fresco',   secao: 'Marinada',         nota: '' },
+      { nome: 'Alho',                       min: 5,   max: 5,   unidade: 'g', tipo: 'fresco',   secao: 'Marinada',         nota: '' },
+      { nome: 'Batata em pedaços grandes',  min: 250, max: 250, unidade: 'g', tipo: 'fresco',   secao: 'Legumes cozidos',  nota: '' },
+      { nome: 'Cenoura em pedaços grandes', min: 120, max: 120, unidade: 'g', tipo: 'fresco',   secao: 'Legumes cozidos',  nota: '' },
+      { nome: 'Ovos',                       min: 100, max: 100, unidade: 'g', tipo: 'fresco',   secao: 'Legumes cozidos',  nota: '2 unidades' },
+      { nome: 'Azeite de oliva',            min: 15,  max: 15,  unidade: 'g', tipo: 'seco',     secao: 'Caldo',            nota: '' },
+      { nome: 'Cebola (metade picada, metade em quartos)', min: 150, max: 150, unidade: 'g', tipo: 'fresco', secao: 'Caldo', nota: '' },
+      { nome: 'Tomate (metade picado, metade em quartos)', min: 200, max: 200, unidade: 'g', tipo: 'fresco', secao: 'Caldo', nota: '' },
+      { nome: 'Pimentão (metade picado, metade em tiras)', min: 150, max: 150, unidade: 'g', tipo: 'fresco', secao: 'Caldo', nota: '' },
+      { nome: 'Colorau',                    min: 3,   max: 3,   unidade: 'g', tipo: 'seco',     secao: 'Caldo',            nota: '' },
+      { nome: 'Turmeric',                   min: 1,   max: 1,   unidade: 'g', tipo: 'seco',     secao: 'Caldo',            nota: '' },
+      { nome: 'Água quente',                min: 400, max: 400, unidade: 'g', tipo: 'fresco',   secao: 'Caldo',            nota: '' },
+      { nome: 'Leite de coco',              min: 100, max: 100, unidade: 'g', tipo: 'fresco',   secao: 'Caldo',            nota: '' },
+      { nome: 'Coentro',                    min: 10,  max: 10,  unidade: 'g', tipo: 'fresco',   secao: 'Caldo',            nota: '' },
+      { nome: 'Cebolinha',                  min: 5,   max: 5,   unidade: 'g', tipo: 'fresco',   secao: 'Caldo',            nota: '' },
+      { nome: 'Caldo da peixada (pirão)',   min: 300, max: 300, unidade: 'g', tipo: 'fresco',   secao: 'Pirão',            nota: 'retirar antes de servir' },
+      { nome: 'Farinha de mandioca',        min: 45,  max: 45,  unidade: 'g', tipo: 'seco',     secao: 'Pirão',            nota: '' }
+    ],
+    pre_passos: [
+      { texto: 'Marinar o peixe com sal, limão e alho por **15 a 20 minutos** (máximo 30).', equipamento: null }
+    ],
+    passos: [
+      { texto: 'Cozinhar batata, cenoura e ovos em água por **12 a 15 minutos**; reservar.', equipamento: 'panela' },
+      { texto: 'Refogar no azeite a parte **picada** da cebola, tomate e pimentão com colorau e turmeric por **3 minutos**.', equipamento: 'panela' },
+      { texto: 'Juntar a água quente e ferver por **5 minutos**.', equipamento: 'panela' },
+      { texto: 'Adicionar o peixe, os vegetais em quartos/tiras e o leite de coco; cozinhar por **5 a 7 minutos** em fogo médio.', equipamento: 'panela' },
+      { texto: 'Voltar os legumes e os ovos cortados ao meio para a panela; finalizar com coentro e cebolinha.', equipamento: 'panela' },
+      { texto: '**Pirão:** retirar 300 g do caldo para uma panelinha. Em fogo baixo, jogar a farinha de mandioca **em chuva fina** com uma mão enquanto mexe continuamente com a outra (colher de pau). Mexer por **2 a 3 minutos** até virar mingau mole — escorre da colher mas encorpa rápido fora do fogo.', equipamento: 'panela' }
+    ]
+  },
+
+  // ── CAMARÃO ──────────────────────────────────────────────────────────────
+
+  {
+    id: 'camarao-neutro-manteiga',
+    proteina: 'camarao',
+    nome: 'Camarão Neutro — manteiga, alho e limão',
+    perfil: 'neutro',
+    status: 'rotina',
+    equipamento: 'air fryer',
+    tempo_ativo: '~10 min',
+    quem_atende: 'Toda a família · Kid-friendly',
+    descricao: 'Suave e rápido. Blend seco na air fryer + molho de manteiga. Pesar depois de descongelado e escorrido.',
+    base_g: 500,
+    ingredientes: [
+      { nome: 'Camarão cru descascado',    min: 500, max: 500, unidade: 'g', tipo: 'proteina', secao: 'Base',              nota: 'pesado descongelado e escorrido' },
+      { nome: 'Azeite de oliva',           min: 8,   max: 8,   unidade: 'g', tipo: 'seco',     secao: 'Base',              nota: '' },
+      { nome: 'Sal',                       min: 4,   max: 4,   unidade: 'g', tipo: 'seco',     secao: 'Blend seco',        nota: '' },
+      { nome: 'Sweet paprika',             min: 2,   max: 2,   unidade: 'g', tipo: 'seco',     secao: 'Blend seco',        nota: '' },
+      { nome: 'Garlic powder',             min: 2,   max: 2,   unidade: 'g', tipo: 'seco',     secao: 'Blend seco',        nota: '' },
+      { nome: 'Granulated onion',          min: 1,   max: 1,   unidade: 'g', tipo: 'seco',     secao: 'Blend seco',        nota: '' },
+      { nome: 'Dill',                      min: 0.5, max: 0.5, unidade: 'g', tipo: 'seco',     secao: 'Blend seco',        nota: '' },
+      { nome: 'Pimenta-do-reino',          min: 0.3, max: 0.3, unidade: 'g', tipo: 'seco',     secao: 'Blend seco',        nota: 'opcional' },
+      { nome: 'Manteiga sem sal',          min: 25,  max: 25,  unidade: 'g', tipo: 'fresco',   secao: 'Molho de manteiga', nota: '' },
+      { nome: 'Alho fresco picado',        min: 6,   max: 6,   unidade: 'g', tipo: 'fresco',   secao: 'Molho de manteiga', nota: 'ou minced garlic' },
+      { nome: 'Suco de limão',             min: 12,  max: 12,  unidade: 'g', tipo: 'fresco',   secao: 'Molho de manteiga', nota: '' },
+      { nome: 'Raspas de limão',           min: 1,   max: 1,   unidade: 'g', tipo: 'fresco',   secao: 'Molho de manteiga', nota: 'opcional' },
+      { nome: 'Coentro fresco picado',     min: 4,   max: 4,   unidade: 'g', tipo: 'fresco',   secao: 'Molho de manteiga', nota: '' }
+    ],
+    pre_passos: [
+      { texto: 'Descongelar na geladeira na noite anterior (ou em água fria corrente, dentro do saco fechado, por 10 a 15 minutos).', equipamento: null },
+      { texto: 'Montar o blend seco num potinho.', equipamento: null },
+      { texto: 'Picar alho e coentro; porcionar a manteiga.', equipamento: null }
+    ],
+    passos: [
+      { texto: 'Escorrer e secar muito bem o camarão com papel-toalha. Pesar — o gelo de glaciamento não conta.', equipamento: null },
+      { texto: 'Misturar com o azeite e o blend seco.', equipamento: null },
+      { texto: 'Preaquecer a **air fryer a 400 °F** por 3 minutos.', equipamento: 'air fryer' },
+      { texto: 'Espalhar o camarão em **camada única** e assar por **6 a 8 minutos**, sacudindo o cesto na metade. Pronto quando rosado, opaco e em formato de **"C"** — formato de "O" fechado significa que passou do ponto e ficará borrachudo.', equipamento: 'air fryer' },
+      { texto: 'Enquanto assa: derreter a manteiga com o alho em fogo baixo por **1 a 2 minutos**, sem dourar.', equipamento: null },
+      { texto: 'Fora do fogo, juntar limão, raspas e coentro.', equipamento: null },
+      { texto: 'Misturar o camarão ao molho logo ao sair da air fryer. Reaquecer a **350 °F** por 2 a 3 min. Evitar micro-ondas.', equipamento: null }
+    ]
+  },
+
+  {
+    id: 'camarao-marcante-manteiga',
+    proteina: 'camarao',
+    nome: 'Camarão Marcante — manteiga, alho e páprica defumada',
+    perfil: 'marcante',
+    status: 'rotina',
+    equipamento: 'air fryer',
+    tempo_ativo: '~10 min',
+    quem_atende: 'Adultos · Pimenta de fundo',
+    descricao: 'Aromático com smoked paprika e pimenta sutil. Mesmo molho de manteiga da versão neutra.',
+    base_g: 500,
+    ingredientes: [
+      { nome: 'Camarão cru descascado',    min: 500, max: 500, unidade: 'g', tipo: 'proteina', secao: 'Base',              nota: 'pesado descongelado e escorrido' },
+      { nome: 'Azeite de oliva',           min: 8,   max: 8,   unidade: 'g', tipo: 'seco',     secao: 'Base',              nota: '' },
+      { nome: 'Sal',                       min: 4,   max: 4,   unidade: 'g', tipo: 'seco',     secao: 'Blend seco',        nota: '' },
+      { nome: 'Smoked paprika',            min: 2,   max: 2,   unidade: 'g', tipo: 'seco',     secao: 'Blend seco',        nota: '' },
+      { nome: 'Sweet paprika',             min: 0.5, max: 0.5, unidade: 'g', tipo: 'seco',     secao: 'Blend seco',        nota: '' },
+      { nome: 'Garlic powder',             min: 2,   max: 2,   unidade: 'g', tipo: 'seco',     secao: 'Blend seco',        nota: '' },
+      { nome: 'Granulated onion',          min: 1,   max: 1,   unidade: 'g', tipo: 'seco',     secao: 'Blend seco',        nota: '' },
+      { nome: 'Ground thyme',              min: 0.3, max: 0.3, unidade: 'g', tipo: 'seco',     secao: 'Blend seco',        nota: '' },
+      { nome: 'Pimenta-do-reino',          min: 0.5, max: 0.5, unidade: 'g', tipo: 'seco',     secao: 'Blend seco',        nota: '' },
+      { nome: 'Crushed red pepper',        min: 0.1, max: 0.1, unidade: 'g', tipo: 'seco',     secao: 'Blend seco',        nota: 'opcional' },
+      { nome: 'Manteiga sem sal',          min: 25,  max: 25,  unidade: 'g', tipo: 'fresco',   secao: 'Molho de manteiga', nota: '' },
+      { nome: 'Alho fresco picado',        min: 6,   max: 6,   unidade: 'g', tipo: 'fresco',   secao: 'Molho de manteiga', nota: 'ou minced garlic' },
+      { nome: 'Suco de limão',             min: 12,  max: 12,  unidade: 'g', tipo: 'fresco',   secao: 'Molho de manteiga', nota: '' },
+      { nome: 'Raspas de limão',           min: 1,   max: 1,   unidade: 'g', tipo: 'fresco',   secao: 'Molho de manteiga', nota: 'opcional' },
+      { nome: 'Coentro fresco picado',     min: 4,   max: 4,   unidade: 'g', tipo: 'fresco',   secao: 'Molho de manteiga', nota: '' }
+    ],
+    pre_passos: [
+      { texto: 'Descongelar na geladeira na noite anterior.', equipamento: null },
+      { texto: 'Montar o blend seco num potinho.', equipamento: null },
+      { texto: 'Picar alho e coentro; porcionar a manteiga.', equipamento: null }
+    ],
+    passos: [
+      { texto: 'Escorrer e secar muito bem o camarão com papel-toalha. Pesar.', equipamento: null },
+      { texto: 'Misturar com o azeite e o blend seco.', equipamento: null },
+      { texto: 'Preaquecer a **air fryer a 400 °F** por 3 minutos.', equipamento: 'air fryer' },
+      { texto: 'Espalhar em **camada única** e assar por **6 a 8 minutos**, sacudindo na metade, até rosado, opaco e em **"C"**.', equipamento: 'air fryer' },
+      { texto: 'Enquanto assa: derreter a manteiga com o alho em fogo baixo por **1 a 2 minutos**, sem dourar.', equipamento: null },
+      { texto: 'Fora do fogo, juntar limão, raspas e coentro.', equipamento: null },
+      { texto: 'Misturar o camarão ao molho logo ao sair da air fryer. Reaquecer a **350 °F** por 2 a 3 min.', equipamento: null }
+    ]
+  },
+
+  {
+    id: 'camarao-alho-e-oleo',
+    proteina: 'camarao',
+    nome: 'Camarão alho e óleo',
+    perfil: 'neutro',
+    status: 'rotina',
+    equipamento: 'frigideira grande',
+    tempo_ativo: '~10 min',
+    quem_atende: 'Toda a família',
+    descricao: 'Alho laminado fino dourado no azeite, camarão selado em fogo alto. Serve com espaguete, arroz ou salada.',
+    base_g: 500,
+    ingredientes: [
+      { nome: 'Camarão cru descascado',       min: 500, max: 500, unidade: 'g', tipo: 'proteina', nota: 'pesado descongelado e escorrido' },
+      { nome: 'Sal',                           min: 4,   max: 4,   unidade: 'g', tipo: 'seco',     nota: '' },
+      { nome: 'Pimenta-do-reino',              min: 0.3, max: 0.3, unidade: 'g', tipo: 'seco',     nota: 'opcional' },
+      { nome: 'Azeite de oliva',               min: 25,  max: 25,  unidade: 'g', tipo: 'seco',     nota: '' },
+      { nome: 'Alho fresco laminado fino',     min: 20,  max: 20,  unidade: 'g', tipo: 'fresco',   nota: 'fatias de ~1–2 mm com faca' },
+      { nome: 'Suco de limão',                 min: 10,  max: 10,  unidade: 'g', tipo: 'fresco',   nota: '' },
+      { nome: 'Salsinha ou coentro picado',    min: 6,   max: 6,   unidade: 'g', tipo: 'fresco',   nota: '' },
+      { nome: 'Crushed red pepper',            min: 0.1, max: 0.1, unidade: 'g', tipo: 'seco',     nota: 'opcional — só no prato dos adultos' }
+    ],
+    pre_passos: [
+      { texto: 'Descongelar na noite anterior.', equipamento: null },
+      { texto: 'Laminar o alho em fatias de ~1–2 mm com faca; picar a erva. Guardar na geladeira.', equipamento: null }
+    ],
+    passos: [
+      { texto: 'Secar bem o camarão, pesar e temperar com sal e pimenta.', equipamento: null },
+      { texto: 'Aquecer o azeite com o alho laminado em **fogo médio** por **1 a 2 minutos**, até o alho ficar dourado bem claro. Retirar o alho com escumadeira e reservar — se passar do ponto, amarga.', equipamento: 'frigideira grande' },
+      { texto: 'Subir o fogo para **médio-alto**. Colocar o camarão em camada única e deixar **1,5 a 2 minutos sem mexer**. Se a frigideira for pequena, fazer em duas levas — camarão amontoado cozinha no vapor e não doura.', equipamento: 'frigideira grande' },
+      { texto: 'Virar e cozinhar mais **1 a 1,5 minuto**, até rosado e opaco.', equipamento: 'frigideira grande' },
+      { texto: 'Desligar o fogo. Voltar o alho, juntar limão e erva e misturar.', equipamento: null }
+    ]
+  },
+
+  {
+    id: 'camarao-manteiga-de-garrafa',
+    proteina: 'camarao',
+    nome: 'Camarão na manteiga de garrafa com coentro',
+    perfil: 'neutro',
+    status: 'rotina',
+    equipamento: 'frigideira grande',
+    tempo_ativo: '~12 min',
+    quem_atende: 'Toda a família',
+    descricao: 'Manteiga de garrafa (ou ghee) com cebola, alho e cheiro-verde. Tempero rápido de 10 min antes.',
+    base_g: 500,
+    ingredientes: [
+      { nome: 'Camarão cru descascado',    min: 500, max: 500, unidade: 'g', tipo: 'proteina', secao: 'Tempero',  nota: 'pesado descongelado e escorrido' },
+      { nome: 'Sal',                       min: 4,   max: 4,   unidade: 'g', tipo: 'seco',     secao: 'Tempero',  nota: '' },
+      { nome: 'Alho fresco picado',        min: 5,   max: 5,   unidade: 'g', tipo: 'fresco',   secao: 'Tempero',  nota: '' },
+      { nome: 'Suco de limão',             min: 10,  max: 10,  unidade: 'g', tipo: 'fresco',   secao: 'Tempero',  nota: '' },
+      { nome: 'Pimenta-do-reino',          min: 0.3, max: 0.3, unidade: 'g', tipo: 'seco',     secao: 'Tempero',  nota: 'opcional' },
+      { nome: 'Manteiga de garrafa',       min: 25,  max: 25,  unidade: 'g', tipo: 'fresco',   secao: 'Preparo',  nota: 'ou ghee (substituto mais próximo)' },
+      { nome: 'Cebola picada fina',        min: 50,  max: 50,  unidade: 'g', tipo: 'fresco',   secao: 'Preparo',  nota: '' },
+      { nome: 'Alho fresco picado',        min: 6,   max: 6,   unidade: 'g', tipo: 'fresco',   secao: 'Preparo',  nota: '' },
+      { nome: 'Coentro fresco picado',     min: 8,   max: 8,   unidade: 'g', tipo: 'fresco',   secao: 'Preparo',  nota: '' },
+      { nome: 'Cebolinha picada',          min: 4,   max: 4,   unidade: 'g', tipo: 'fresco',   secao: 'Preparo',  nota: '' }
+    ],
+    pre_passos: [
+      { texto: 'Descongelar na noite anterior.', equipamento: null },
+      { texto: 'Picar cebola, alho, coentro e cebolinha; guardar na geladeira.', equipamento: null }
+    ],
+    passos: [
+      { texto: 'Secar o camarão, pesar e temperar com sal, alho, limão e pimenta. Descansar **10 a 15 minutos** (máximo 20 — o limão altera a textura).', equipamento: null },
+      { texto: 'Aquecer a manteiga de garrafa em **fogo médio-alto** e refogar a cebola por **2 minutos**.', equipamento: 'frigideira grande' },
+      { texto: 'Juntar o alho e cozinhar por **30 segundos**.', equipamento: 'frigideira grande' },
+      { texto: 'Adicionar o camarão escorrido (descartar o líquido do tempero) em camada única e cozinhar **1,5 a 2 minutos de cada lado**.', equipamento: 'frigideira grande' },
+      { texto: 'Desligar o fogo e finalizar com coentro e cebolinha.', equipamento: null }
+    ]
+  },
+
+  {
+    id: 'camarao-gergelim-gengibre',
+    proteina: 'camarao',
+    nome: 'Camarão com gergelim, gengibre e limão',
+    perfil: 'marcante',
+    status: 'rotina',
+    equipamento: 'air fryer',
+    tempo_ativo: '~10 min',
+    quem_atende: 'Toda a família · Aromático sem ardência',
+    descricao: 'Marinada de shoyu + óleo de gergelim tostado + gengibre. Finalização em pote separado — não reaproveitar a marinada.',
+    base_g: 500,
+    ingredientes: [
+      { nome: 'Camarão cru descascado',       min: 500, max: 500, unidade: 'g', tipo: 'proteina', secao: 'Marinada',    nota: 'pesado descongelado e escorrido' },
+      { nome: 'Shoyu low sodium',              min: 20,  max: 20,  unidade: 'g', tipo: 'seco',     secao: 'Marinada',    nota: 'não adicionar sal extra' },
+      { nome: 'Óleo de gergelim tostado',      min: 8,   max: 8,   unidade: 'g', tipo: 'seco',     secao: 'Marinada',    nota: '' },
+      { nome: 'Vinagre de arroz',              min: 8,   max: 8,   unidade: 'g', tipo: 'seco',     secao: 'Marinada',    nota: '' },
+      { nome: 'Suco de limão',                 min: 8,   max: 8,   unidade: 'g', tipo: 'fresco',   secao: 'Marinada',    nota: '' },
+      { nome: 'Alho fresco picado',            min: 5,   max: 5,   unidade: 'g', tipo: 'fresco',   secao: 'Marinada',    nota: 'ou minced garlic' },
+      { nome: 'Ground ginger',                 min: 1,   max: 1,   unidade: 'g', tipo: 'seco',     secao: 'Marinada',    nota: '' },
+      { nome: 'Mel',                           min: 5,   max: 5,   unidade: 'g', tipo: 'seco',     secao: 'Marinada',    nota: 'opcional' },
+      { nome: 'Shoyu low sodium (finaliz.)',   min: 5,   max: 5,   unidade: 'g', tipo: 'seco',     secao: 'Finalização', nota: '' },
+      { nome: 'Óleo de gergelim tostado (finaliz.)', min: 3, max: 3, unidade: 'g', tipo: 'seco',  secao: 'Finalização', nota: '' },
+      { nome: 'Suco de limão (finaliz.)',      min: 5,   max: 5,   unidade: 'g', tipo: 'fresco',   secao: 'Finalização', nota: '' },
+      { nome: 'Cebolinha picada',              min: 4,   max: 4,   unidade: 'g', tipo: 'fresco',   secao: 'Finalização', nota: '' },
+      { nome: 'Gergelim',                      min: 3,   max: 3,   unidade: 'g', tipo: 'seco',     secao: 'Finalização', nota: 'opcional' }
+    ],
+    pre_passos: [
+      { texto: 'Descongelar na noite anterior.', equipamento: null },
+      { texto: 'Misturar a marinada num pote; misturar a finalização em **outro pote separado** — nunca reaproveitar a marinada que teve contato com o camarão cru.', equipamento: null }
+    ],
+    passos: [
+      { texto: 'Secar o camarão, pesar e misturar com a marinada. Não usar sal extra — o shoyu já salga. Marinar **15 a 20 minutos** (máximo 30).', equipamento: null },
+      { texto: 'Preaquecer a **air fryer a 400 °F** por 3 minutos.', equipamento: 'air fryer' },
+      { texto: 'Escorrer o camarão (descartar a marinada usada) e espalhar em **camada única**.', equipamento: null },
+      { texto: 'Assar por **6 a 8 minutos**, sacudindo o cesto na metade, até rosado, opaco e em **"C"**.', equipamento: 'air fryer' },
+      { texto: 'Misturar com a finalização e a cebolinha. Salpicar gergelim. Combina com arroz branco e pepino com vinagre de arroz.', equipamento: null }
+    ]
+  },
+
+  {
+    id: 'camarao-moqueca-semana',
+    proteina: 'camarao',
+    nome: 'Camarão ao leite de coco (moqueca de semana)',
+    perfil: 'marcante',
+    status: 'rotina',
+    equipamento: 'panela',
+    tempo_ativo: '~20 min',
+    quem_atende: 'Toda a família · Pimenta só no prato dos adultos',
+    descricao: 'Moqueca rápida de semana. Camarão entra só no final — mantém textura macia e tempo em ~20 min.',
+    base_g: 500,
+    ingredientes: [
+      { nome: 'Camarão cru descascado',    min: 500, max: 500, unidade: 'g', tipo: 'proteina', secao: 'Tempero', nota: 'pesado descongelado e escorrido' },
+      { nome: 'Sal',                       min: 4,   max: 4,   unidade: 'g', tipo: 'seco',     secao: 'Tempero', nota: '' },
+      { nome: 'Suco de limão',             min: 10,  max: 10,  unidade: 'g', tipo: 'fresco',   secao: 'Tempero', nota: '' },
+      { nome: 'Alho',                      min: 4,   max: 4,   unidade: 'g', tipo: 'fresco',   secao: 'Tempero', nota: '' },
+      { nome: 'Azeite de oliva',           min: 10,  max: 10,  unidade: 'g', tipo: 'seco',     secao: 'Moqueca', nota: '' },
+      { nome: 'Azeite de dendê',           min: 10,  max: 10,  unidade: 'g', tipo: 'fresco',   secao: 'Moqueca', nota: 'opcional' },
+      { nome: 'Cebola em tiras',           min: 120, max: 120, unidade: 'g', tipo: 'fresco',   secao: 'Moqueca', nota: '' },
+      { nome: 'Pimentão vermelho em tiras',min: 80,  max: 80,  unidade: 'g', tipo: 'fresco',   secao: 'Moqueca', nota: '' },
+      { nome: 'Pimentão amarelo em tiras', min: 80,  max: 80,  unidade: 'g', tipo: 'fresco',   secao: 'Moqueca', nota: '' },
+      { nome: 'Tomate picado',             min: 180, max: 180, unidade: 'g', tipo: 'fresco',   secao: 'Moqueca', nota: '' },
+      { nome: 'Alho picado',               min: 5,   max: 5,   unidade: 'g', tipo: 'fresco',   secao: 'Moqueca', nota: '' },
+      { nome: 'Leite de coco',             min: 200, max: 200, unidade: 'g', tipo: 'fresco',   secao: 'Moqueca', nota: '' },
+      { nome: 'Coentro',                   min: 10,  max: 10,  unidade: 'g', tipo: 'fresco',   secao: 'Moqueca', nota: '' },
+      { nome: 'Cebolinha',                 min: 4,   max: 4,   unidade: 'g', tipo: 'fresco',   secao: 'Moqueca', nota: '' },
+      { nome: 'Sal (acerto final)',         min: 1.5, max: 1.5, unidade: 'g', tipo: 'seco',     secao: 'Moqueca', nota: '' }
+    ],
+    pre_passos: [
+      { texto: 'Temperar o camarão com sal, limão e alho e descansar **10 a 15 minutos**.', equipamento: null },
+      { texto: 'Cortar cebola, pimentões e tomate; picar alho e ervas. Guardar na geladeira.', equipamento: null }
+    ],
+    passos: [
+      { texto: 'Aquecer o azeite (e o dendê, se usar) e refogar cebola, alho e pimentões por **3 minutos**.', equipamento: 'panela' },
+      { texto: 'Juntar o tomate e cozinhar por **3 minutos**.', equipamento: 'panela' },
+      { texto: 'Adicionar o leite de coco e ferver em fogo médio por **3 a 4 minutos**, até engrossar levemente.', equipamento: 'panela' },
+      { texto: 'Juntar o camarão escorrido e cozinhar por **3 a 4 minutos**, até rosado e opaco. O camarão entra só no final — é isso que mantém a textura macia.', equipamento: 'panela' },
+      { texto: 'Desligar o fogo. Finalizar com coentro, cebolinha e acerto de sal. Servir com arroz branco.', equipamento: null }
+    ]
+  },
+
+  {
+    id: 'camarao-bobo-adaptado',
+    proteina: 'camarao',
+    nome: 'Bobó de camarão adaptado',
+    perfil: 'marcante',
+    status: 'guardada',
+    equipamento: 'panela de pressão + panela',
+    tempo_ativo: '~35 min',
+    quem_atende: 'Toda a família · Ideal para fim de semana',
+    descricao: 'Camarão e creme de mandioca servidos lado a lado — controle de porção separado. Creme pode ser feito na véspera.',
+    base_g: 500,
+    ingredientes: [
+      { nome: 'Camarão cru descascado',    min: 500, max: 500, unidade: 'g', tipo: 'proteina', secao: 'Camarão',            nota: 'pesado descongelado e escorrido' },
+      { nome: 'Sal',                       min: 4,   max: 4,   unidade: 'g', tipo: 'seco',     secao: 'Camarão',            nota: '' },
+      { nome: 'Suco de limão',             min: 10,  max: 10,  unidade: 'g', tipo: 'fresco',   secao: 'Camarão',            nota: '' },
+      { nome: 'Alho',                      min: 4,   max: 4,   unidade: 'g', tipo: 'fresco',   secao: 'Camarão',            nota: '' },
+      { nome: 'Azeite de oliva',           min: 10,  max: 10,  unidade: 'g', tipo: 'seco',     secao: 'Camarão',            nota: '' },
+      { nome: 'Azeite de dendê',           min: 15,  max: 15,  unidade: 'g', tipo: 'fresco',   secao: 'Camarão',            nota: '' },
+      { nome: 'Cebola picada',             min: 120, max: 120, unidade: 'g', tipo: 'fresco',   secao: 'Camarão',            nota: '' },
+      { nome: 'Pimentão vermelho picado',  min: 100, max: 100, unidade: 'g', tipo: 'fresco',   secao: 'Camarão',            nota: '' },
+      { nome: 'Tomate picado',             min: 180, max: 180, unidade: 'g', tipo: 'fresco',   secao: 'Camarão',            nota: '' },
+      { nome: 'Alho picado',               min: 5,   max: 5,   unidade: 'g', tipo: 'fresco',   secao: 'Camarão',            nota: '' },
+      { nome: 'Leite de coco',             min: 150, max: 150, unidade: 'g', tipo: 'fresco',   secao: 'Camarão',            nota: '' },
+      { nome: 'Coentro',                   min: 10,  max: 10,  unidade: 'g', tipo: 'fresco',   secao: 'Camarão',            nota: '' },
+      { nome: 'Sal (acerto final)',         min: 1,   max: 1,   unidade: 'g', tipo: 'seco',     secao: 'Camarão',            nota: '' },
+      { nome: 'Mandioca (yuca congelada)', min: 500, max: 500, unidade: 'g', tipo: 'fresco',   secao: 'Creme de mandioca',  nota: 'acompanhamento — pesar à parte' },
+      { nome: 'Água de cozimento reservada', min: 150, max: 150, unidade: 'g', tipo: 'fresco', secao: 'Creme de mandioca',  nota: 'reservar da panela de pressão' },
+      { nome: 'Leite de coco (creme)',     min: 100, max: 100, unidade: 'g', tipo: 'fresco',   secao: 'Creme de mandioca',  nota: '' },
+      { nome: 'Sal (creme)',               min: 3,   max: 3,   unidade: 'g', tipo: 'seco',     secao: 'Creme de mandioca',  nota: '' }
+    ],
+    pre_passos: [
+      { texto: 'Descongelar o camarão na noite anterior.', equipamento: null },
+      { texto: 'Picar cebola, pimentão, tomate, alho e coentro.', equipamento: null },
+      { texto: 'O creme de mandioca pode ser feito na véspera e reaquecido no dia.', equipamento: null }
+    ],
+    passos: [
+      { texto: '**[Creme]** Cozinhar a mandioca na panela de pressão com água cobrindo por **15 minutos após pegar pressão**. Deixar a pressão sair naturalmente antes de abrir.', equipamento: 'panela de pressão' },
+      { texto: '**[Creme]** Retirar a fibra central de cada pedaço — é um fio lenhoso que atravessa o centro e fica duro mesmo bem cozido. Puxar com os dedos ou garfo. Reservar **150 g da água do cozimento**.', equipamento: null },
+      { texto: '**[Creme]** Bater a mandioca no liquidificador com a água reservada, leite de coco e sal até virar creme liso. Reservar.', equipamento: 'liquidificador' },
+      { texto: '**[Camarão]** Temperar o camarão com sal, limão e alho por **10 a 15 minutos**.', equipamento: null },
+      { texto: '**[Camarão]** Aquecer azeite e dendê; refogar cebola, pimentão e alho por **3 minutos**.', equipamento: 'panela' },
+      { texto: '**[Camarão]** Juntar o tomate e cozinhar por **3 minutos**. Adicionar o leite de coco e ferver por **3 minutos**.', equipamento: 'panela' },
+      { texto: '**[Camarão]** Juntar o camarão escorrido e cozinhar por **3 a 4 minutos**. Desligar e finalizar com coentro e acerto de sal.', equipamento: 'panela' },
+      { texto: 'Servir o camarão e o creme de mandioca **lado a lado no prato**, cada um pesado à parte. No bobó tradicional o creme é misturado ao refogado — esta versão separa para controle de porção.', equipamento: null }
     ]
   }
 

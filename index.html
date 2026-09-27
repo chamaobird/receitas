@@ -466,6 +466,75 @@
   .step-text strong { font-weight: 700; color: var(--accent-text); }
 
   .empty-state { text-align: center; padding: 40px 20px; color: var(--text-faint); font-size: 14px; }
+
+  /* ── Tag "Guardada" ─────────────────────────────────────────────────── */
+  .tag-guardada {
+    background: #F5E5C0;
+    color: #7A4F10;
+  }
+  @media (prefers-color-scheme: dark) {
+    .tag-guardada { background: #3A2808; color: #D4A055; }
+  }
+
+  /* ── Info de equipamento + tempo (header, visível fechado) ──────────── */
+  .recipe-equip {
+    display: flex;
+    gap: 10px;
+    margin-top: 5px;
+    font-size: 11.5px;
+    color: var(--text-faint);
+    font-weight: 500;
+    flex-wrap: wrap;
+  }
+  .recipe-equip-item { display: flex; align-items: center; gap: 3px; }
+
+  /* ── Pré-preparo colapsável ─────────────────────────────────────────── */
+  .preparo-section {
+    border-top: 1px solid var(--border);
+    padding: 14px 16px;
+  }
+  .preparo-section > summary {
+    cursor: pointer;
+    list-style: none;
+    font-size: 10.5px;
+    font-weight: 700;
+    letter-spacing: 0.9px;
+    text-transform: uppercase;
+    color: var(--text-faint);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    user-select: none;
+  }
+  .preparo-section > summary::-webkit-details-marker { display: none; }
+  .preparo-section > summary::after { content: ""; flex: 1; height: 1px; background: var(--border); }
+  .preparo-section > summary::before {
+    content: "▶";
+    font-size: 8px;
+    color: var(--text-faint);
+    transition: transform .2s;
+    flex-shrink: 0;
+    order: -1;
+  }
+  .preparo-section[open] > summary::before { transform: rotate(90deg); }
+  .preparo-steps { margin-top: 10px; }
+
+  /* ── Badge de equipamento por etapa ────────────────────────────────── */
+  .step-equip {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    background: var(--surface-2);
+    border: 1px solid var(--border-strong);
+    border-radius: 4px;
+    padding: 1px 6px;
+    margin-left: 7px;
+    color: var(--text-muted);
+    vertical-align: middle;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    white-space: nowrap;
+  }
 </style>
 </head>
 <body>
@@ -562,17 +631,50 @@ function renderIngredienteSections(ingredientes) {
     + '</div>';
 }
 
+// ── Renderiza um passo (string legada ou objeto {texto, equipamento}) ──
+function renderStep(passo, num) {
+  var texto = typeof passo === 'string' ? passo : passo.texto;
+  var equip = (typeof passo === 'object' && passo.equipamento)
+    ? '<span class="step-equip">' + passo.equipamento + '</span>'
+    : '';
+  return '<div class="step">'
+    + '<div class="step-num">' + num + '</div>'
+    + '<div class="step-text">' + parseBold(texto) + equip + '</div>'
+    + '</div>';
+}
+
 // ── Card de receita ───────────────────────────────────────────────────
 function criarCardHTML(receita) {
   var tagClass = receita.perfil === 'neutro' ? 'tag-neutral' : 'tag-bold';
   var tagLabel = receita.perfil === 'neutro' ? 'Neutro' : 'Marcante';
   var dataAcomp = receita.proteina === 'acompanhamentos' ? ' data-acomp-id="' + receita.id + '"' : '';
 
-  var passosHTML = receita.passos.map(function (passo, i) {
-    return '<div class="step">'
-      + '<div class="step-num">' + (i + 1) + '</div>'
-      + '<div class="step-text">' + parseBold(passo) + '</div>'
-      + '</div>';
+  // Badge "Guardada"
+  var guardadaTag = receita.status === 'guardada'
+    ? '<span class="tag tag-guardada">Guardada</span>'
+    : '';
+
+  // Equipamento + tempo (visível no header fechado)
+  var equipParts = [];
+  if (receita.equipamento) equipParts.push('<span class="recipe-equip-item">🍳 ' + receita.equipamento + '</span>');
+  if (receita.tempo_ativo) equipParts.push('<span class="recipe-equip-item">⏱ ' + receita.tempo_ativo + '</span>');
+  var equipInfo = equipParts.length
+    ? '<div class="recipe-equip">' + equipParts.join('') + '</div>'
+    : '';
+
+  // Pré-preparo colapsável
+  var prePassosHTML = '';
+  if (receita.pre_passos && receita.pre_passos.length) {
+    var preItems = receita.pre_passos.map(function(p, i) { return renderStep(p, i + 1); }).join('');
+    prePassosHTML = '<details class="preparo-section">'
+      + '<summary>Pré-preparo</summary>'
+      + '<div class="preparo-steps">' + preItems + '</div>'
+      + '</details>';
+  }
+
+  // Passos principais (suporta string legada e objeto novo)
+  var passosHTML = receita.passos.map(function(passo, i) {
+    return renderStep(passo, i + 1);
   }).join('');
 
   var chevron = '<span class="chevron"><svg viewBox="0 0 24 24" fill="none">'
@@ -588,14 +690,17 @@ function criarCardHTML(receita) {
         + '<div class="recipe-name">' + receita.nome + '</div>'
         + '<div class="recipe-meta">'
           + '<span class="tag ' + tagClass + '">' + tagLabel + '</span>'
+          + guardadaTag
           + '<span class="tag-who">' + receita.quem_atende + '</span>'
         + '</div>'
+        + equipInfo
       + '</div>'
       + chevron
     + '</div>'
     + '<div class="recipe-body"><div class="recipe-body-inner">'
       + '<div class="recipe-profile">' + receita.descricao + '</div>'
       + renderIngredienteSections(receita.ingredientes)
+      + prePassosHTML
       + '<div class="steps-section">'
         + '<div class="section-title">Modo de preparo</div>'
         + passosHTML

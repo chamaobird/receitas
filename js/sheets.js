@@ -3,8 +3,8 @@ async function loadFromSheets(sheetId, apiKey) {
   var base   = 'https://sheets.googleapis.com/v4/spreadsheets/' + sheetId + '/values/';
   var params = '?key=' + apiKey + '&valueRenderOption=UNFORMATTED_VALUE';
 
-  var resRec = await fetch(base + 'Receitas%21A%3AS' + params);
-  var resPas = await fetch(base + 'Passos%21A%3AC' + params);
+  var resRec = await fetch(base + 'Receitas%21A%3AU' + params);
+  var resPas = await fetch(base + 'Passos%21A%3AD'   + params);
 
   if (!resRec.ok) throw new Error('Receitas HTTP ' + resRec.status);
   if (!resPas.ok) throw new Error('Passos HTTP '   + resPas.status);
@@ -15,19 +15,27 @@ async function loadFromSheets(sheetId, apiKey) {
   var linhasRec = (dadosRec.values || []).slice(1); // remove cabeçalho
   var linhasPas = (dadosPas.values || []).slice(1);
 
-  // Mapa de passos: receita_id → [texto ordenado]
+  // Mapa de passos: receita_id → { pre: [...], main: [...] }
+  // Convenção: ordem < 0 = pré-preparo; ordem >= 1 = modo de preparo
   var mapaPassos = {};
   linhasPas.forEach(function(row) {
     var id    = String(row[0] || '');
     var ordem = parseInt(row[1]) || 0;
     var texto = String(row[2] || '');
+    var equip = row[3] ? String(row[3]) : null;
     if (!id) return;
-    if (!mapaPassos[id]) mapaPassos[id] = [];
-    mapaPassos[id].push({ ordem: ordem, texto: texto });
+    if (!mapaPassos[id]) mapaPassos[id] = { pre: [], main: [] };
+    if (ordem < 0) {
+      mapaPassos[id].pre.push({ ordem: ordem, texto: texto, equipamento: equip });
+    } else {
+      mapaPassos[id].main.push({ ordem: ordem, texto: texto, equipamento: equip });
+    }
   });
   Object.keys(mapaPassos).forEach(function(id) {
-    mapaPassos[id].sort(function(a, b) { return a.ordem - b.ordem; });
-    mapaPassos[id] = mapaPassos[id].map(function(p) { return p.texto; });
+    mapaPassos[id].pre.sort(function(a, b) { return a.ordem - b.ordem; });
+    mapaPassos[id].main.sort(function(a, b) { return a.ordem - b.ordem; });
+    mapaPassos[id].pre  = mapaPassos[id].pre.map(function(p)  { return { texto: p.texto, equipamento: p.equipamento }; });
+    mapaPassos[id].main = mapaPassos[id].main.map(function(p) { return { texto: p.texto, equipamento: p.equipamento }; });
   });
 
   // Mapa de receitas agrupando linhas por receita_id
@@ -64,6 +72,14 @@ async function loadFromSheets(sheetId, apiKey) {
       if (mxq !== '') r.max_qty      = parseFloat(mxq);
       if (sq  !== '') r.step_qty     = parseFloat(sq);
 
+      // Novos campos (colunas S, T, U)
+      var st  = cel(18, '');
+      var eq  = cel(19, '');
+      var ta  = cel(20, '');
+      if (st !== '') r.status      = String(st);
+      if (eq !== '') r.equipamento = String(eq);
+      if (ta !== '') r.tempo_ativo = String(ta);
+
       mapaReceitas[id] = r;
       ordemReceitas.push(id);
     }
@@ -88,8 +104,10 @@ async function loadFromSheets(sheetId, apiKey) {
 
   // Monta array final com passos
   return ordemReceitas.map(function(id) {
-    var r  = mapaReceitas[id];
-    r.passos = mapaPassos[id] || [];
+    var r   = mapaReceitas[id];
+    var map = mapaPassos[id] || { pre: [], main: [] };
+    if (map.pre.length)  r.pre_passos = map.pre;
+    r.passos = map.main;
     return r;
   });
 }
