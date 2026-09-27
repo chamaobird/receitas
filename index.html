@@ -493,7 +493,7 @@
     border-top: 1px solid var(--border);
     padding: 14px 16px;
   }
-  .preparo-section > summary {
+  .preparo-summary {
     cursor: pointer;
     list-style: none;
     font-size: 10.5px;
@@ -506,17 +506,24 @@
     gap: 8px;
     user-select: none;
   }
-  .preparo-section > summary::-webkit-details-marker { display: none; }
-  .preparo-section > summary::after { content: ""; flex: 1; height: 1px; background: var(--border); }
-  .preparo-section > summary::before {
-    content: "▶";
-    font-size: 8px;
-    color: var(--text-faint);
-    transition: transform .2s;
+  .preparo-summary::-webkit-details-marker { display: none; }
+  .preparo-summary::after { content: ""; flex: 1; height: 1px; background: var(--border); }
+  .preparo-chevron {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--surface-2);
+    border: 1px solid var(--border-strong);
+    display: flex;
+    align-items: center;
+    justify-content: center;
     flex-shrink: 0;
-    order: -1;
+    transition: transform .22s cubic-bezier(.5,.1,.25,1);
+    margin-left: 2px;
   }
-  .preparo-section[open] > summary::before { transform: rotate(90deg); }
+  .preparo-chevron svg { width: 10px; height: 10px; display: block; }
+  .preparo-chevron svg path { stroke: var(--text-faint); }
+  .preparo-section:not([open]) .preparo-chevron { transform: rotate(180deg); }
   .preparo-steps { margin-top: 10px; }
 
   /* ── Badge de equipamento por etapa ────────────────────────────────── */
@@ -662,12 +669,14 @@ function criarCardHTML(receita) {
     ? '<div class="recipe-equip">' + equipParts.join('') + '</div>'
     : '';
 
-  // Pré-preparo colapsável
+  // Pré-preparo colapsável (aberto por padrão)
   var prePassosHTML = '';
   if (receita.pre_passos && receita.pre_passos.length) {
     var preItems = receita.pre_passos.map(function(p, i) { return renderStep(p, i + 1); }).join('');
-    prePassosHTML = '<details class="preparo-section">'
-      + '<summary>Pré-preparo</summary>'
+    var chevronSvg = '<span class="preparo-chevron"><svg viewBox="0 0 24 24" fill="none">'
+      + '<path d="M6 9l6 6 6-6" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>';
+    prePassosHTML = '<details class="preparo-section" open>'
+      + '<summary class="preparo-summary">Pré-preparo' + chevronSvg + '</summary>'
       + '<div class="preparo-steps">' + preItems + '</div>'
       + '</details>';
   }
@@ -873,7 +882,18 @@ function recalcAcomp(id) {
   syncScaleUI(id);
 }
 
-// ── Abre/fecha um card com animação de altura (Problema 3) ────────────
+// ── Fecha um card (sem toggle) ────────────────────────────────────────
+function closeCard(card) {
+  if (!card.classList.contains('open')) return;
+  var body  = card.querySelector('.recipe-body');
+  var inner = card.querySelector('.recipe-body-inner');
+  body.style.height = inner.offsetHeight + 'px';
+  void body.offsetHeight;
+  card.classList.remove('open');
+  requestAnimationFrame(function () { body.style.height = '0px'; });
+}
+
+// ── Abre/fecha um card com animação de altura ─────────────────────────
 function toggleCard(header) {
   var card = header.closest('.recipe-card');
   var body = card.querySelector('.recipe-body');
@@ -881,6 +901,14 @@ function toggleCard(header) {
   var willOpen = !card.classList.contains('open');
 
   if (willOpen) {
+    // Fechar todos os outros cards abertos na mesma seção (accordion)
+    var section = card.closest('.protein-section');
+    if (section) {
+      section.querySelectorAll('.recipe-card.open').forEach(function(other) {
+        if (other !== card) closeCard(other);
+      });
+    }
+
     card.classList.add('open');
     body.style.height = inner.offsetHeight + 'px';
     var settle = function () {
@@ -892,10 +920,10 @@ function toggleCard(header) {
       settle();
     };
     body.addEventListener('transitionend', done);
-    setTimeout(settle, 420); // fallback p/ reduced-motion / sem transitionend
+    setTimeout(settle, 420);
   } else {
     body.style.height = inner.offsetHeight + 'px';
-    void body.offsetHeight; // reflow
+    void body.offsetHeight;
     card.classList.remove('open');
     requestAnimationFrame(function () { body.style.height = '0px'; });
   }
