@@ -30,6 +30,7 @@ window.RECIPES = [
     quem_atende: 'Toda a família · Kid-friendly',
     descricao: 'Suave, clássico e kid-friendly. Boa para segunda e terça.',
     base_g: 1000,
+    kcal_por_100g: 175,
     ingredientes: [
       { nome: 'Frango (peito)',      min: 1000, max: 1000, unidade: 'g', tipo: 'proteina', nota: '' },
       { nome: 'Sal',                 min: 10,   max: 10,   unidade: 'g', tipo: 'seco',     nota: '' },
@@ -62,6 +63,7 @@ window.RECIPES = [
     quem_atende: 'Toda a família · Bom para reaproveitamento',
     descricao: 'Suave, fresco e ótimo para reaproveitamento ao longo da semana.',
     base_g: 1000,
+    kcal_por_100g: 175,
     ingredientes: [
       { nome: 'Frango (peito)',      min: 1000, max: 1000, unidade: 'g', tipo: 'proteina', nota: '' },
       { nome: 'Sal',                 min: 10,   max: 10,   unidade: 'g', tipo: 'seco',     nota: '' },
@@ -83,6 +85,147 @@ window.RECIPES = [
   },
 
   {
+    id: 'frango-neutro-c',
+    proteina: 'frango',
+    nome: 'Frango Neutro C — marinada de iogurte grego',
+    perfil: 'neutro',
+    equipamento: 'air fryer',
+    tempo_ativo: '~15 min',
+    quem_atende: 'Toda a família',
+    descricao: 'Iogurte como base da marinada — amacia a carne sem sabor marcante. Frango notavelmente mais suculento.',
+    base_g: 1000,
+    kcal_por_100g: 175,
+    ingredientes: [
+      { nome: 'Frango (peito)',         min: 1000, max: 1000, unidade: 'g',  tipo: 'proteina', secao: 'Marinada', nota: '' },
+      { nome: 'Iogurte grego integral', min: 130,  max: 130,  unidade: 'g',  tipo: 'fresco',   secao: 'Marinada', nota: '' },
+      { nome: 'Azeite de oliva',        min: 22,   max: 22,   unidade: 'g',  tipo: 'seco',     secao: 'Marinada', nota: '' },
+      { nome: 'Suco de limão',          min: 25,   max: 25,   unidade: 'g',  tipo: 'fresco',   secao: 'Marinada', nota: '' },
+      { nome: 'Sal',                    min: 10,   max: 10,   unidade: 'g',  tipo: 'seco',     secao: 'Marinada', nota: '' },
+      { nome: 'Garlic powder',          min: 5,    max: 5,    unidade: 'g',  tipo: 'seco',     secao: 'Marinada', nota: '' },
+      { nome: 'Sweet paprika',          min: 4,    max: 4,    unidade: 'g',  tipo: 'seco',     secao: 'Marinada', nota: '' },
+      { nome: 'Granulated onion',       min: 3,    max: 3,    unidade: 'g',  tipo: 'seco',     secao: 'Marinada', nota: '' },
+      { nome: 'Oregano leaves',         min: 2,    max: 2,    unidade: 'g',  tipo: 'seco',     secao: 'Marinada', nota: '' },
+      { nome: 'Pimenta-do-reino',       min: 0.5,  max: 0.5,  unidade: 'g',  tipo: 'seco',     secao: 'Marinada', nota: 'pode zerar para versão mais infantil' }
+    ],
+    pre_passos: [
+      { texto: 'Misturar iogurte, azeite, limão e todos os secos até obter uma pasta homogênea.', equipamento: null },
+      { texto: 'Envolver bem cada filé e marinar na geladeira por **mínimo 2 horas; ideal 8–24 horas**.', equipamento: null }
+    ],
+    passos: [
+      { texto: 'Tirar o frango da geladeira 15 min antes. Remover excesso de marinada com as mãos — uma camada fina fica bem.', equipamento: null },
+      { texto: 'Preaquecer a **air fryer a 380 °F** por 3 minutos.', equipamento: 'air fryer' },
+      { texto: 'Assar por **14–17 min**, virando na metade, até atingir **165 °F** internos. O iogurte dourará levemente na superfície.', equipamento: 'air fryer' },
+      { texto: 'Descansar 3–5 min antes de fatiar.', equipamento: null }
+    ]
+  },
+
+  {
+    id: 'frango-neutro-d',
+    proteina: 'frango',
+    nome: 'Frango Neutro D — manteiga de alho e sálvia',
+    perfil: 'neutro',
+    equipamento: 'air fryer',
+    tempo_ativo: '~18 min',
+    quem_atende: 'Toda a família',
+    descricao: 'Dry rub simples + molho de manteiga aromático aplicado após o cozimento. Rico e suave, sem nenhuma ardência.',
+    base_g: 1000,
+    kcal_por_100g: 195,
+    ingredientes: [
+      { nome: 'Frango (peito)',  min: 1000, max: 1000, unidade: 'g', tipo: 'proteina', secao: 'Frango + tempero', nota: '' },
+      { nome: 'Sal',             min: 10,   max: 10,   unidade: 'g', tipo: 'seco',     secao: 'Frango + tempero', nota: '' },
+      { nome: 'Sweet paprika',   min: 4,    max: 4,    unidade: 'g', tipo: 'seco',     secao: 'Frango + tempero', nota: '' },
+      { nome: 'Garlic powder',   min: 5,    max: 5,    unidade: 'g', tipo: 'seco',     secao: 'Frango + tempero', nota: '' },
+      { nome: 'Granulated onion',min: 3,    max: 3,    unidade: 'g', tipo: 'seco',     secao: 'Frango + tempero', nota: '' },
+      { nome: 'Ground thyme',    min: 1.5,  max: 1.5,  unidade: 'g', tipo: 'seco',     secao: 'Frango + tempero', nota: '' },
+      { nome: 'Pimenta-do-reino',min: 0.5,  max: 0.5,  unidade: 'g', tipo: 'seco',     secao: 'Frango + tempero', nota: '' },
+      { nome: 'Azeite de oliva', min: 20,   max: 20,   unidade: 'g', tipo: 'seco',     secao: 'Frango + tempero', nota: '' },
+      { nome: 'Manteiga sem sal',min: 30,   max: 30,   unidade: 'g', tipo: 'fresco',   secao: 'Molho de manteiga', nota: '' },
+      { nome: 'Alho fresco picado', min: 8, max: 8,    unidade: 'g', tipo: 'fresco',   secao: 'Molho de manteiga', nota: '' },
+      { nome: 'Sage (sálvia) seca', min: 2, max: 2,    unidade: 'g', tipo: 'seco',     secao: 'Molho de manteiga', nota: 'sage fresca: 5 g' },
+      { nome: 'Suco de limão',   min: 10,   max: 10,   unidade: 'g', tipo: 'fresco',   secao: 'Molho de manteiga', nota: '' }
+    ],
+    pre_passos: [
+      { texto: 'Misturar os secos (sal, paprika, garlic, onion, thyme, pimenta) com o azeite até formar pasta leve.', equipamento: null },
+      { texto: 'Envolver o frango e marinar por **mínimo 30 min; ideal 4–8 horas**.', equipamento: null }
+    ],
+    passos: [
+      { texto: 'Preaquecer a **air fryer a 380 °F** por 3 minutos.', equipamento: 'air fryer' },
+      { texto: 'Assar por **13–16 min**, virando na metade, até **165 °F** internos.', equipamento: 'air fryer' },
+      { texto: 'Enquanto o frango assa: derreter a manteiga com o alho em fogo baixo por 1–2 min, sem dourar. Fora do fogo, juntar sage e limão.', equipamento: 'panela' },
+      { texto: 'Regar o frango com o molho de manteiga logo ao sair da air fryer. Descansar 3 min antes de fatiar.', equipamento: null }
+    ]
+  },
+
+  {
+    id: 'frango-neutro-e',
+    proteina: 'frango',
+    nome: 'Frango Neutro E — glaze de mel e mostarda',
+    perfil: 'neutro',
+    equipamento: 'air fryer',
+    tempo_ativo: '~18 min',
+    quem_atende: 'Toda a família · Kid-friendly',
+    descricao: 'Dry rub base com glaze de mel e Dijon aplicado no final — superfície caramelizada, levemente adocicada.',
+    base_g: 1000,
+    kcal_por_100g: 178,
+    ingredientes: [
+      { nome: 'Frango (peito)',    min: 1000, max: 1000, unidade: 'g', tipo: 'proteina', secao: 'Frango + tempero', nota: '' },
+      { nome: 'Sal',               min: 9,    max: 9,    unidade: 'g', tipo: 'seco',     secao: 'Frango + tempero', nota: '' },
+      { nome: 'Garlic powder',     min: 5,    max: 5,    unidade: 'g', tipo: 'seco',     secao: 'Frango + tempero', nota: '' },
+      { nome: 'Sweet paprika',     min: 4,    max: 4,    unidade: 'g', tipo: 'seco',     secao: 'Frango + tempero', nota: '' },
+      { nome: 'Granulated onion',  min: 3,    max: 3,    unidade: 'g', tipo: 'seco',     secao: 'Frango + tempero', nota: '' },
+      { nome: 'Pimenta-do-reino',  min: 0.5,  max: 0.5,  unidade: 'g', tipo: 'seco',     secao: 'Frango + tempero', nota: '' },
+      { nome: 'Azeite de oliva',   min: 15,   max: 15,   unidade: 'g', tipo: 'seco',     secao: 'Frango + tempero', nota: '' },
+      { nome: 'Mel',               min: 30,   max: 30,   unidade: 'g', tipo: 'fresco',   secao: 'Glaze', nota: '' },
+      { nome: 'Mostarda Dijon',    min: 30,   max: 30,   unidade: 'g', tipo: 'fresco',   secao: 'Glaze', nota: '' },
+      { nome: 'Mostarda amarela',  min: 10,   max: 10,   unidade: 'g', tipo: 'fresco',   secao: 'Glaze', nota: 'opcional — suaviza levemente' },
+      { nome: 'Azeite de oliva',   min: 5,    max: 5,    unidade: 'g', tipo: 'seco',     secao: 'Glaze', nota: '' }
+    ],
+    pre_passos: [
+      { texto: 'Misturar secos com 15g de azeite e temperar o frango. Marinar por **mínimo 30 min**.', equipamento: null },
+      { texto: 'Misturar mel, Dijon, mostarda amarela e 5g de azeite para o glaze. Reservar.', equipamento: null }
+    ],
+    passos: [
+      { texto: 'Preaquecer a **air fryer a 375 °F** por 3 minutos.', equipamento: 'air fryer' },
+      { texto: 'Assar por **9–11 min**, virando na metade.', equipamento: 'air fryer' },
+      { texto: 'Pincelar o glaze generosamente em ambos os lados. Assar mais **4–5 min** até caramelizar. Monitorar para não queimar — mel escurece rápido.', equipamento: 'air fryer' },
+      { texto: 'Verificar **165 °F** internos. Descansar 3 min antes de fatiar.', equipamento: null }
+    ]
+  },
+
+  {
+    id: 'frango-neutro-f',
+    proteina: 'frango',
+    nome: 'Frango Neutro F — zaatar mediterrâneo',
+    perfil: 'neutro',
+    equipamento: 'air fryer',
+    tempo_ativo: '~15 min',
+    quem_atende: 'Adultos; testável com crianças',
+    descricao: 'Zaatar (ervas + gergelim + sumac) com azeite generoso. Aromático, cítrico natural, sem ardência.',
+    base_g: 1000,
+    kcal_por_100g: 182,
+    ingredientes: [
+      { nome: 'Frango (peito)',  min: 1000, max: 1000, unidade: 'g', tipo: 'proteina', secao: 'Base', nota: '' },
+      { nome: 'Sal',             min: 9,    max: 9,    unidade: 'g', tipo: 'seco',     secao: 'Base', nota: '' },
+      { nome: 'Zaatar',          min: 15,   max: 15,   unidade: 'g', tipo: 'seco',     secao: 'Base', nota: 'blend de tomilho, orégano, gergelim e sumac — lojas especializadas ou Amazon' },
+      { nome: 'Garlic powder',   min: 4,    max: 4,    unidade: 'g', tipo: 'seco',     secao: 'Base', nota: '' },
+      { nome: 'Azeite de oliva', min: 25,   max: 25,   unidade: 'g', tipo: 'seco',     secao: 'Base', nota: 'azeite mais generoso que o habitual — essencial para zaatar aderir' },
+      { nome: 'Suco de limão',   min: 20,   max: 20,   unidade: 'g', tipo: 'fresco',   secao: 'Base', nota: '' },
+      { nome: 'Sumac',           min: 2,    max: 2,    unidade: 'g', tipo: 'seco',     secao: 'Base', nota: 'opcional — intensifica o cítrico; omitir se não tiver' }
+    ],
+    pre_passos: [
+      { texto: 'Misturar zaatar, sal, garlic powder e sumac com o azeite até obter pasta.', equipamento: null },
+      { texto: 'Esfregar bem no frango, cobrindo toda a superfície. Marinar por **mínimo 1 hora; ideal 4–8 horas**.', equipamento: null },
+      { texto: 'Adicionar o limão apenas na hora de assar — ácido em excesso "cozinha" a superfície e impede dourar.', equipamento: null }
+    ],
+    passos: [
+      { texto: 'Preaquecer a **air fryer a 375 °F** por 3 minutos.', equipamento: 'air fryer' },
+      { texto: 'Regar o frango com o suco de limão e transferir para a cesta imediatamente.', equipamento: null },
+      { texto: 'Assar por **13–16 min**, virando com cuidado na metade — zaatar adere mas pode soltar se forçar. Até **165 °F** internos.', equipamento: 'air fryer' },
+      { texto: 'Descansar 3–5 min. Finalizar com fio de azeite cru e ramo de hortelã fresca (opcional).', equipamento: null }
+    ]
+  },
+
+  {
     id: 'frango-marcante-1',
     proteina: 'frango',
     nome: 'Frango Marcante 1 — defumado suave',
@@ -92,6 +235,7 @@ window.RECIPES = [
     quem_atende: 'Adultos · Quarta em diante',
     descricao: 'Aromático, com smoked paprika e cominho leve. Quase sem ardência.',
     base_g: 1000,
+    kcal_por_100g: 175,
     ingredientes: [
       { nome: 'Frango (peito)',      min: 1000, max: 1000, unidade: 'g', tipo: 'proteina', nota: '' },
       { nome: 'Sal',                 min: 10,   max: 10,   unidade: 'g', tipo: 'seco',     nota: '' },
@@ -125,6 +269,7 @@ window.RECIPES = [
     quem_atende: 'Adultos · Quarta em diante',
     descricao: 'Aromático com curry, cúrcuma e gengibre. Quase sem ardência.',
     base_g: 1000,
+    kcal_por_100g: 175,
     ingredientes: [
       { nome: 'Frango (peito)',      min: 1000, max: 1000, unidade: 'g', tipo: 'proteina', nota: '' },
       { nome: 'Sal',                 min: 10,   max: 10,   unidade: 'g', tipo: 'seco',     nota: '' },
@@ -159,6 +304,7 @@ window.RECIPES = [
     quem_atende: 'Toda a família',
     descricao: 'Suave, familiar e sem picância.',
     base_g: 500,
+    kcal_por_100g: 200,
     ingredientes: [
       { nome: 'Pork loin',           min: 500,  max: 500,  unidade: 'g', tipo: 'proteina', nota: '' },
       { nome: 'Sal',                 min: 6,    max: 6,    unidade: 'g', tipo: 'seco',     nota: '' },
@@ -190,6 +336,7 @@ window.RECIPES = [
     quem_atende: 'Adultos · Quarta em diante',
     descricao: 'Defumado e aromático, com pimenta apenas de fundo.',
     base_g: 500,
+    kcal_por_100g: 200,
     ingredientes: [
       { nome: 'Pork loin',           min: 500,  max: 500,  unidade: 'g', tipo: 'proteina', nota: '' },
       { nome: 'Sal',                 min: 6,    max: 6,    unidade: 'g', tipo: 'seco',     nota: '' },
@@ -223,6 +370,7 @@ window.RECIPES = [
     quem_atende: 'Toda a família · Versátil',
     descricao: 'Base clássica, versátil e sem picância.',
     base_g: 500,
+    kcal_por_100g: 205,
     ingredientes: [
       { nome: 'Ground beef 88%',       min: 500,  max: 500,  unidade: 'g', tipo: 'proteina', nota: '' },
       { nome: 'Sal',                   min: 6,    max: 6,    unidade: 'g', tipo: 'seco',     nota: '' },
@@ -261,6 +409,7 @@ window.RECIPES = [
     quem_atende: 'Adultos · Quarta em diante',
     descricao: 'Aromático, com fundo defumado e pimenta sutil.',
     base_g: 500,
+    kcal_por_100g: 205,
     ingredientes: [
       { nome: 'Ground beef 88%',       min: 500,  max: 500,  unidade: 'g', tipo: 'proteina', nota: '' },
       { nome: 'Sal',                   min: 6,    max: 6,    unidade: 'g', tipo: 'seco',     nota: '' },
@@ -296,6 +445,7 @@ window.RECIPES = [
     quem_atende: 'Toda a família · 4 bifes de ~220g',
     descricao: 'Peça cortada em 4 bifes de 1,5–2 cm. Tempero clássico de ervas, suave e ideal para meal prep.',
     base_g: 900,
+    kcal_por_100g: 178,
     ingredientes: [
       { nome: 'Top Round Steak (coxão mole)', min: 900, max: 900, unidade: 'g',  tipo: 'proteina', nota: '4 bifes de 1,5–2 cm' },
       { nome: 'Sal',                           min: 12,  max: 12,  unidade: 'g',  tipo: 'seco',     nota: '' },
@@ -324,6 +474,7 @@ window.RECIPES = [
     quem_atende: 'Toda a família · 4 bifes de ~220g',
     descricao: 'Peça cortada em 4 bifes de 1,5–2 cm. Blend defumado estilo churrasco, fácil de fatiar para bowls e marmitas.',
     base_g: 900,
+    kcal_por_100g: 178,
     ingredientes: [
       { nome: 'Top Round Steak (coxão mole)', min: 900, max: 900, unidade: 'g',  tipo: 'proteina', nota: '4 bifes de 1,5–2 cm' },
       { nome: 'Sal',                           min: 12,  max: 12,  unidade: 'g',  tipo: 'seco',     nota: '' },
@@ -354,6 +505,7 @@ window.RECIPES = [
     quem_atende: 'Adultos · Quarta em diante · 4 bifes de ~220g',
     descricao: 'Peça cortada em 4 bifes de 1,5–2 cm. Marinada de shoyu, limão e gengibre — ótimo para fatiar em tiras e montar bowls.',
     base_g: 900,
+    kcal_por_100g: 178,
     ingredientes: [
       { nome: 'Top Round Steak (coxão mole)', min: 900, max: 900, unidade: 'g',  tipo: 'proteina', nota: '4 bifes de 1,5–2 cm' },
       { nome: 'Shoyu',                         min: 40,  max: 40,  unidade: 'ml', tipo: 'seco',     nota: '' },
@@ -387,6 +539,7 @@ window.RECIPES = [
     quem_atende: 'Toda a família',
     descricao: 'Suave e fresco. Marine 15-30 min. Não precisa virar no forno.',
     base_g: 680,
+    kcal_por_100g: 220,
     ingredientes: [
       { nome: 'Salmão (filé)',       min: 680,  max: 680,  unidade: 'g', tipo: 'proteina', nota: '' },
       { nome: 'Sal',                 min: 8,    max: 8,    unidade: 'g', tipo: 'seco',     nota: '' },
@@ -419,6 +572,7 @@ window.RECIPES = [
     quem_atende: 'Adultos · Quarta em diante',
     descricao: 'Defumado e aromático. Glaze de molho inglês e limão é opcional.',
     base_g: 680,
+    kcal_por_100g: 220,
     ingredientes: [
       { nome: 'Salmão (filé)',       min: 680,  max: 680,  unidade: 'g', tipo: 'proteina', nota: '' },
       { nome: 'Sal',                 min: 8,    max: 8,    unidade: 'g', tipo: 'seco',     nota: '' },
@@ -455,6 +609,7 @@ window.RECIPES = [
     quem_atende: 'Toda a família · 4 patties de ~125g',
     descricao: '500g de carne → 4 hamburgueres. Gelado 1h30 antes de assar.',
     base_g: 500,
+    kcal_por_100g: 210,
     ingredientes: [
       { nome: 'Ground beef 88-12',   min: 500,  max: 500,  unidade: 'g', tipo: 'proteina', nota: '' },
       { nome: 'Ovo',                 min: 50,   max: 50,   unidade: 'g', tipo: 'seco',     nota: '1 unidade, batido' },
@@ -492,6 +647,7 @@ window.RECIPES = [
     quem_atende: 'Toda a família · 6 filés (3 refeições)',
     descricao: '900g de frango → 6 filés. ~2h de preparo. Molho híbrido tomate fresco + Prego.',
     base_g: 900,
+    kcal_por_100g: 205,
     ingredientes: [
       // Frango + tempero
       { nome: 'Chicken breast (filés)', min: 900, max: 900,  unidade: 'g', tipo: 'proteina', secao: 'Frango + tempero', nota: '6 filés de ~150g cada' },
@@ -554,6 +710,7 @@ window.RECIPES = [
     quem_atende: '3-4 porções · Panela Oster',
     descricao: '480g cru → ~1.200g cozido. Faz batelada para 2-3 dias.',
     base_g: 480,
+    kcal_por_100g: 145,
     ingredientes: [
       { nome: 'Arroz Sona Masoori',          min: 480,  max: 480,  unidade: 'g',  tipo: 'proteina', nota: '' },
       { nome: 'Cebola fresca picada',         min: 75,   max: 75,   unidade: 'g',  tipo: 'fresco',   nota: '~½ cebola pequena' },
@@ -586,6 +743,7 @@ window.RECIPES = [
     quem_atende: 'Toda a família · Kid-friendly · 15 min',
     descricao: '1 lata (425g escorrida) → ~2-3 porções. Rápido e versátil.',
     base_g: 425,
+    kcal_por_100g: 125,
     ingredientes: [
       { nome: 'Pinto beans (lata, escorrido)', min: 425, max: 425, unidade: 'g',  tipo: 'proteina', nota: '' },
       { nome: 'Cebola fresca picada',          min: 80,  max: 80,  unidade: 'g',  tipo: 'fresco',   nota: '' },
@@ -619,6 +777,7 @@ window.RECIPES = [
     quem_atende: 'Toda a família · 15 min ativos',
     descricao: 'Barilla 300g → ~4 porções. Clássico italiano com alho e azeite.',
     base_g: 300,
+    kcal_por_100g: 220,
     ingredientes: [
       { nome: 'Barilla spaghetti',             min: 300,  max: 300,  unidade: 'g',  tipo: 'proteina', secao: 'Massa',   nota: '' },
       { nome: 'Água (cozimento)',               min: 3000, max: 3000, unidade: 'ml', tipo: 'seco',     secao: 'Massa',   nota: '3 litros' },
@@ -654,6 +813,7 @@ window.RECIPES = [
     quem_atende: '3-4 porções · 300g seca → ~750g cozida',
     descricao: 'Aromática e nutritiva. Panela normal ou pressão (mais rápido).',
     base_g: 300,
+    kcal_por_100g: 120,
     ingredientes: [
       { nome: 'Dry lentils',         min: 300,  max: 300,  unidade: 'g',  tipo: 'proteina', nota: '' },
       { nome: 'Água',                min: 900,  max: 900,  unidade: 'ml', tipo: 'fresco',   nota: 'proporção 1:3' },
@@ -691,6 +851,7 @@ window.RECIPES = [
     quem_atende: '3-4 porções · 300g seca → ~900g cozida',
     descricao: '5 min ativos, 25 min total. Variação temperada: adicione cumin + turmeric.',
     base_g: 300,
+    kcal_por_100g: 125,
     ingredientes: [
       { nome: 'Quinoa pré-lavada',    min: 300, max: 300, unidade: 'g',  tipo: 'proteina', nota: '' },
       { nome: 'Água',                 min: 600, max: 600, unidade: 'ml', tipo: 'fresco',   nota: 'proporção 1:2' },
@@ -718,6 +879,7 @@ window.RECIPES = [
     quem_atende: '2-3 porções · 8 min ativos',
     descricao: 'Choque térmico mantém cor verde vibrante e textura crocante.',
     base_g: 300,
+    kcal_por_100g: 65,
     ingredientes: [
       { nome: 'Brócolis fresco',      min: 300, max: 300, unidade: 'g',  tipo: 'proteina', nota: 'buquês de 3-4 cm' },
       { nome: 'Água (vapor)',         min: 250, max: 250, unidade: 'ml', tipo: 'fresco',   nota: 'na panela para o vapor' },
@@ -750,6 +912,7 @@ window.RECIPES = [
     quem_atende: '3-4 porções · Air fryer · ~25 min',
     descricao: '500g crua → ~450g pronta. Crocante por fora, macia por dentro.',
     base_g: 500,
+    kcal_por_100g: 110,
     ingredientes: [
       { nome: 'Red potatoes (com casca)', min: 500, max: 500, unidade: 'g', tipo: 'proteina', nota: 'gomos de 2-3 cm' },
       { nome: 'Azeite de oliva',          min: 15,  max: 15,  unidade: 'g', tipo: 'seco',     nota: '' },
@@ -786,6 +949,7 @@ window.RECIPES = [
     quem_atende: 'Toda a família · Kid-friendly',
     descricao: 'Suave e fresca. Blend seco na air fryer + molho de manteiga com alho e limão finalizando.',
     base_g: 500,
+    kcal_por_100g: 175,
     ingredientes: [
       { nome: 'Tilápia loin',             min: 500, max: 500, unidade: 'g', tipo: 'proteina', secao: 'Base',              nota: '' },
       { nome: 'Azeite de oliva',           min: 10,  max: 10,  unidade: 'g', tipo: 'seco',     secao: 'Base',              nota: '' },
@@ -829,6 +993,7 @@ window.RECIPES = [
     quem_atende: 'Adultos · Pimenta de fundo',
     descricao: 'Aromática, com smoked paprika e pimenta sutil. Mesmo molho de manteiga da versão neutra.',
     base_g: 500,
+    kcal_por_100g: 175,
     ingredientes: [
       { nome: 'Tilápia loin',             min: 500, max: 500, unidade: 'g', tipo: 'proteina', secao: 'Base',              nota: '' },
       { nome: 'Azeite de oliva',           min: 10,  max: 10,  unidade: 'g', tipo: 'seco',     secao: 'Base',              nota: '' },
@@ -874,6 +1039,7 @@ window.RECIPES = [
     quem_atende: 'Toda a família · A mais kid-friendly',
     descricao: 'Crosta de parmesão + panko sobre Dijon. Não vira — a crosta fica por cima.',
     base_g: 500,
+    kcal_por_100g: 178,
     ingredientes: [
       { nome: 'Tilápia loin',             min: 500, max: 500, unidade: 'g', tipo: 'proteina', secao: 'Base',   nota: '' },
       { nome: 'Sal',                       min: 3,   max: 3,   unidade: 'g', tipo: 'seco',     secao: 'Base',   nota: '' },
@@ -910,6 +1076,7 @@ window.RECIPES = [
     quem_atende: 'Adultos',
     descricao: 'Crosta de parmesão + panko com smoked paprika. Não vira — crosta fica por cima.',
     base_g: 500,
+    kcal_por_100g: 178,
     ingredientes: [
       { nome: 'Tilápia loin',             min: 500, max: 500, unidade: 'g', tipo: 'proteina', secao: 'Base',   nota: '' },
       { nome: 'Sal',                       min: 3,   max: 3,   unidade: 'g', tipo: 'seco',     secao: 'Base',   nota: '' },
@@ -946,6 +1113,7 @@ window.RECIPES = [
     quem_atende: 'Família toda · Pimenta só no prato dos adultos',
     descricao: 'Aromática com dendê e leite de coco. Servir com arroz e farofa de dendê. Receita para ocasiões especiais.',
     base_g: 500,
+    kcal_por_100g: 115,
     ingredientes: [
       { nome: 'Tilápia em pedaços grandes', min: 500, max: 500, unidade: 'g', tipo: 'proteina', secao: 'Marinada', nota: '' },
       { nome: 'Sal',                         min: 4,   max: 4,   unidade: 'g', tipo: 'seco',     secao: 'Marinada', nota: '' },
@@ -989,6 +1157,7 @@ window.RECIPES = [
     quem_atende: 'Toda a família',
     descricao: 'Caldo com legumes, peixe, ovos e pirão. Receita completa para ocasiões especiais.',
     base_g: 500,
+    kcal_por_100g: 100,
     ingredientes: [
       { nome: 'Tilápia em postas grandes', min: 500, max: 500, unidade: 'g', tipo: 'proteina', secao: 'Marinada',         nota: '' },
       { nome: 'Sal',                        min: 4,   max: 4,   unidade: 'g', tipo: 'seco',     secao: 'Marinada',         nota: '' },
@@ -1036,6 +1205,7 @@ window.RECIPES = [
     quem_atende: 'Toda a família · Kid-friendly',
     descricao: 'Suave e rápido. Blend seco na air fryer + molho de manteiga. Pesar depois de descongelado e escorrido.',
     base_g: 500,
+    kcal_por_100g: 140,
     ingredientes: [
       { nome: 'Camarão cru descascado',    min: 500, max: 500, unidade: 'g', tipo: 'proteina', secao: 'Base',              nota: 'pesado descongelado e escorrido' },
       { nome: 'Azeite de oliva',           min: 8,   max: 8,   unidade: 'g', tipo: 'seco',     secao: 'Base',              nota: '' },
@@ -1078,6 +1248,7 @@ window.RECIPES = [
     quem_atende: 'Adultos · Pimenta de fundo',
     descricao: 'Aromático com smoked paprika e pimenta sutil. Mesmo molho de manteiga da versão neutra.',
     base_g: 500,
+    kcal_por_100g: 140,
     ingredientes: [
       { nome: 'Camarão cru descascado',    min: 500, max: 500, unidade: 'g', tipo: 'proteina', secao: 'Base',              nota: 'pesado descongelado e escorrido' },
       { nome: 'Azeite de oliva',           min: 8,   max: 8,   unidade: 'g', tipo: 'seco',     secao: 'Base',              nota: '' },
@@ -1122,6 +1293,7 @@ window.RECIPES = [
     quem_atende: 'Toda a família',
     descricao: 'Alho laminado fino dourado no azeite, camarão selado em fogo alto. Serve com espaguete, arroz ou salada.',
     base_g: 500,
+    kcal_por_100g: 135,
     ingredientes: [
       { nome: 'Camarão cru descascado',       min: 500, max: 500, unidade: 'g', tipo: 'proteina', nota: 'pesado descongelado e escorrido' },
       { nome: 'Sal',                           min: 4,   max: 4,   unidade: 'g', tipo: 'seco',     nota: '' },
@@ -1156,6 +1328,7 @@ window.RECIPES = [
     quem_atende: 'Toda a família',
     descricao: 'Manteiga de garrafa (ou ghee) com cebola, alho e cheiro-verde. Tempero rápido de 10 min antes.',
     base_g: 500,
+    kcal_por_100g: 135,
     ingredientes: [
       { nome: 'Camarão cru descascado',    min: 500, max: 500, unidade: 'g', tipo: 'proteina', secao: 'Tempero',  nota: 'pesado descongelado e escorrido' },
       { nome: 'Sal',                       min: 4,   max: 4,   unidade: 'g', tipo: 'seco',     secao: 'Tempero',  nota: '' },
@@ -1192,6 +1365,7 @@ window.RECIPES = [
     quem_atende: 'Toda a família · Aromático sem ardência',
     descricao: 'Marinada de shoyu + óleo de gergelim tostado + gengibre. Finalização em pote separado — não reaproveitar a marinada.',
     base_g: 500,
+    kcal_por_100g: 118,
     ingredientes: [
       { nome: 'Camarão cru descascado',       min: 500, max: 500, unidade: 'g', tipo: 'proteina', secao: 'Marinada',    nota: 'pesado descongelado e escorrido' },
       { nome: 'Shoyu low sodium',              min: 20,  max: 20,  unidade: 'g', tipo: 'seco',     secao: 'Marinada',    nota: 'não adicionar sal extra' },
@@ -1231,6 +1405,7 @@ window.RECIPES = [
     quem_atende: 'Toda a família · Pimenta só no prato dos adultos',
     descricao: 'Moqueca rápida de semana. Camarão entra só no final — mantém textura macia e tempo em ~20 min.',
     base_g: 500,
+    kcal_por_100g: 113,
     ingredientes: [
       { nome: 'Camarão cru descascado',    min: 500, max: 500, unidade: 'g', tipo: 'proteina', secao: 'Tempero', nota: 'pesado descongelado e escorrido' },
       { nome: 'Sal',                       min: 4,   max: 4,   unidade: 'g', tipo: 'seco',     secao: 'Tempero', nota: '' },
@@ -1272,6 +1447,7 @@ window.RECIPES = [
     quem_atende: 'Toda a família · Ideal para fim de semana',
     descricao: 'Camarão e creme de mandioca servidos lado a lado — controle de porção separado. Creme pode ser feito na véspera.',
     base_g: 500,
+    kcal_por_100g: 120,
     ingredientes: [
       { nome: 'Camarão cru descascado',    min: 500, max: 500, unidade: 'g', tipo: 'proteina', secao: 'Camarão',            nota: 'pesado descongelado e escorrido' },
       { nome: 'Sal',                       min: 4,   max: 4,   unidade: 'g', tipo: 'seco',     secao: 'Camarão',            nota: '' },

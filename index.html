@@ -476,6 +476,7 @@
     flex-wrap: wrap;
   }
   .recipe-equip-item { display: flex; align-items: center; gap: 3px; }
+  .recipe-kcal { color: var(--text-faint); font-variant-numeric: tabular-nums; }
 
   /* ── Pré-preparo colapsável ─────────────────────────────────────────── */
   .preparo-section {
@@ -651,6 +652,7 @@ function criarCardHTML(receita) {
   var equipParts = [];
   if (receita.equipamento) equipParts.push('<span class="recipe-equip-item">🍳 ' + receita.equipamento + '</span>');
   if (receita.tempo_ativo) equipParts.push('<span class="recipe-equip-item">⏱ ' + receita.tempo_ativo + '</span>');
+  if (receita.kcal_por_100g) equipParts.push('<span class="recipe-equip-item recipe-kcal">🔥 ~' + receita.kcal_por_100g + ' kcal/100g</span>');
   var equipInfo = equipParts.length
     ? '<div class="recipe-equip">' + equipParts.join('') + '</div>'
     : '';
