@@ -982,7 +982,7 @@ window.RECIPES = [
       { nome: 'Manteiga sem sal',          min: 30,  max: 30,  unidade: 'g', tipo: 'fresco',   secao: 'Molho de manteiga', nota: '' },
       { nome: 'Alho fresco picado',        min: 6,   max: 6,   unidade: 'g', tipo: 'fresco',   secao: 'Molho de manteiga', nota: 'ou minced garlic' },
       { nome: 'Suco de limão',             min: 15,  max: 15,  unidade: 'g', tipo: 'fresco',   secao: 'Molho de manteiga', nota: '' },
-      { nome: 'Raspas de limão',           min: 1,   max: 1,   unidade: 'g', tipo: 'fresco',   secao: 'Molho de manteiga', nota: 'opcional' },
+      { nome: 'Raspas de limão',           min: 1,   max: 1,   unidade: 'g', tipo: 'fresco',   secao: 'Molho de manteiga', nota: 'opcional — use limão siciliano' },
       { nome: 'Coentro fresco picado',     min: 4,   max: 4,   unidade: 'g', tipo: 'fresco',   secao: 'Molho de manteiga', nota: '' },
       { nome: 'Sal (molho)',               min: 0.5, max: 0.5, unidade: 'g', tipo: 'seco',     secao: 'Molho de manteiga', nota: '' }
     ],
@@ -1029,7 +1029,7 @@ window.RECIPES = [
       { nome: 'Manteiga sem sal',          min: 30,  max: 30,  unidade: 'g', tipo: 'fresco',   secao: 'Molho de manteiga', nota: '' },
       { nome: 'Alho fresco picado',        min: 6,   max: 6,   unidade: 'g', tipo: 'fresco',   secao: 'Molho de manteiga', nota: 'ou minced garlic' },
       { nome: 'Suco de limão',             min: 15,  max: 15,  unidade: 'g', tipo: 'fresco',   secao: 'Molho de manteiga', nota: '' },
-      { nome: 'Raspas de limão',           min: 1,   max: 1,   unidade: 'g', tipo: 'fresco',   secao: 'Molho de manteiga', nota: 'opcional' },
+      { nome: 'Raspas de limão',           min: 1,   max: 1,   unidade: 'g', tipo: 'fresco',   secao: 'Molho de manteiga', nota: 'opcional — use limão siciliano' },
       { nome: 'Coentro fresco picado',     min: 4,   max: 4,   unidade: 'g', tipo: 'fresco',   secao: 'Molho de manteiga', nota: '' },
       { nome: 'Sal (molho)',               min: 0.5, max: 0.5, unidade: 'g', tipo: 'seco',     secao: 'Molho de manteiga', nota: '' }
     ],
@@ -1072,7 +1072,7 @@ window.RECIPES = [
       { nome: 'Garlic powder',             min: 1.5, max: 1.5, unidade: 'g', tipo: 'seco',     secao: 'Crosta', nota: '' },
       { nome: 'Sweet paprika',             min: 1.5, max: 1.5, unidade: 'g', tipo: 'seco',     secao: 'Crosta', nota: '' },
       { nome: 'Dill ou oregano leaves',    min: 0.5, max: 0.5, unidade: 'g', tipo: 'seco',     secao: 'Crosta', nota: '' },
-      { nome: 'Raspas de limão',           min: 1,   max: 1,   unidade: 'g', tipo: 'seco',     secao: 'Crosta', nota: '' },
+      { nome: 'Raspas de limão',           min: 1,   max: 1,   unidade: 'g', tipo: 'seco',     secao: 'Crosta', nota: 'use limão siciliano' },
       { nome: 'Pimenta-do-reino',          min: 0.3, max: 0.3, unidade: 'g', tipo: 'seco',     secao: 'Crosta', nota: 'opcional' }
     ],
     pre_passos: [
@@ -1110,7 +1110,7 @@ window.RECIPES = [
       { nome: 'Garlic powder',             min: 1.5, max: 1.5, unidade: 'g', tipo: 'seco',     secao: 'Crosta', nota: '' },
       { nome: 'Smoked paprika',            min: 1.5, max: 1.5, unidade: 'g', tipo: 'seco',     secao: 'Crosta', nota: '' },
       { nome: 'Dill ou oregano leaves',    min: 0.5, max: 0.5, unidade: 'g', tipo: 'seco',     secao: 'Crosta', nota: '' },
-      { nome: 'Raspas de limão',           min: 1,   max: 1,   unidade: 'g', tipo: 'seco',     secao: 'Crosta', nota: '' },
+      { nome: 'Raspas de limão',           min: 1,   max: 1,   unidade: 'g', tipo: 'seco',     secao: 'Crosta', nota: 'use limão siciliano' },
       { nome: 'Pimenta-do-reino',          min: 0.5, max: 0.5, unidade: 'g', tipo: 'seco',     secao: 'Crosta', nota: '' }
     ],
     pre_passos: [
@@ -1246,7 +1246,7 @@ window.RECIPES = [
       { nome: 'Manteiga sem sal',          min: 25,  max: 25,  unidade: 'g', tipo: 'fresco',   secao: 'Molho de manteiga', nota: '' },
       { nome: 'Alho fresco picado',        min: 6,   max: 6,   unidade: 'g', tipo: 'fresco',   secao: 'Molho de manteiga', nota: 'ou minced garlic' },
       { nome: 'Suco de limão',             min: 12,  max: 12,  unidade: 'g', tipo: 'fresco',   secao: 'Molho de manteiga', nota: '' },
-      { nome: 'Raspas de limão',           min: 1,   max: 1,   unidade: 'g', tipo: 'fresco',   secao: 'Molho de manteiga', nota: 'opcional' },
+      { nome: 'Raspas de limão',           min: 1,   max: 1,   unidade: 'g', tipo: 'fresco',   secao: 'Molho de manteiga', nota: 'opcional — use limão siciliano' },
       { nome: 'Coentro fresco picado',     min: 4,   max: 4,   unidade: 'g', tipo: 'fresco',   secao: 'Molho de manteiga', nota: '' }
     ],
     pre_passos: [
@@ -1292,7 +1292,7 @@ window.RECIPES = [
       { nome: 'Manteiga sem sal',          min: 25,  max: 25,  unidade: 'g', tipo: 'fresco',   secao: 'Molho de manteiga', nota: '' },
       { nome: 'Alho fresco picado',        min: 6,   max: 6,   unidade: 'g', tipo: 'fresco',   secao: 'Molho de manteiga', nota: 'ou minced garlic' },
       { nome: 'Suco de limão',             min: 12,  max: 12,  unidade: 'g', tipo: 'fresco',   secao: 'Molho de manteiga', nota: '' },
-      { nome: 'Raspas de limão',           min: 1,   max: 1,   unidade: 'g', tipo: 'fresco',   secao: 'Molho de manteiga', nota: 'opcional' },
+      { nome: 'Raspas de limão',           min: 1,   max: 1,   unidade: 'g', tipo: 'fresco',   secao: 'Molho de manteiga', nota: 'opcional — use limão siciliano' },
       { nome: 'Coentro fresco picado',     min: 4,   max: 4,   unidade: 'g', tipo: 'fresco',   secao: 'Molho de manteiga', nota: '' }
     ],
     pre_passos: [
