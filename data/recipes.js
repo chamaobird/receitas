@@ -10,7 +10,8 @@ window.PROTEINA_CONFIG = {
   camarao:         { tab: '🦐 Camarão',           label: 'camarão',              base_g: 500,  min: 200,  max: 2000, step: 50  },
   burguer:         { tab: '🍔 Hamburguer',         label: 'carne para hamburguer',base_g: 500,  min: 250,  max: 1000, step: 125 },
   parmegiana:      { tab: '🍗 Parmegiana',         label: 'frango (parmegiana)',  base_g: 900,  min: 300,  max: 1800, step: 150 },
-  acompanhamentos: { tab: '🥗 Acompanhamentos',    label: null, base_g: null, min: null, max: null, step: null }
+  acompanhamentos: { tab: '🥗 Acompanhamentos',    label: null, base_g: null, min: null, max: null, step: null },
+  picanha:         { tab: '🔥 Picanha',            label: 'picanha',              base_g: 1000, min: 300,  max: 2000, step: 50  }
 };
 
 // Receitas
@@ -1517,6 +1518,113 @@ window.RECIPES = [
       { texto: '**[Camarão]** Juntar o tomate e cozinhar por **3 minutos**. Adicionar o leite de coco e ferver por **3 minutos**.', equipamento: 'panela' },
       { texto: '**[Camarão]** Juntar o camarão escorrido e cozinhar por **3 a 4 minutos**. Desligar e finalizar com coentro e acerto de sal.', equipamento: 'panela' },
       { texto: 'Servir o camarão e o creme de mandioca **lado a lado no prato**, cada um pesado à parte. No bobó tradicional o creme é misturado ao refogado — esta versão separa para controle de porção.', equipamento: null }
+    ]
+  },
+
+  // ── PICANHA ─────────────────────────────────────────────────────────────
+  {
+    id: 'picanha-churrasco-airfryer',
+    proteina: 'picanha',
+    nome: 'Picanha Estilo Churrasco de Casa (dry brine)',
+    perfil: 'neutro',
+    equipamento: 'air fryer',
+    tempo_ativo: '~15 min',
+    quem_atende: 'Toda a família · ~5 bifes de 2–2,5 cm',
+    descricao: 'Blend defumado do coxão mole aplicado como dry brine — tempera hoje, assa em até 2–3 dias. 1 kg cru rende ~650–700 g assado.',
+    base_g: 1000,
+    kcal_por_100g: 270,
+    proteina_por_100g: 26,
+    ingredientes: [
+      { nome: 'Picanha',                       min: 1000, max: 1000, unidade: 'g', tipo: 'proteina', nota: 'bifes de 2–2,5 cm com a capa de gordura' },
+      { nome: 'Sal',                           min: 13,   max: 13,   unidade: 'g', tipo: 'seco',     nota: '' },
+      { nome: 'Pimenta-do-reino',              min: 4.5,  max: 4.5,  unidade: 'g', tipo: 'seco',     nota: '' },
+      { nome: 'Smoked paprika',                min: 5.5,  max: 5.5,  unidade: 'g', tipo: 'seco',     nota: '' },
+      { nome: 'Garlic powder',                 min: 3.5,  max: 3.5,  unidade: 'g', tipo: 'seco',     nota: '' },
+      { nome: 'Cebola em pó',                 min: 2,    max: 2,    unidade: 'g', tipo: 'seco',     nota: '' },
+      { nome: 'Lemon pepper',                  min: 2,    max: 2,    unidade: 'g', tipo: 'seco',     nota: '' },
+      { nome: 'Azeite de oliva',               min: 15,   max: 15,   unidade: 'g', tipo: 'seco',     nota: 'só na hora de assar' },
+      { nome: 'Suco de limão',                 min: 10,   max: 10,   unidade: 'g', tipo: 'fresco',   nota: 'opcional, para finalizar' }
+    ],
+    pre_passos: [
+      { texto: 'Seque bem a carne com papel toalha e corte em **bifes de 2–2,5 cm**, perpendicular à fibra, mantendo a capa de gordura.', equipamento: null },
+      { texto: 'Risque a gordura em xadrez sem atingir a carne — derrete melhor e o bife não encolhe.', equipamento: null },
+      { texto: 'Misture sal, pimenta, smoked paprika, garlic powder, cebola em pó e lemon pepper. Aplique dos dois lados e na gordura, massageando. **Sem azeite nesta etapa** — atrapalha o sal de penetrar.', equipamento: null },
+      { texto: 'Disponha sobre grade em cima de prato/assadeira e leve à geladeira **descoberto** por **24–48 h** (máx. 3 dias). Superfície seca = crosta melhor.', equipamento: null }
+    ],
+    passos: [
+      { texto: 'Retire da geladeira **20–30 min** antes (não mais) e pincele uma camada fina de azeite. Pré-aqueça a **air fryer a 200 °C / 392 °F** por 5 min.', equipamento: 'air fryer' },
+      { texto: 'Asse sem sobrepor, **gordura para cima**, por **6 min**. Vire e asse mais **3 min** (mal passado), **4–5 min** (ao ponto) ou **6–7 min** (bem passado).', equipamento: 'air fryer' },
+      { texto: 'Descansar **5 min** antes de fatiar. Finalizar com gotas de limão se desejar. Reaquecer sobras: **2–3 min a 180 °C** na air fryer.', equipamento: null }
+    ]
+  },
+
+  {
+    id: 'picanha-neutra-ervas-airfryer',
+    proteina: 'picanha',
+    nome: 'Picanha Neutra de Ervas (dry brine)',
+    perfil: 'neutro',
+    equipamento: 'air fryer',
+    tempo_ativo: '~15 min',
+    quem_atende: 'Toda a família · Kid-friendly · ~5 bifes de 2–2,5 cm',
+    descricao: 'Blend clássico de ervas do coxão mole como dry brine — sabor suave, tempera hoje e assa em até 2–3 dias.',
+    base_g: 1000,
+    kcal_por_100g: 270,
+    proteina_por_100g: 26,
+    ingredientes: [
+      { nome: 'Picanha',                           min: 1000, max: 1000, unidade: 'g', tipo: 'proteina', nota: 'bifes de 2–2,5 cm com a capa de gordura' },
+      { nome: 'Sal',                               min: 13,   max: 13,   unidade: 'g', tipo: 'seco',     nota: '' },
+      { nome: 'Pimenta-do-reino',                  min: 4.5,  max: 4.5,  unidade: 'g', tipo: 'seco',     nota: '' },
+      { nome: 'Garlic powder',                     min: 4.5,  max: 4.5,  unidade: 'g', tipo: 'seco',     nota: '' },
+      { nome: 'Cebola em pó',                     min: 3.5,  max: 3.5,  unidade: 'g', tipo: 'seco',     nota: '' },
+      { nome: 'Tomilho seco ou Herbs de Provence', min: 2,    max: 2,    unidade: 'g', tipo: 'seco',     nota: '' },
+      { nome: 'Azeite de oliva',                   min: 15,   max: 15,   unidade: 'g', tipo: 'seco',     nota: 'só na hora de assar' }
+    ],
+    pre_passos: [
+      { texto: 'Seque bem a carne com papel toalha e corte em **bifes de 2–2,5 cm**, perpendicular à fibra, mantendo a capa de gordura.', equipamento: null },
+      { texto: 'Risque a gordura em xadrez sem atingir a carne.', equipamento: null },
+      { texto: 'Misture sal, pimenta, garlic powder, cebola em pó e tomilho. Aplique dos dois lados e na gordura, massageando. **Sem azeite nesta etapa.**', equipamento: null },
+      { texto: 'Disponha sobre grade e leve à geladeira **descoberto** por **24–48 h** (máx. 3 dias).', equipamento: null }
+    ],
+    passos: [
+      { texto: 'Retire da geladeira **20–30 min** antes e pincele uma camada fina de azeite. Pré-aqueça a **air fryer a 200 °C / 392 °F** por 5 min.', equipamento: 'air fryer' },
+      { texto: 'Asse sem sobrepor, **gordura para cima**, por **6 min**. Vire e asse mais **3 min** (mal passado), **4–5 min** (ao ponto) ou **6–7 min** (bem passado).', equipamento: 'air fryer' },
+      { texto: 'Descansar **5 min** antes de fatiar.', equipamento: null }
+    ]
+  },
+
+  {
+    id: 'picanha-shoyu-limao-airfryer',
+    proteina: 'picanha',
+    nome: 'Picanha Marinada em Shoyu e Limão',
+    perfil: 'marcante',
+    equipamento: 'air fryer',
+    tempo_ativo: '~15 min',
+    quem_atende: 'Adultos · ~5 bifes de 2–2,5 cm',
+    descricao: 'Marinada de shoyu, limão e gengibre do coxão mole. Marinada ácida: no máximo 12 h — passar disso estraga a textura. Ótima fatiada em bowls.',
+    base_g: 1000,
+    kcal_por_100g: 275,
+    proteina_por_100g: 26,
+    ingredientes: [
+      { nome: 'Picanha',                  min: 1000, max: 1000, unidade: 'g',  tipo: 'proteina', nota: 'bifes de 2–2,5 cm com a capa de gordura' },
+      { nome: 'Shoyu',                    min: 45,   max: 45,   unidade: 'ml', tipo: 'seco',     nota: '' },
+      { nome: 'Suco de limão',            min: 22,   max: 22,   unidade: 'g',  tipo: 'fresco',   nota: '' },
+      { nome: 'Azeite de oliva',          min: 11,   max: 11,   unidade: 'g',  tipo: 'seco',     nota: '' },
+      { nome: 'Garlic powder',            min: 6.5,  max: 6.5,  unidade: 'g',  tipo: 'seco',     nota: 'ou 2 dentes de alho bem picados' },
+      { nome: 'Ginger em pó',             min: 3.5,  max: 3.5,  unidade: 'g',  tipo: 'seco',     nota: 'ou 5g de gengibre fresco ralado' },
+      { nome: 'Páprica doce ou defumada', min: 3.5,  max: 3.5,  unidade: 'g',  tipo: 'seco',     nota: 'opcional' },
+      { nome: 'Cebola em pó',            min: 3.5,  max: 3.5,  unidade: 'g',  tipo: 'seco',     nota: '' },
+      { nome: 'Açúcar mascavo ou mel',    min: 3.5,  max: 3.5,  unidade: 'g',  tipo: 'seco',     nota: 'opcional, para equilibrar a acidez' },
+      { nome: 'Pimenta-do-reino',         min: 4.5,  max: 4.5,  unidade: 'g',  tipo: 'seco',     nota: '' },
+      { nome: 'Sal',                      min: 4,    max: 4,    unidade: 'g',  tipo: 'seco',     nota: 'ajustar — shoyu já é salgado' }
+    ],
+    pre_passos: [
+      { texto: 'Corte em **bifes de 2–2,5 cm** perpendicular à fibra, mantendo a capa. Risque a gordura em xadrez sem atingir a carne.', equipamento: null },
+      { texto: 'Misture shoyu, limão, azeite, garlic powder, ginger, páprica, cebola em pó, açúcar/mel, pimenta e sal. Mergulhe os bifes, cubra e leve à geladeira de **2 h a no máximo 12 h**.', equipamento: null }
+    ],
+    passos: [
+      { texto: 'Retire **15 min** antes e escorra bem o excesso de marinada. Pré-aqueça a **air fryer a 200 °C / 392 °F** por 5 min.', equipamento: 'air fryer' },
+      { texto: 'Asse sem sobrepor, **gordura para cima**, por **6 min**. Vire e asse mais **3 min** (mal passado), **4–5 min** (ao ponto) ou **6–7 min** (bem passado). O açúcar escurece rápido — fique de olho.', equipamento: 'air fryer' },
+      { texto: 'Descansar **5 min** e fatiar em tiras finas contra a fibra.', equipamento: null }
     ]
   }
 
